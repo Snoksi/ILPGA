@@ -3,14 +3,17 @@
 {% block title %}Hello !{% endblock %}
 
 {% block body %}
+    <h1> {{ current_folder.name }}</h1>
 
-    {% for folder in folders %}
-        <h2>{{ folder.name }}</h2>
-        <ul>
-            {% for test in folder.tests %}
+    <ul class="folders">
+        {% for folder in current_folder.children %}
+            <li><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul class="tests">
+        {% for test in current_folder.tests %}
             <li>{{ test.name }}</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </ul>
 {% endblock %}

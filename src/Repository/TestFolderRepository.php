@@ -19,22 +19,14 @@ class TestFolderRepository extends ServiceEntityRepository
         parent::__construct($registry, TestFolder::class);
     }
 
-//    /**
-//     * @return TestFolder[] Returns an array of TestFolder objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findRootFolders()
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->where("t.parent is null")
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?TestFolder

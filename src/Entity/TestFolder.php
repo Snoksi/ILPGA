@@ -24,9 +24,22 @@ class TestFolder
 
     /**
      * One TestFolder has many Tests
-     * @ORM\OneToMany(targetEntity="Test", mappedBy="folder")
+     * @ORM\OneToMany(targetEntity="Test", mappedBy="folder", cascade={"remove"})
      */
     private $tests;
+
+    /**
+     * Many Folders have one Parent
+     * @ORM\ManyToOne(targetEntity="TestFolder", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $parent;
+
+    /**
+     * One TestFolder has many Children
+     * @ORM\OneToMany(targetEntity="TestFolder", mappedBy="parent", cascade={"remove"})
+     */
+    private $children;
 
 
     /**
@@ -34,7 +47,7 @@ class TestFolder
      */
     public function __construct()
     {
-        $this->tests = new ArrayCollection();
+        $this->tests = [];
     }
 
 
@@ -66,7 +79,7 @@ class TestFolder
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getTests()
     {
@@ -76,8 +89,40 @@ class TestFolder
     /**
      * @param ArrayCollection $tests
      */
-    public function setTests(ArrayCollection $tests)
+    public function setTests(array $tests)
     {
         $this->tests = $tests;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param TestFolder $parent
+     */
+    public function setParent(TestFolder $parent = null)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param mixed $children
+     */
+    public function setChildren($children): void
+    {
+        $this->children = $children;
     }
 }

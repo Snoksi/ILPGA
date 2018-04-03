@@ -24,7 +24,7 @@ class Test
     /**
      * Many Tests have one Folder
      * @ORM\ManyToOne(targetEntity="TestFolder", inversedBy="tests")
-     * @ORM\JoinColumn(name="folder_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="folder_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $folder;
 
@@ -62,7 +62,7 @@ class Test
     /**
      * @param TestFolder $folder
      */
-    public function setFolder(TestFolder $folder)
+    public function setFolder(TestFolder $folder = null)
     {
         $this->folder = $folder;
     }
