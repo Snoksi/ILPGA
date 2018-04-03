@@ -11,35 +11,22 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends Controller
+class TestController extends Controller
 {
     /**
      * @param Request                      $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      *
-     * @Route("/register", name="user_registration")
+     * @Route("/test", name="test_test")
      *
      * @return Response
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $user = new User();
-        $form = $this->createForm(UserRegistration::class, $user);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-            $user->setRoles(['ROLE_USER']);
-            echo  $request->get('username');
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('home');
-        }
-        return $this->render(
-            'register.html.twig',
-            ['form' => $form->createView()]
-        );
+        echo $request->get('_test');
+
+
+        return $this->render('test.html.twig');
     }
     /**
      * @param Request             $request
