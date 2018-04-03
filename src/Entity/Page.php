@@ -32,7 +32,7 @@ class Page
     private $position;
 
     /**
-     * @ORM\Column(type="integer", nullable=no)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\OneToOne(targetEntity="Test")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id")
      */

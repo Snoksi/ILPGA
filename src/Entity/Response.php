@@ -17,7 +17,9 @@ class Response
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\OneToOne(targetEntity="Page")
+     * @ORM\JoinColumn(name="name", referencedColumnName="content")
      */
     private $name;
 
@@ -27,14 +29,14 @@ class Response
     private $response;
 
     /**
-     * @ORM\Column(type="integer", nullable=no)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\OneToOne(targetEntity="Profil")
      * @ORM\JoinColumn(name="profil_id", referencedColumnName="id")
      */
     private $profil;
 
     /**
-     * @ORM\Column(type="integer", nullable=no)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\OneToOne(targetEntity="Page")
      * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
      */
@@ -108,4 +110,5 @@ class Response
     {
         $this->page = $page;
     }
+
 }
