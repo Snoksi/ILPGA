@@ -18,10 +18,14 @@ class TestsController extends Controller
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $folders = $em->getRepository('App:TestFolder');
+        $folders = $em->getRepository('App:TestFolder')->findAll();
 
         return $this->render('tests/index.html.twig', [
-            'controller_name' => 'TestsController',
+            'folders' => $folders
         ]);
     }
+
+    /**
+     * @Route("/delete", name="tests_delete")
+     */
 }

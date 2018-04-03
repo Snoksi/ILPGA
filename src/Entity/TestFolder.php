@@ -24,31 +24,60 @@ class TestFolder
 
     /**
      * One TestFolder has many Tests
-     * @ORM\OneToMany(targetEntity="Test", mappedBy="test_folder")
+     * @ORM\OneToMany(targetEntity="Test", mappedBy="folder")
      */
     private $tests;
 
 
+    /**
+     * TestFolder constructor.
+     */
     public function __construct()
     {
         $this->tests = new ArrayCollection();
     }
 
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return TestFolder
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTests()
+    {
+        return $this->tests;
+    }
+
+    /**
+     * @param ArrayCollection $tests
+     */
+    public function setTests(ArrayCollection $tests)
+    {
+        $this->tests = $tests;
     }
 }
