@@ -21,7 +21,7 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserRegistration::class, $user);
@@ -47,7 +47,7 @@ class SecurityController extends Controller
      *
      * @return Response
      */
-    public function loginRegister(AuthenticationUtils $authUtils): Response
+    public function login(AuthenticationUtils $authUtils): Response
     {
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();
