@@ -59,8 +59,7 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
 
-
-    private $role;
+    ///////////////////////////////////////////////////
 
     public function __construct()
     {
