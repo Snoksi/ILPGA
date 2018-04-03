@@ -32,6 +32,32 @@ class Profil
      */
     private $test;
 
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $browser;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $ip;
+
+    /**
+     * @ORM\Column(type="date", length=25)
+     */
+    private $dob;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $language;
+
+
 /////////////////////////////////////////////////
 
     public function getId()
