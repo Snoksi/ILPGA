@@ -1,10 +1,10 @@
 <?php
 namespace App\Controller\Admin;
-use App\Form\User\UserRoles;
+use App\Form\Security\UserRoles;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Form\User\UserEdit;
+use App\Form\Security\UserEdit;
 use Symfony\Component\HttpFoundation\Request;
 /**
  * Class AdminDashboardController.

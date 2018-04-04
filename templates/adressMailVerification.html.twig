@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    <form action="{{ path('reset_password') }}" method="post">
+        <label for="username">Nom utilisateur :</label>
+        <input type="text" id="email" name="email" />
+
+
+        <button type="submit" class="button">connexion</button>
+    </form>
+<p>{{ message }}</p>
+{% endblock %}
+

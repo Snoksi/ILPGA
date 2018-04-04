@@ -15,6 +15,7 @@ class StimulusType extends AbstractType
         $builder
             // ...
             ->add('stimulus', FileType::class, array(
+                'multiple' => true,
                 'data_class' => null,
                 'label' => 'Fichier mp3')
             )

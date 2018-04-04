@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
 use App\Form\Test\ExcelType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UploadController extends Controller
 {
@@ -57,7 +58,7 @@ class UploadController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $file stores the uploaded PDF file
+            // $file stores the uploaded mp3 file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $stimulus->getStimulus();
 

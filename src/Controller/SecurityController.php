@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\User\UserRegistration;
+use App\Form\Security\UserResetPassword;
+use App\Form\Security\UserRegistration;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,7 +64,47 @@ class SecurityController extends Controller
     /**
      * @Route("/logout", name="logout")
      */
-    public function logoutAction()
+    public function logout()
     {
+    }
+    /**
+     * @Route("/reset_password", name="reset_password")
+     */
+    public function adressMailVerification(Request $request)
+    {
+        $message="";
+        $email = $request->get('email');
+        if (!empty($email)){
+            $em = $this->getDoctrine()->getManager();
+            $search = $em->getRepository("App:User")->findBy(['email' => $email]);
+
+            if (!empty($search)){
+                $message = "nous avons envoyer un mail a cette adresse";
+            } else {
+                $message = "cette adress mail n'existe pas";
+            }
+        }
+        return $this->render('adressMailVerification.html.twig', ['message'=>$message]);
+    }
+    /**
+     * @Route("/reset_password/token", name="reset_password")
+     */
+    public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        //read token, search the adress related with it.
+        $em = $this->getDoctrine()->getManager();
+        $search = $em->getRepository("App:User")->findBy(['email' => 'tayeb.saidi@hetic.net']);
+        $user = new User();
+
+        if (!empty($user) && ($request->get('_password') == $request->get('_password_repeated')))
+        {
+            $plainPassword = $request->get('_password');
+            $password = $passwordEncoder->encodePassword($user, $plainPassword);
+            $user->setPassword($password);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->render('home.html.twig');
+        }return $this->render('resetPassword.html.twig');
     }
 }
