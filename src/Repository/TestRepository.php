@@ -28,6 +28,20 @@ class TestRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @param null $query
+     * @return mixed
+     */
+    public function findByName($query = null)
+    {
+        return $this->createQueryBuilder('t')
+            ->where("t.name LIKE :query")
+            ->setParameter('query', "%".$query."%")
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Test
     {

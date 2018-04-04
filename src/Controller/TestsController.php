@@ -107,5 +107,20 @@ class TestsController extends Controller
         return $this->redirectToRoute('tests_index');
     }
 
+    /**
+     * @Route("/search/{query}", name="tests_search")
+     * @param $query
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function search($query){
+        $em = $this->getDoctrine()->getManager();
+        $folders = $em->getRepository("App:TestFolder")->findByName($query);
+        $tests = $em->getRepository("App:Test")->findByName($query);
 
+        return $this->render('tests/search.html.twig', [
+            'query' => $query,
+            'folders' => $folders,
+            'tests' => $tests
+        ]);
+    }
 }

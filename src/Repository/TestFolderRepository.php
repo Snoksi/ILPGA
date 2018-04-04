@@ -28,15 +28,17 @@ class TestFolderRepository extends ServiceEntityRepository
         ;
     }
 
-    /*
-    public function findOneBySomeField($value): ?TestFolder
+    /**
+     * @param null $query
+     * @return mixed
+     */
+    public function findByName($query = null)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
+            ->where("t.name LIKE :query")
+            ->setParameter('query', "%".$query."%")
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult()
+            ;
     }
-    */
 }
