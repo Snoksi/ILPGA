@@ -34,6 +34,11 @@ class Stimulus
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $source;
+
 
 //////////////////////////////////////////////////
 
@@ -76,4 +81,21 @@ class Stimulus
     {
         $this->name = $name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param mixed $source
+     */
+    public function setSource($source): void
+    {
+        $this->source = $source;
+    }
+
 }

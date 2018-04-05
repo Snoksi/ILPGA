@@ -14,6 +14,8 @@ security:
         - { path: /register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /users, roles: ROLE_SUPER_ADMIN }
+        - { path: /upload_excel, roles: IS_AUTHENTICATED_FULLY }
+        - { path: /upload_audio, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin, roles: ROLE_SUPER_ADMIN }
 
 

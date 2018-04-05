@@ -9,12 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
 use App\Form\Upload\ExcelType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Controller\Admin\AdminDashboardController;
+
 
 class UploadController extends Controller
 {
     /**
-     * @Route("/new", name="app_product_new")
+     * @Route("/upload_excel", name="upload_excel")
      */
     public function new(Request $request)
     {
@@ -34,7 +35,8 @@ class UploadController extends Controller
                 $this->getParameter('excel_directory'),
                 $fileName
             );
-
+            $AdminDashboardController = new AdminDashboardController();
+            echo ($AdminDashboardController->getUser());
             // updates the 'brochure' property to store the PDF file name
             // instead of its contents
             $excel->setExcel($fileName);
@@ -49,7 +51,7 @@ class UploadController extends Controller
         ));
     }
     /**
-     * @Route("/news", name="app_product_news")
+     * @Route("/upload_audio", name="upload_audio")
      */
     public function news(Request $request)
     {
