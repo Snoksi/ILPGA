@@ -1,14 +1,22 @@
 <?php
 
-// src/Entity/Excel.php
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\StimulusRepository")
+ */
 class Stimulus
 {
-
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
      * @ORM\Column(type="string")
@@ -21,7 +29,21 @@ class Stimulus
      */
     private $stimulus;
 
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $name;
+
+
 //////////////////////////////////////////////////
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return mixed
@@ -39,9 +61,19 @@ class Stimulus
         $this->stimulus = $stimulus;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-
-
-
-
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
 }

@@ -68,35 +68,47 @@ class SecurityController extends Controller
     {
     }
     /**
-     * @Route("/reset_password", name="reset_password")
+     * @Route("/lost_password", name="lost_password")
      */
-    public function adressMailVerification(Request $request)
+    public function adressMailVerification(Request $request,\Swift_Mailer $mailer)
     {
-        $message="";
+        $report="";
         $email = $request->get('email');
         if (!empty($email)){
             $em = $this->getDoctrine()->getManager();
-            $search = $em->getRepository("App:User")->findBy(['email' => $email]);
-
-            if (!empty($search)){
-                $message = "nous avons envoyer un mail a cette adresse";
+            $user = $em->getRepository("App:User")->findOneBy(['email' => $email]);
+            if (!empty($user)){
+                $report = "nous avons envoyer un mail a cette adresse";
+                //generate token and send email
+                $token = hash('sha256', $user->getEmail().rand(0, 999));
+                $user->setConfirmationToken($token);
+                //creating message with token
+                $message = (new \Swift_Message('Hello Email'))
+                    ->setFrom('saidi.tayeb@hotmail.com')
+                    ->setTo($user->getEmail())
+                    ->setBody($this->renderView(
+                        'mail/confirm_email.html.twig', [
+                        'token' => $token,
+                    ]),
+                        'text/html'
+                    );
+                // Send message with token
+                $mailer->send($message);
             } else {
-                $message = "cette adress mail n'existe pas";
+                $report = "cette adress mail n'existe pas";
             }
         }
-        return $this->render('adressMailVerification.html.twig', ['message'=>$message]);
+        return $this->render('adressMailVerification.html.twig', ['report'=>$report]);
     }
-    /**
-     * @Route("/reset_password/token", name="reset_password")
-     */
-    public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
-    {
-        //read token, search the adress related with it.
-        $em = $this->getDoctrine()->getManager();
-        $search = $em->getRepository("App:User")->findBy(['email' => 'tayeb.saidi@hetic.net']);
-        $user = new User();
 
-        if (!empty($user) && ($request->get('_password') == $request->get('_password_repeated')))
+    /**
+     * @Route("/reset_password/{token}", name="confirmMail")
+     */
+    public function confirmEmailAction($token, UserPasswordEncoderInterface $passwordEncoder, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("App:User")->findOneBy(['confirmationToken' => $token]);
+        if (!empty($user) && ($request->get('_password') != '') && ($request->get('_password') == $request->get('_password_repeated')))
         {
             $plainPassword = $request->get('_password');
             $password = $passwordEncoder->encodePassword($user, $plainPassword);
@@ -104,7 +116,32 @@ class SecurityController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return $this->render('home.html.twig');
-        }return $this->render('resetPassword.html.twig');
+            return $this->redirectToRoute('confirmMail');
+        }
+        return $this->render('resetPassword.html.twig');
     }
+
+//    /**
+//     * @Route("/reset_password/reset", name="reset_password")
+//     */
+//    public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+//    {
+//        //read token, search the adress related with it.
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $user = $em->getRepository("App:User")->find('1');
+//        if (!empty($user) && ($request->get('_password') != '') && ($request->get('_password') == $request->get('_password_repeated')))
+//        {
+//            $plainPassword = $request->get('_password');
+//            $password = $passwordEncoder->encodePassword($user, $plainPassword);
+//            $user->setPassword($password);
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($user);
+//            $em->flush();
+//            return $this->redirectToRoute('resetPassword');
+//        }
+//        return $this->render('resetPassword.html.twig');
+//    }
+
+
 }

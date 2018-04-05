@@ -1,23 +1,22 @@
 <?php
 // src/Form/ProductType.php
-namespace App\Form\Test;
+namespace App\Form\Upload;
 
-use App\Entity\Stimulus;
+use App\Entity\Excel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class StimulusType extends AbstractType
+class ExcelType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             // ...
-            ->add('stimulus', FileType::class, array(
-                'multiple' => true,
+            ->add('excel', FileType::class, array(
                 'data_class' => null,
-                'label' => 'Fichier mp3')
+                'label' => 'Fichier excel')
             )
             // ...
         ;
@@ -26,7 +25,7 @@ class StimulusType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Stimulus::class,
+            'data_class' => Excel::class,
         ));
     }
 }

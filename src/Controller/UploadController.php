@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Stimulus;
-use App\Form\Test\StimulusType;
+use App\Form\Upload\StimulusType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
-use App\Form\Test\ExcelType;
+use App\Form\Upload\ExcelType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UploadController extends Controller
@@ -66,7 +66,7 @@ class UploadController extends Controller
 
             // moves the file to the directory where brochures are stored
             $file->move(
-                $this->getParameter('excel_directory'),
+                $this->getParameter('audio_directory'),
                 $fileName
             );
 
