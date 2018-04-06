@@ -19,7 +19,7 @@ class Stimulus
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Please, upload the file as a xlsx file.")
      * @Assert\File(
@@ -30,15 +30,21 @@ class Stimulus
     private $stimulus;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=255)
      */
     private $source;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
 //////////////////////////////////////////////////
 
@@ -96,6 +102,22 @@ class Stimulus
     public function setSource($source): void
     {
         $this->source = $source;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
     }
 
 }

@@ -27,11 +27,17 @@ class Excel
     private $excel;
 
     /**
-     * @ORM\Column(type="string", length=25), nullable=true)
+     * @ORM\Column(type="string", length=255), nullable=true)
      */
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255), nullable=true)
+     */
+    private $source;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -94,6 +100,22 @@ class Excel
     public function setName($name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param mixed $source
+     */
+    public function setSource($source): void
+    {
+        $this->source = $source;
     }
 
     /**

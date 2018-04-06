@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
 use App\Form\Upload\ExcelType;
-use App\Controller\Admin\AdminDashboardController;
 
 
 class UploadController extends Controller
@@ -22,7 +21,6 @@ class UploadController extends Controller
         $excel = new Excel();
         $form = $this->createForm(ExcelType::class, $excel);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             // $file stores the uploaded PDF file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
@@ -35,12 +33,15 @@ class UploadController extends Controller
                 $this->getParameter('excel_directory'),
                 $fileName
             );
-            $AdminDashboardController = new AdminDashboardController();
-            echo ($AdminDashboardController->getUser());
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $excel->setExcel($fileName);
+            $excel->setUser($this->getUser()->getId());
+            $excel->setName($fileName);
+            $excel->setSource($this->getParameter('excel_directory'));
 
+            //Save modification in the database
+            $excel->setExcel(null);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($excel);
+            $em->flush();
             // ... persist the $product variable or any other work
 
             return $this->redirectToRoute('home');
@@ -71,10 +72,15 @@ class UploadController extends Controller
                 $this->getParameter('audio_directory'),
                 $fileName
             );
+            $stimulus->setUser($this->getUser()->getId());
+            $stimulus->setName($fileName);
+            $stimulus->setSource($this->getParameter('excel_directory'));
 
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $stimulus->setStimulus($fileName);
+            //Save modification in the database
+            $stimulus->setStimulus(null);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($stimulus);
+            $em->flush();
 
             // ... persist the $product variable or any other work
 
