@@ -183,6 +183,7 @@ class User implements UserInterface, \Serializable
     public function eraseCredentials()
     {
     }
+
     /** @see \Serializable::serialize() */
     public function serialize()
     {

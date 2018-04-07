@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+    Voici la liste des utilisateurs:
+    <ul>
+        {% for user in users %}
+            <li><a href="">{{ user.firstname }} {{ user.lastname }}</a>[<a href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>]</li>
+        {% endfor %}
+    </ul>
+
+    {% include '_layouts/pagination.html.twig' with {
+        currentPage: page,
+        paginationPath: "users_index",
+        lastPage: totalPages
+    } only %}
+{% endblock %}

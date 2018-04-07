@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le compte {{ user.email }}{% endblock %}
+
+{% block body %}
+    <h2>Modifier le compte {{ user.email }}</h2>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.roles) }}
+            {{ form_widget(form.roles) }}
+        </div>
+        <input type="submit" value="Envoyer">
+    {{ form_end(form) }}
+{% endblock %}

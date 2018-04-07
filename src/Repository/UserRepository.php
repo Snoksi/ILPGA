@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,32 +21,28 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-//    /**
-//     * @return User[] Returns an array of User objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function getPage($page = 1)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+        $qb = $this->createQueryBuilder('u')
+            ->setFirstResult(20 * ($page - 1))
+            ->setMaxResults(20)
         ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return new Paginator($qb);
     }
-    */
+
+    public function search($query = null, $page = 1)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->where('u.username LIKE :query')
+            ->orWhere('u.email LIKE :query')
+            ->orWhere('u.firstname LIKE :query')
+            ->orWhere('u.lastname LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->setFirstResult(20 * ($page - 1))
+            ->setMaxResults(20)
+        ;
+
+        return new Paginator($qb);
+    }
 }
