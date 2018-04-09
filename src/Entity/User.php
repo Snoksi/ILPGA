@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -57,11 +58,6 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(name="role", type="array")
      */
     private $roles;
-
-    /**
-     * @ORM\Column(type="string", length=64, nullable=true)
-     */
-    private $confirmationToken;
 
     ///////////////////////////////////////////////////
 
@@ -182,22 +178,6 @@ class User implements UserInterface, \Serializable
      */
     public function setRole($role){
         $this->setRoles([$role]);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConfirmationToken()
-    {
-        return $this->confirmationToken;
-    }
-
-    /**
-     * @param mixed $confirmationToken
-     */
-    public function setConfirmationToken($confirmationToken): void
-    {
-        $this->confirmationToken = $confirmationToken;
     }
 
     public function eraseCredentials()
