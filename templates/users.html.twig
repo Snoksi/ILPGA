@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% for item in usersInfo %}
+        {% if item.roles.0 != "ROLE_SUPER_ADMIN" %}
+            <ul>
+
+                <li>
+
+                        <h2 class="search-name"><a href="{{ path('users_show', {'id': item.id})}}">{{ item.username }}</a> </h2>
+                        <p class="search-prom">{{ item.firstname }} {{ item.lastname }} {{ item.roles.0 }} </p>
+
+                </li>
+
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
