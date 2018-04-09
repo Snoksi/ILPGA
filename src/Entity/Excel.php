@@ -38,11 +38,17 @@ class Excel
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Questionnaire")
+     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
+     */
+    private $questionnaire;
 
 //////////////////////////////////////////////////
 
@@ -132,6 +138,22 @@ class Excel
     public function setUser($user): void
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionnaire()
+    {
+        return $this->questionnaire;
+    }
+
+    /**
+     * @param mixed $questionnaire
+     */
+    public function setQuestionnaire($questionnaire): void
+    {
+        $this->questionnaire = $questionnaire;
     }
 
 }

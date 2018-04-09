@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
 use App\Form\Upload\ExcelType;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Reader\Xls;
 
 
 class UploadController extends Controller
@@ -36,15 +39,20 @@ class UploadController extends Controller
             $excel->setUser($this->getUser()->getId());
             $excel->setName($fileName);
             $excel->setSource($this->getParameter('excel_directory'));
-
+            $excel->setQuestionnaire(5);
             //Save modification in the database
             $excel->setExcel(null);
             $em = $this->getDoctrine()->getManager();
             $em->persist($excel);
             $em->flush();
-            // ... persist the $product variable or any other work
 
-            return $this->redirectToRoute('home');
+            // ... persist the $product variable or any other work
+            $path = $this->getParameter('excel_directory').'\b920684226ebb0e012b12154ae1fb521.xlsx';
+
+            $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
+            $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+            return $this->render('upload/resultUpload.html.twig', ['array' => $sheetData]);
+
         }
 
         return $this->render('upload/excel.html.twig', array(

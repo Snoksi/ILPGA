@@ -2,55 +2,26 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-use App\Form\Security\UserRegistration;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use PhpOffice\PhpSpreadsheet\Reader\Xls;
 
 class QuestionnaireController extends Controller
 {
     /**
-     * @param Request                      $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     *
-     * @Route("/test", name="test_test")
-     *
-     * @return Response
+     * @Route("/questionnaire", name="test_test")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function xlsAction()
     {
-        echo $request->get('_test');
 
+        $path = $this->getParameter('excel_directory').'\b920684226ebb0e012b12154ae1fb521.xlsx';
 
-        return $this->render('test.html.twig');
-    }
-    /**
-     * @param Request             $request
-     * @param AuthenticationUtils $authUtils
-     * @Route("/login", name="user_login")
-     *
-     * @return Response
-     */
-    public function login(AuthenticationUtils $authUtils): Response
-    {
-        $error = $authUtils->getLastAuthenticationError();
-        $lastUsername = $authUtils->getLastUsername();
-        return $this->render(
-            'login.html.twig',
-            [
-                'last_username' => $lastUsername,
-                'error' => $error,
-            ]
-        );
-    }
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logoutAction()
-    {
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        return $this->render('upload/excel.html.twig', ['array' => $sheetData]);
     }
 }
+
