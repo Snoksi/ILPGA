@@ -19,10 +19,11 @@ class UsersController extends Controller
 {
     /**
      * @Route("/", name="users_index")
-     * @Route("/search/{query}", name="users_search")
+     * @Route("/search", name="users_search")
      */
-    public function index(Request $request, UserRepository $userRepository, $query = null)
+    public function index(Request $request, UserRepository $userRepository)
     {
+        $query = $request->get('query');
         $page = $request->query->getInt('page', 1);
         if($page == 0) $page = 1;
 
@@ -36,6 +37,7 @@ class UsersController extends Controller
             'users' => $users
         ]);
     }
+
 
     /**
      * @Route("/edit/{id}", name="users_edit")

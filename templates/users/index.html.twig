@@ -3,6 +3,13 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
+    faire une recherche :
+    <form action="{{ path('users_search') }}" method="get" class="main-search">
+        <!--<label for="searchBar">rechercher:</label>-->
+        <input type="text" id="query" name="query"/>
+
+        <button type="submit" class="button">Rechercher</button>
+    </form>
     Voici la liste des utilisateurs:
     <ul>
         {% for user in users %}
