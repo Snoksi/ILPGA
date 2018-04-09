@@ -1,0 +1,7 @@
+{% extends "mail/base.html.twig" %}
+
+{% block body %}
+    <h1>Vous êtes inscris ! Félicitations !</h1>
+    <p>Pour confirmer votre adresse email, cliquez sur le lien ci-dessous :</p>
+    <a class="btn btn-default" href="{{ url('confirmMail', {'token': token}) }}">Confirmer l'adresse email</a>
+{% endblock %}
