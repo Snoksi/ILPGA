@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,22 +19,11 @@ class Stimulus
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     *
      * @Assert\NotBlank(message="Please, upload the file as a xlsx file.")
      * @Assert\File(
      *     maxSize = "20M",
      *     mimeTypes={"audio/mpeg"}
      * )
-     */
-    private $stimulus;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
      */
     private $source;
 
@@ -46,7 +34,6 @@ class Stimulus
      */
     private $user;
 
-//////////////////////////////////////////////////
 
     /**
      * @return mixed
@@ -54,38 +41,6 @@ class Stimulus
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStimulus()
-    {
-        return $this->stimulus;
-    }
-
-    /**
-     * @param mixed $stimulus
-     */
-    public function setStimulus($stimulus): void
-    {
-        $this->stimulus = $stimulus;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 
     /**
@@ -119,5 +74,4 @@ class Stimulus
     {
         $this->user = $user;
     }
-
 }
