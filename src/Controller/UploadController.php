@@ -47,10 +47,12 @@ class UploadController extends Controller
             $em->flush();
 
             // ... persist the $product variable or any other work
-            $path = $this->getParameter('excel_directory').'\b920684226ebb0e012b12154ae1fb521.xlsx';
+            $path = $this->getParameter('excel_directory').$fileName;
 
             $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+
+            // send it to service to stock the info as a json
             return $this->render('upload/resultUpload.html.twig', ['array' => $sheetData]);
 
         }
