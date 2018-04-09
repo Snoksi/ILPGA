@@ -12,7 +12,7 @@ class FormBuilder
     }
 
 
-    public function getForm(){
+    public function getSerializedForm(){
         return serialize($this->form);
     }
 

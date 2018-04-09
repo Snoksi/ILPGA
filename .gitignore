@@ -62,4 +62,4 @@
 **/Entity/*~
 
 # PHPStorm .idea folder
-/.idea/*
+.idea/

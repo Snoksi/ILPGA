@@ -33,7 +33,7 @@ class Page
 
     /**
      * One Page belongs to one test
-     * @ORM\OneToOne(targetEntity="Test")
+     * @ORM\ManyToOne(targetEntity="Test")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id")
      */
     private $test;

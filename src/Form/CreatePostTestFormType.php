@@ -38,8 +38,6 @@ class CreatePostTestFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => Page::class,
-        ]);
+        $resolver->setDefaults([]);
     }
 }
