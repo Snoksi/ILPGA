@@ -19,10 +19,10 @@ class Page
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $type;
+    private $type = "page";
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $content;
 
@@ -32,14 +32,13 @@ class Page
     private $position;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * One Page belongs to one test
      * @ORM\OneToOne(targetEntity="Test")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id")
      */
     private $test;
 
-///////////////////////////////////////////////////////
-///
+
     public function getId()
     {
         return $this->id;
@@ -62,7 +61,7 @@ class Page
         return $this->content;
     }
 
-    public function setContent(?array $content): self
+    public function setContent($content): self
     {
         $this->content = $content;
 
