@@ -44,11 +44,11 @@ class Excel
     private $user;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @ORM\OneToOne(targetEntity="App\Entity\Questionnaire")
-     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="questionnaire_name", referencedColumnName="name")
      */
-    private $questionnaire;
+    private $test;
 
 //////////////////////////////////////////////////
 
@@ -143,17 +143,17 @@ class Excel
     /**
      * @return mixed
      */
-    public function getQuestionnaire()
+    public function getTest()
     {
-        return $this->questionnaire;
+        return $this->test;
     }
 
     /**
      * @param mixed $questionnaire
      */
-    public function setQuestionnaire($questionnaire): void
+    public function setTest($test): void
     {
-        $this->questionnaire = $questionnaire;
+        $this->test = $test;
     }
 
 }

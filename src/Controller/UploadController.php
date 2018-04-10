@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Excel;
 use App\Form\Upload\ExcelType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
@@ -30,27 +31,48 @@ class UploadController extends Controller
             $file = $excel->getExcel();
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
+            $username = $this->getUser()->getUsername();
             // moves the file to the directory where brochures are stored
             $file->move(
-                $this->getParameter('excel_directory'),
+                $this->getParameter('excel_directory'). $username .'/excel/',
                 $fileName
             );
+
             $excel->setUser($this->getUser()->getId());
-            $excel->setName($fileName);
-            $excel->setSource($this->getParameter('excel_directory'));
-            $excel->setQuestionnaire(5);
+            $excel->setName($file->getClientOriginalName());
+            $excel->setSource($this->getParameter('excel_directory').$username.'/excel/');
+            $excel->setTest('politic');
             //Save modification in the database
-            $excel->setExcel(null);
+            $excel->setExcel($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($excel);
             $em->flush();
 
             // ... persist the $product variable or any other work
-            $path = $this->getParameter('excel_directory').$fileName;
+            $path = $this->getParameter('excel_directory'). $username .'/excel/'.$fileName;
 
             $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+
+            $test = $spreadsheet->getActiveSheet()->getCell('A2');
+            $name = $spreadsheet->getActiveSheet()->getCell('B2');
+
+            $em = $this->getDoctrine()->getManager();
+            $test_table = $em->getRepository("App:Stimulus")->findOneBy([
+                'stimulus' => $name,
+                'test' => $test,
+            ]);
+            if (!empty($test_table)) {
+            $test_table->setAge($spreadsheet->getActiveSheet()->getCell('C2'));
+            $test_table->setSexe($spreadsheet->getActiveSheet()->getCell('D2'));
+            $test_table->setLangue($spreadsheet->getActiveSheet()->getCell('E2'));
+            $test_table->setQuestion($spreadsheet->getActiveSheet()->getCell('G2'));
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($test_table);
+                $em->flush();
+                echo 'bravo';
+            }else { echo 'vide';}
+
 
             // send it to service to stock the info as a json
             return $this->render('upload/resultUpload.html.twig', ['array' => $sheetData]);
@@ -76,25 +98,27 @@ class UploadController extends Controller
             $file = $stimulus->getStimulus();
 
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            $username = $this->getUser()->getUsername();
 
             // moves the file to the directory where brochures are stored
             $file->move(
-                $this->getParameter('audio_directory'),
+                $this->getParameter('audio_directory'). $username .'/audio/',
                 $fileName
             );
             $stimulus->setUser($this->getUser()->getId());
             $stimulus->setName($fileName);
-            $stimulus->setSource($this->getParameter('excel_directory'));
-
+            $stimulus->setSource($this->getParameter('audio_directory').$username.'/audio/');
+            $stimulus->setTest('politic');
             //Save modification in the database
-            $stimulus->setStimulus(null);
+            $stimulus->setStimulus($file->getClientOriginalName());
+
+            // ... persist the $product variable or any other work
             $em = $this->getDoctrine()->getManager();
             $em->persist($stimulus);
             $em->flush();
 
-            // ... persist the $product variable or any other work
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('upload_excel');
         }
 
         return $this->render('upload/stimulus.html.twig', array(

@@ -28,14 +28,27 @@ class SecurityController extends Controller
         $form = $this->createForm(UserRegistration::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-            $user->setRoles(['ROLE_USER']);
-            echo  $request->get('username');
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('home');
+            $test_table = $em->getRepository("App:User")->findAll();
+            if (!empty($test_table)){
+                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                $user->setRoles(['ROLE_USER']);
+                echo  $request->get('username');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                return $this->redirectToRoute('user_login');
+            }else {
+                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                $user->setRoles(['ROLE_SUPER_ADMIN']);
+                echo  $request->get('username');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                return $this->redirectToRoute('user_login');
+            }
         }
         return $this->render(
             'Security/register.html.twig',

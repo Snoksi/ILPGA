@@ -25,7 +25,17 @@ class Stimulus
      *     mimeTypes={"audio/mpeg"}
      * )
      */
+    private $stimulus;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $source;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $name;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -34,13 +44,55 @@ class Stimulus
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Questionnaire")
+     * @ORM\JoinColumn(name="questionnaire_name", referencedColumnName="name")
+     */
+    private $test;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $langue;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sexe;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $age;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $question;
+
+
+//////////////////////////////////////////
     /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStimulus()
+    {
+        return $this->stimulus;
+    }
+
+    /**
+     * @param mixed $stimulus
+     */
+    public function setStimulus($stimulus): void
+    {
+        $this->stimulus = $stimulus;
     }
 
     /**
@@ -62,6 +114,22 @@ class Stimulus
     /**
      * @return mixed
      */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUser()
     {
         return $this->user;
@@ -74,4 +142,85 @@ class Stimulus
     {
         $this->user = $user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTest()
+    {
+        return $this->test;
+    }
+
+    /**
+     * @param mixed $test
+     */
+    public function setTest($test): void
+    {
+        $this->test = $test;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLangue()
+    {
+        return $this->langue;
+    }
+
+    /**
+     * @param mixed $langue
+     */
+    public function setLangue($langue): void
+    {
+        $this->langue = $langue;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * @param mixed $sexe
+     */
+    public function setSexe($sexe): void
+    {
+        $this->sexe = $sexe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age): void
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question): void
+    {
+        $this->question = $question;
+    }
+
 }

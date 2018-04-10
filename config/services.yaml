@@ -2,8 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    excel_directory: '%kernel.project_dir%/public/uploads/excel/'
-    audio_directory: '%kernel.project_dir%/public/uploads/audio'
+    excel_directory: '%kernel.project_dir%/public/uploads/'
+    audio_directory: '%kernel.project_dir%/public/uploads/'
 
 services:
     # default configuration for services in *this* file
