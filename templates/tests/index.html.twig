@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1> {{ current_folder.name }}</h1>
-
+    <a href="/logout">Déconnexion</a>
     <ul class="folders">
         {% for folder in current_folder.children %}
             <li><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></li>

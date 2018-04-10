@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminDashboardController extends Controller
 {
     /**
-     * @Route("/", name="admin_dash")
+     * @Route("/users", name="admin_dash")
      *
      * @return Response
      */
     public function index(): Response
     {
-        $user = $this->getUser();
-        return $this->render('home.html.twig');
+
+        return $this->redirectToRoute('tests_index', ['id'=>null]);
     }
 
 }

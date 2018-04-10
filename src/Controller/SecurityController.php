@@ -38,14 +38,14 @@ class SecurityController extends Controller
             return $this->redirectToRoute('home');
         }
         return $this->render(
-            'register.html.twig',
+            'Security/register.html.twig',
             ['form' => $form->createView()]
         );
     }
     /**
      * @param Request             $request
      * @param AuthenticationUtils $authUtils
-     * @Route("/login", name="user_login")
+     * @Route("/", name="user_login")
      *
      * @return Response
      */
@@ -54,7 +54,7 @@ class SecurityController extends Controller
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();
         return $this->render(
-            'login.html.twig',
+            'security/login.html.twig',
             [
                 'last_username' => $lastUsername,
                 'error' => $error,
