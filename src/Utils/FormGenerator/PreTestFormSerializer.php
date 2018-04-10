@@ -11,22 +11,24 @@ namespace App\Utils\FormGenerator;
 use App\Utils\FormBuilder;
 use Symfony\Component\HttpFoundation\Request;
 
-class PreTestFormGenerator extends FormBuilder
+class PreTestFormSerializer extends FormBuilder
 {
-    protected $request;
+    protected $data;
 
     protected $form;
 
-    public function __construct(Request $request)
+    public function __construct($data)
     {
-        $this->request = $request;
+        $this->data = $data;
         $this->generateGeneralQuestions();
         $this->generateCustomQuestions();
     }
 
     public function generateGeneralQuestions(){
-        if($this->request->request->getBoolean('gender') == true){
-            $form[] = [
+        $input = $this->data;
+
+        if(isset($input['gender'])){
+            $this->form[] = [
                 'type' => 'radio',
                 'name' => 'gender',
                 'label' => "Quel est votre sexe ?",
@@ -37,16 +39,16 @@ class PreTestFormGenerator extends FormBuilder
             ];
         }
 
-        if($this->request->request->getBoolean('gender') == true){
-            $form[] = [
+        if(isset($input['age'])){
+            $this->form[] = [
                 'type' => 'number',
                 'name' => 'age',
                 'label' => "Quel est votre age ?"
             ];
         }
 
-        if($this->request->request->getBoolean('has_headphones') == true){
-            $form[] = [
+        if(isset($input['has_headphones'])){
+            $this->form[] = [
                 'type' => 'checkbox',
                 'name' => 'has_headphones',
                 'label' => "Utilisez-vous un casque",
@@ -57,8 +59,8 @@ class PreTestFormGenerator extends FormBuilder
             ];
         }
 
-        if($this->request->request->getBoolean('code') == true){
-            $form[] = [
+        if(isset($input['code'])){
+            $this->form[] = [
                 'type' => 'text',
                 'name' => 'code',
                 'label' => "Si vous passez ce test dans le cadre d'un cours, indiquez le code transmis par l'enseignant.",
@@ -68,8 +70,6 @@ class PreTestFormGenerator extends FormBuilder
 
     public function generateCustomQuestions()
     {
-        $questions = $this->request->get('questions');
-
 
     }
 }

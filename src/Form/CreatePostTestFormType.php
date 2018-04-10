@@ -22,7 +22,7 @@ class CreatePostTestFormType extends AbstractType
                 'label' => "Quel est votre âge ?",
                 'required' => false,
             ])
-            ->add('headphones', CheckboxType::class, [
+            ->add('has_headphones', CheckboxType::class, [
                 'label' => "Casque ?",
                 'required' => false,
             ])

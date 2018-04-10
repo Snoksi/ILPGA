@@ -7,7 +7,7 @@ use App\Entity\Test;
 use App\Entity\TestFolder;
 use App\Form\CreatePostTestFormType;
 use App\Form\CreateTestType;
-use App\Utils\FormGenerator\PreTestFormGenerator;
+use App\Utils\FormGenerator\PreTestFormSerializer;
 use Doctrine\ORM\Mapping\Entity;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -109,6 +109,8 @@ class TestsController extends Controller
     {
         $test = new Test();
         $page = new Page();
+
+        $page->setTitle("Page d'instructions");
         $page->setType("page");
         $page->setTest($test);
 
@@ -124,39 +126,69 @@ class TestsController extends Controller
             $em->persist($test);
             $em->flush();
 
-            $session->set('reached_step', 2);
             $session->set('editing_test_id', $test->getId());
 
-            return $this->redirectToRoute('tests_create_step', ['step' => 2]);
+            return $this->redirectToStep(2);
         }
         return $this->render('tests/step_1.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/create/step/2", name="tests_create_step_2")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function step2(Request $request, Test $test){
+    public function step2(Request $request, SessionInterface $session, Test $test){
         $form = $this->createForm(CreatePostTestFormType::class);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $formGenerator = new PreTestFormGenerator($request);
+            $formSerializer = new PreTestFormSerializer($form->getData());
 
             $page = new Page();
+            $page->setTitle("Formulaire pre-test");
             $page->setType('form');
-            $page->setContent($formGenerator->getSerializedForm());
+            $page->setContent($formSerializer->getSerializedForm());
             $page->setTest($test);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($page);
             $em->flush();
 
-            var_dump($formGenerator->getSerializedForm());
+            return $this->redirectToStep(3);
         }
         return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function step4(Request $request, SessionInterface $session, Test $test){
+        $form = $this->createForm(CreatePostTestFormType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $formSerializer = new PreTestFormSerializer($form->getData());
+
+            $page = new Page();
+            $page->setType('form');
+            $page->setContent($formSerializer->getSerializedForm());
+            $page->setTest($test);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($page);
+            $em->flush();
+
+            return $this->redirectToStep(3);
+        }
+        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
+    }
+
+    public function redirectToStep($step = 1){
+        $this->get('session')->set('reached_step', $step);
+        return $this->redirectToRoute('tests_create_step', ['step' => $step]);
     }
 
 }
