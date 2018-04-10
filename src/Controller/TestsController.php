@@ -7,6 +7,9 @@ use App\Entity\Test;
 use App\Entity\TestFolder;
 use App\Form\CreatePostTestFormType;
 use App\Form\CreateTestType;
+use App\Form\StimuliAndQuestionsFormType;
+use App\Service\Uploader\FileUploader;
+use App\Service\Uploader\StimulusUploader;
 use App\Utils\FormGenerator\PreTestFormSerializer;
 use Doctrine\ORM\Mapping\Entity;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -164,26 +167,27 @@ class TestsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function step4(Request $request, SessionInterface $session, Test $test){
-        $form = $this->createForm(CreatePostTestFormType::class);
+    public function step3(Request $request, SessionInterface $session, StimulusUploader $uploader, ExcelParser $parser, Test $test){
+        $form = $this->createForm(StimuliAndQuestionsFormType::class);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $formSerializer = new PreTestFormSerializer($form->getData());
+            $input = $form->getData();
 
-            $page = new Page();
-            $page->setType('form');
-            $page->setContent($formSerializer->getSerializedForm());
-            $page->setTest($test);
+            $uploader->setTest($test);
+            $uploader->upload($input['audio']);
+            $uploader->bind($input['excel']);
+            $stimuli = $uploader->getStimuli();
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($page);
-            $em->flush();
 
-            return $this->redirectToStep(3);
+            foreach($stimuli as $stimulus){
+                $em->persist($stimulus);
+            }
+            $em->flush();
         }
-        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
+        return $this->render('tests/step_3.html.twig', ['form' => $form->createView()]);
     }
 
     public function redirectToStep($step = 1){
