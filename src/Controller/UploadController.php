@@ -18,6 +18,48 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 class UploadController extends Controller
 {
     /**
+     * @Route("/upload_audio", name="upload_audio")
+     */
+    public function news(Request $request)
+    {
+        $stimulus = new Stimulus();
+        $form = $this->createForm(StimulusType::class, $stimulus);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $file stores the uploaded mp3 file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $stimulus->getStimulus();
+
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            $username = $this->getUser()->getUsername();
+
+            // moves the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('audio_directory'). $username .'/audio/',
+                $fileName
+            );
+            $stimulus->setUser($this->getUser()->getId());
+            $stimulus->setName($fileName);
+            $stimulus->setSource($this->getParameter('audio_directory').$username.'/audio/');
+            $stimulus->setTest('politic');
+            //Save modification in the database
+            $stimulus->setStimulus($file->getClientOriginalName());
+
+            // ... persist the $product variable or any other work
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($stimulus);
+            $em->flush();
+
+
+            return $this->redirectToRoute('upload_excel');
+        }
+
+        return $this->render('upload/stimulus.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+    /**
      * @Route("/upload_excel", name="upload_excel")
      */
     public function new(Request $request)
@@ -63,10 +105,10 @@ class UploadController extends Controller
                 'test' => $test,
             ]);
             if (!empty($test_table)) {
-            $test_table->setAge($spreadsheet->getActiveSheet()->getCell('C2'));
-            $test_table->setSexe($spreadsheet->getActiveSheet()->getCell('D2'));
-            $test_table->setLangue($spreadsheet->getActiveSheet()->getCell('E2'));
-            $test_table->setQuestion($spreadsheet->getActiveSheet()->getCell('G2'));
+                $test_table->setAge($spreadsheet->getActiveSheet()->getCell('C2'));
+                $test_table->setSexe($spreadsheet->getActiveSheet()->getCell('D2'));
+                $test_table->setLangue($spreadsheet->getActiveSheet()->getCell('E2'));
+                $test_table->setQuestion($spreadsheet->getActiveSheet()->getCell('G2'));
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($test_table);
                 $em->flush();
@@ -80,48 +122,6 @@ class UploadController extends Controller
         }
 
         return $this->render('upload/excel.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
-    /**
-     * @Route("/upload_audio", name="upload_audio")
-     */
-    public function news(Request $request)
-    {
-        $stimulus = new Stimulus();
-        $form = $this->createForm(StimulusType::class, $stimulus);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // $file stores the uploaded mp3 file
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $stimulus->getStimulus();
-
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-            $username = $this->getUser()->getUsername();
-
-            // moves the file to the directory where brochures are stored
-            $file->move(
-                $this->getParameter('audio_directory'). $username .'/audio/',
-                $fileName
-            );
-            $stimulus->setUser($this->getUser()->getId());
-            $stimulus->setName($fileName);
-            $stimulus->setSource($this->getParameter('audio_directory').$username.'/audio/');
-            $stimulus->setTest('politic');
-            //Save modification in the database
-            $stimulus->setStimulus($file->getClientOriginalName());
-
-            // ... persist the $product variable or any other work
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($stimulus);
-            $em->flush();
-
-
-            return $this->redirectToRoute('upload_excel');
-        }
-
-        return $this->render('upload/stimulus.html.twig', array(
             'form' => $form->createView(),
         ));
     }
