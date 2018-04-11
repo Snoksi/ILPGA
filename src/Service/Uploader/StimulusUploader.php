@@ -2,6 +2,7 @@
 
 namespace App\Service\Uploader;
 
+use App\Entity\Page;
 use App\Entity\Stimulus;
 use App\Entity\Test;
 use Doctrine\ORM\Mapping\Entity;
@@ -14,6 +15,8 @@ class StimulusUploader extends FileUploader
     protected $test;
 
     protected $stimuli = [];
+
+    protected $lastQuestion;
 
 
     public function upload($files){
@@ -40,32 +43,24 @@ class StimulusUploader extends FileUploader
         $sheet = $spreadsheet->getActiveSheet();
 
         $row = 2;
-        while($finished === true){
-            $stimulusName = $sheet->getCell($col."A")->getValue();
-            if("" != $stimulus = $this->stimuli[$stimulusName]){
+        $finished = false;
+
+        while(!$finished) {
+            $col = "A";
+            $stimulusName = $sheet->getCell("A" . $row)->getValue();
+
+            if ("" != $stimulus = $this->stimuli[$stimulusName]) {
                 exit;
             }
 
-            $stimulus->setAge()
+            $question = $this->generateQuestionPage($row, $sheet);
+            $question->setStimulus($stimulus);
 
-            $row++;
+            $stimulus->setSpeakerAge($sheet->getCell("B" . $row)->getValue());
+            $stimulus->setSpeakerGender($sheet->getCell("C" . $row)->getValue());
+            $stimulus->setSpeakerLang($sheet->getCell("D" . $row)->getValue());
+            $stimulus->setPlayCount($sheet->getCell("E" . $row)->getValue());
         }
-
-        $em = $this->getDoctrine()->getManager();
-        $test_table = $em->getRepository("App:Stimulus")->findOneBy([
-            'stimulus' => $name,
-            'test' => $test,
-        ]);
-        if (!empty($test_table)) {
-            $test_table->setAge($spreadsheet->getActiveSheet()->getCell('C2'));
-            $test_table->setSexe($spreadsheet->getActiveSheet()->getCell('D2'));
-            $test_table->setLangue($spreadsheet->getActiveSheet()->getCell('E2'));
-            $test_table->setQuestion($spreadsheet->getActiveSheet()->getCell('G2'));
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($test_table);
-            $em->flush();
-            echo 'bravo';
-        }else { echo 'vide';}
     }
 
     public function getStimuli()
@@ -81,5 +76,69 @@ class StimulusUploader extends FileUploader
     public function getTest()
     {
         return $this->test;
+    }
+
+    private function getType($type)
+    {
+        switch($type)
+        {
+            case "choix_multiple":
+                return "checkbox";
+            case "choix_unique":
+                return "radio";
+            case "nombre":
+                return "number";
+            case "range":
+                return "range";
+            default:
+                return "text";
+        }
+    }
+
+    private function generateQuestionPage($row, $sheet)
+    {
+        // Si aucune question n'a été associé à ce stimulus, alors on l'associe à la question précédente
+        if($sheet->getCell("F".$row)->getValue() == "") return $this->lastQuestion;
+
+        $question = new Page();
+        $question->setTest($this->getTest());
+        $question->setType("question");
+
+        $question->setContent($this->generateQuestionContent($row, $sheet));
+        $question->lastQuestion = $page;
+        return $page;
+    }
+
+    private function generateQuestionContent($row, $sheet)
+    {
+        $content = [
+            "label" => $sheet->getCell("F" . $row)->getValue(),
+            "type" => $this->getType($sheet->getCell("G" . $row)->getValue()),
+        ];
+
+        if ($content['type'] == "checkbox" || $content['type'] == "radio")
+        {
+            $choices = [];
+            $col = "H";
+            $has_choices = true;
+
+            while ($has_choices) {
+                $choice = $sheet->getCell($col . $row)->getValue();
+
+                if ($choice == "") exit;
+                $choices[$choice] = $choice;
+                $col++;
+            }
+
+            $content["choices"] = $choices;
+        }
+
+        if($content['type'] == "range")
+        {
+            $content['min'] = $sheet->getCell("H".$row)->getValue();
+            $content['max'] = $sheet->getCell("I".$row)->getValue();
+        }
+
+        return $content;
     }
 }
