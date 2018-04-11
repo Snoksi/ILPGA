@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Service\Uploader;
+namespace App\Service;
 
 use App\Entity\Page;
 use App\Entity\Stimulus;
 use App\Entity\Test;
-use PhpOffice\PhpSpreadsheet\Exception;
+use App\Service\Uploader\FileUploader;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Intl\Exception\MissingResourceException;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class StimulusUploader
+class TestManager
 {
     protected $test;
 
@@ -31,10 +30,26 @@ class StimulusUploader
     }
 
     /**
+     * @param Test $test
+     */
+    public function setTest(Test $test)
+    {
+        $this->test = $test;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTest()
+    {
+        return $this->test;
+    }
+
+    /**
      * Uploads all mp3/mp4 files to a public folder in the test folder
      * @param $files
      */
-    public function upload($files){
+    public function addStimuli($files){
         if(!$this->test instanceof Test){
             throw new MissingResourceException("App\Entity\Test is missing");
         }
@@ -55,7 +70,7 @@ class StimulusUploader
     /**
      *  Read excel and bind informations to the correct stimulus
      */
-    public function bind(UploadedFile $excel){
+    public function bindExcel(UploadedFile $excel){
         $sheet = $this->getSheetReader($excel);
 
         $row = 2;
@@ -80,22 +95,11 @@ class StimulusUploader
 
             $row++;
         }
-        var_dump("Bind end");
     }
 
     public function getQuestions()
     {
         return $this->questions;
-    }
-
-    public function setTest(Test $test)
-    {
-        $this->test = $test;
-    }
-
-    public function getTest()
-    {
-        return $this->test;
     }
 
     private function getType($type)

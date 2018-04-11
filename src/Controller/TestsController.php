@@ -8,6 +8,8 @@ use App\Entity\TestFolder;
 use App\Form\CreatePostTestFormType;
 use App\Form\CreateTestType;
 use App\Form\StimuliAndQuestionsFormType;
+use App\Service\TestManager;
+use App\Service\Uploader\ExcelParser;
 use App\Service\Uploader\FileUploader;
 use App\Service\Uploader\StimulusUploader;
 use App\Utils\FormGenerator\PreTestFormSerializer;
@@ -167,7 +169,7 @@ class TestsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function step3(Request $request, SessionInterface $session, StimulusUploader $uploader, Test $test){
+    public function step3(Request $request, SessionInterface $session, TestManager $testManager, Test $test){
         $form = $this->createForm(StimuliAndQuestionsFormType::class);
         $form->handleRequest($request);
 
@@ -175,10 +177,10 @@ class TestsController extends Controller
         {
             $input = $form->getData();
 
-            $uploader->setTest($test);
-            $uploader->upload($input['audio']);
-            $uploader->bind($input['excel']);
-            $questions = $uploader->getQuestions();
+            $testManager->setTest($test);
+            $testManager->addStimuli($input['audio']);
+            $testManager->bindExcel($input['excel']);
+            $questions = $testManager->getQuestions();
 
             $em = $this->getDoctrine()->getManager();
 

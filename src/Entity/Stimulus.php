@@ -35,11 +35,6 @@ class Stimulus
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $originalName;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $speakerLang;
 
     /**
@@ -54,7 +49,7 @@ class Stimulus
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Page", inversedBy="stimuli")
-     * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="page_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $page;
 
@@ -103,22 +98,6 @@ class Stimulus
     /**
      * @return mixed
      */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getAge()
     {
         return $this->age;
@@ -130,22 +109,6 @@ class Stimulus
     public function setAge($age): void
     {
         $this->age = $age;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOriginalName()
-    {
-        return $this->originalName;
-    }
-
-    /**
-     * @param mixed $originalName
-     */
-    public function setOriginalName($originalName): void
-    {
-        $this->originalName = $originalName;
     }
 
     /**
