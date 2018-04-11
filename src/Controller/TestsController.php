@@ -167,7 +167,7 @@ class TestsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function step3(Request $request, SessionInterface $session, StimulusUploader $uploader, ExcelParser $parser, Test $test){
+    public function step3(Request $request, SessionInterface $session, StimulusUploader $uploader, Test $test){
         $form = $this->createForm(StimuliAndQuestionsFormType::class);
         $form->handleRequest($request);
 

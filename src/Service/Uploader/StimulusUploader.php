@@ -13,18 +13,14 @@ class StimulusUploader extends FileUploader
 
     protected $stimuli = [];
 
-    public function __construct($projectDirectory)
-    {
-        $this->projectDirectory = $projectDirectory;
-    }
 
     public function upload($files){
         foreach($files as $file){
             $stimulus = new Stimulus();
             $stimulus->setTest($this->getTest());
             $stimulus->setName($file->getClientOriginalName());
-            $fileName = $this->upload($file);
-            $stimulus->setSource($this->getTargetDirectory()."/".$fileName);
+            $fileName = parent::upload($file);
+            $stimulus->setSource($this->getTargetDirectory()."/".$this->getTest()->getId()."/".$fileName);
 
             $this->stimuli[$file->getClientOriginalName()] = $stimulus;
         }

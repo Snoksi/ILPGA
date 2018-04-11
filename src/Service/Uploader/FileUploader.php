@@ -8,9 +8,9 @@ class FileUploader
 {
     private $targetDirectory;
 
-    public function __construct($publicDirectory)
+    public function __construct($targetDirectory)
     {
-        $this->publicDirectory = $publicDirectory;
+        $this->targetDirectory = $targetDirectory;
     }
 
     public function upload($file)
