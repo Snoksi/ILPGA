@@ -178,12 +178,12 @@ class TestsController extends Controller
             $uploader->setTest($test);
             $uploader->upload($input['audio']);
             $uploader->bind($input['excel']);
-            $stimuli = $uploader->getStimuli();
+            $questions = $uploader->getQuestions();
 
             $em = $this->getDoctrine()->getManager();
 
-            foreach($stimuli as $stimulus){
-                $em->persist($stimulus);
+            foreach($questions as $question){
+                $em->persist($question);
             }
             $em->flush();
         }

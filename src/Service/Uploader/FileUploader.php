@@ -8,9 +8,12 @@ class FileUploader
 {
     private $targetDirectory;
 
-    public function __construct($targetDirectory)
+    private $rootDirectory;
+
+    public function __construct($rootDirectory, $targetDirectory = null)
     {
-        $this->targetDirectory = $targetDirectory;
+        $this->setRootDirectory($rootDirectory);
+        $this->setTargetDirectory($targetDirectory);
     }
 
     public function upload($file)
@@ -24,11 +27,15 @@ class FileUploader
         }
 
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
-        $file->move($this->getTargetDirectory(), $fileName);
+        $file->move($this->getFullPath(), $fileName);
         return $fileName;
     }
 
-    public function setTargetDirectory($targetDirectory)
+    public function getFullPath(){
+        return $this->getRootDirectory().$this->getTargetDirectory();
+    }
+
+    public function setTargetDirectory($targetDirectory = null)
     {
         $this->targetDirectory = $targetDirectory;
     }
@@ -36,6 +43,22 @@ class FileUploader
     public function getTargetDirectory()
     {
         return $this->targetDirectory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRootDirectory()
+    {
+        return $this->rootDirectory;
+    }
+
+    /**
+     * @param mixed $rootDirectory
+     */
+    public function setRootDirectory($rootDirectory): void
+    {
+        $this->rootDirectory = $rootDirectory;
     }
 
 }

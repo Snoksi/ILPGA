@@ -43,6 +43,21 @@ class Page
      */
     private $test;
 
+    /**
+     * One Page belongs to many Stimulus
+     * @ORM\OneToMany(targetEntity="Stimulus", mappedBy="page", cascade={"persist"})
+     */
+    private $stimuli;
+
+
+    /**
+     * Page constructor.
+     */
+    public function __construct()
+    {
+        $this->stimuli = [];
+    }
+
 
     public function getId()
     {
@@ -68,8 +83,10 @@ class Page
 
     public function setContent($content): self
     {
+        if(is_array($content)){
+            $content = serialize($content);
+        }
         $this->content = $content;
-
         return $this;
     }
 
@@ -115,6 +132,30 @@ class Page
     public function setTitle($title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStimuli()
+    {
+        return $this->stimuli;
+    }
+
+    /**
+     * @param mixed $stimuli
+     */
+    public function setStimuli($stimuli): void
+    {
+        $this->stimuli = $stimuli;
+    }
+
+    /**
+     * @param $stimulus
+     */
+    public function addStimulus($stimulus)
+    {
+        $this->stimuli[] = $stimulus;
     }
 
 }

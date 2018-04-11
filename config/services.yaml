@@ -2,7 +2,6 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    uploads_directory: '%kernel.project_dir%/public/uploads'
 
 services:
     # default configuration for services in *this* file
@@ -26,9 +25,9 @@ services:
         tags: ['controller.service_arguments']
 
 
-    App\Service\Uploader\StimulusUploader:
+    App\Service\Uploader\FileUploader:
         arguments:
-            $targetDirectory: '%uploads_directory%'
+            $rootDirectory: '%kernel.project_dir%/../public'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

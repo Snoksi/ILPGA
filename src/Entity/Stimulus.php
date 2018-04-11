@@ -53,13 +53,7 @@ class Stimulus
     private $speakerAge;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Page")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Page", inversedBy="stimuli")
      * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
      */
     private $page;
