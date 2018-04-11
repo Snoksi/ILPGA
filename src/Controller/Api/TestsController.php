@@ -86,37 +86,34 @@ class TestsController extends Controller
 
         return $this->redirectToRoute('tests_index');
     }
-    /*
-     * @Rest\Put("/page/{page_id}/set_position/{position_id}", name="tests_move_position", requirements={"folder_id"="\d*"}, defaults={"_format" = "json"})
+
+    /**
+     * @Rest\Get("/page/{page_id}/set_position/{position}", name="tests_move_position", requirements={"folder_id"="\d*"}, defaults={"_format" = "json"})
      * @ParamConverter("page", class="App:Page", options={"mapping": {"page_id": "id"}})
-     * @ParamConverter("position", class="App:Page", options={"mapping": {"position_id": "id"}})
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function movePosition(Page $page,Page $position)
+    public function movePosition(Page $page, $position)
     {
-        $save = $position;
         $pos_init = $page->getPosition();
         if ($pos_init < $position) {
             for ($i = $pos_init; $i< $position; $i++){
                 $em = $this->getDoctrine()->getManager();
-                $search = $em->getRepository('App:Page')->findOneBy(['id' => $i+1]);
+                $search = $em->getRepository('App:Page')->findOneBy(['position' => $i+1]);
                 $search->setPosition($i);
                 $em->persist($search);
                 $em->flush();
             }
         }else{
-            for ($i = $position; $i < $pos_init; $i++){
+            for ($i = $pos_init; $i > $position; $i--){
                 $em = $this->getDoctrine()->getManager();
-                $search = $em->getRepository('App:Page')->findOneBy(['id' => $i+1]);
+                $search = $em->getRepository('App:Page')->findOneBy(['position' => $i-1]);
                 $search->setPosition($i);
                 $em->persist($search);
                 $em->flush();
             }
         }
-        $em = $this->getDoctrine()->getManager();
-        $search = $em->getRepository('App:Page')->findOneBy(['id' => $save]);
-        $search->setPosition($save);
-        $em->persist($search);
+        $page->setPosition($position);
+        $em->persist($page);
         $em->flush();
     }
 
