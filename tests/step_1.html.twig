@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un test{% endblock %}
+{% block etat %}class="bodyCo"{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Envoyer">
+    {{ form_end(form) }}
+
+    <header class="co">
+        <nav>
+            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+            <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+            <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
+            <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main id="parametresgeneraux" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Paramètres du test</h1>
+                <p>Définissez les informations qui s’afficheront sur la page d’accueil du test.</p>
+            </header>
+
+            {{ form_start(form) }}
+                <div class="multipleChamp double">
+                    <div>
+                        <div class="ligneIntitule">
+                            {{ form_label(form.name) }}
+                            <label for="nomTest">Nom du test</label>
+                            <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                        </div>
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div>
+                        <div class="ligneIntitule">
+
+                            <label for="audioType">Fichier audio type</label>
+                            <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                        </div>
+                        <input type="text" id="audioType" name="audioType">
+                    </div>
+                </div>
+                <div class="ligneIntitule">
+                    <label for="nomTest">Instructions générales</label>
+                    <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                </div>
+                <div class="editeurTxt">
+
+                </div>
+
+                <div class="multipleChamp triple">
+                    <div class="listeCheckbox">
+                        <div class="ligneCheckbox">
+                            <div class="bouton">
+                                <input type="checkbox" name="blocaleatoire" id="blocaleatoire">
+                                <label for="blocaleatoire">Ordre des blocs aléatoires</label>
+                            </div>
+                            <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        </div>
+
+                        <div class="ligneCheckbox">
+                            <div class="bouton">
+
+                                {{ form_widget(form.name) }}
+                                <input type="checkbox" name="notifReponses" id="notifReponses">
+
+                                {{ form_label(form.notified) }}
+                                <label for="notifReponses">Être notifié des réponses</label>
+                            </div>
+                            <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        </div>
+
+                        <div class="ligneCheckbox">
+                            <div class="bouton">
+                                <input type="checkbox" name="partenaire" id="partenaire">
+                                <label for="partenaire">Partenaires</label>
+                                <img src="{{ asset('img/picto/plus-sign-in-a-black-circle.svg') }}" alt="picto plus">
+                            </div>
+                            <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="ligneIntitule">
+                            <label for="logoPartenaire">Logo du partenaire</label>
+                            <img src="img/picto/question-mark.svg" alt="picto interrogation">
+                        </div>
+                        <input type="text" id="logoPartenaire" name="logoPartenaire">
+                    </div>
+
+                    <div>
+                        <div class="ligneCheckbox">
+                            <div class="bouton">
+                                <input type="checkbox" name="nomPartenaire" id="nomPartenaire">
+                                <label for="nomPartenaire">Nom du partenaire</label>
+                                <img src="img/picto/plus-sign-in-a-black-circle.svg" alt="picto plus">
+                            </div>
+                            <img src="img/picto/question-mark.svg" alt="picto question">
+                        </div>
+                        <input type="text" id="nomPartenaire" name="nomPartenaire">
+                    </div>
+                </div>
+
+
+                <div class="bas">
+                    <a href="" class="boutonValidation">Prévisualiser la page</a>
+                    <a href="" class="boutonValidation">Passer au formulaire pré-test</a>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}
