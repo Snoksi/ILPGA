@@ -3,10 +3,6 @@
 {% block title %}Créer un test{% endblock %}
 {% block etat %}class="bodyCo"{% endblock %}
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Envoyer">
-    {{ form_end(form) }}
 
     <header class="co">
         <nav>
@@ -29,7 +25,6 @@
             <div class="multipleChamp double">
                 <div>
                     <div class="ligneIntitule">
-                        {{ form_label(form.name) }}
                         <label for="nomTest">Nom du test</label>
                         <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
                     </div>
@@ -37,7 +32,6 @@
                 </div>
                 <div>
                     <div class="ligneIntitule">
-
                         <label for="audioType">Fichier audio type</label>
                         <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
                     </div>
@@ -48,9 +42,7 @@
                 <label for="nomTest">Instructions générales</label>
                 <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
             </div>
-            <div class="editeurTxt">
-
-            </div>
+            {{ form_widget(form.instructionPage.content) }}
 
             <div class="multipleChamp triple">
                 <div class="listeCheckbox">
@@ -64,11 +56,7 @@
 
                     <div class="ligneCheckbox">
                         <div class="bouton">
-
-                            {{ form_widget(form.name) }}
-                            <input type="checkbox" name="notifReponses" id="notifReponses">
-
-                            {{ form_label(form.notified) }}
+                            {{ form_widget(form.notified) }}
                             <label for="notifReponses">Être notifié des réponses</label>
                         </div>
                         <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
