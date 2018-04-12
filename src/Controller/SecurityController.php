@@ -28,20 +28,34 @@ class SecurityController extends Controller
         $form = $this->createForm(UserRegistration::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-            $user->setRoles(['ROLE_USER']);
-            echo  $request->get('username');
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirectToRoute('home');
+            $test_table = $em->getRepository("App:User")->findAll();
+            if (!empty($test_table)){
+                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                $user->setRoles(['ROLE_USER']);
+                echo  $request->get('username');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                return $this->redirectToRoute('user_login');
+            }else {
+                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                $user->setRoles(['ROLE_SUPER_ADMIN']);
+                echo  $request->get('username');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                return $this->redirectToRoute('user_login');
+            }
         }
         return $this->render(
             'Security/register.html.twig',
             ['form' => $form->createView()]
         );
     }
+
     /**
      * @param Request             $request
      * @param AuthenticationUtils $authUtils
@@ -61,12 +75,7 @@ class SecurityController extends Controller
             ]
         );
     }
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logout()
-    {
-    }
+
     /**
      * @Route("/lost_password", name="lost_password")
      */
@@ -121,27 +130,10 @@ class SecurityController extends Controller
         return $this->render('resetPassword.html.twig');
     }
 
-//    /**
-//     * @Route("/reset_password/reset", name="reset_password")
-//     */
-//    public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
-//    {
-//        //read token, search the adress related with it.
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $user = $em->getRepository("App:User")->find('1');
-//        if (!empty($user) && ($request->get('_password') != '') && ($request->get('_password') == $request->get('_password_repeated')))
-//        {
-//            $plainPassword = $request->get('_password');
-//            $password = $passwordEncoder->encodePassword($user, $plainPassword);
-//            $user->setPassword($password);
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($user);
-//            $em->flush();
-//            return $this->redirectToRoute('resetPassword');
-//        }
-//        return $this->render('resetPassword.html.twig');
-//    }
-
-
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+    }
 }
