@@ -5,19 +5,19 @@
 {% block etat %}class="bodyCo"{% endblock %}
 
 {% block body %}
-    <h1> {{ current_folder.name }}</h1>
-    <a href="/logout">Déconnexion</a>
-    <ul class="folders">
-        {% for folder in current_folder.children %}
-            <li><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></li>
-        {% endfor %}
-    </ul>
+    {#<h1> {{ current_folder.name }}</h1>#}
+    {#<a href="/logout">Déconnexion</a>#}
+    {#<ul class="folders">#}
+        {#{% for folder in current_folder.children %}#}
+            {#<li><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></li>#}
+        {#{% endfor %}#}
+    {#</ul>#}
 
-    <ul class="tests">
-        {% for test in current_folder.tests %}
-            <li>{{ test.name }}</li>
-        {% endfor %}
-    </ul>
+    {#<ul class="tests">#}
+        {#{% for test in current_folder.tests %}#}
+            {#<li>{{ test.name }}</li>#}
+        {#{% endfor %}#}
+    {#</ul>#}
 
     {% include '_layouts/sidebar.html.twig' %}
 

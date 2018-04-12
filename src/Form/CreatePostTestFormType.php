@@ -23,11 +23,11 @@ class CreatePostTestFormType extends AbstractType
                 'required' => false,
             ])
             ->add('has_headphones', CheckboxType::class, [
-                'label' => "Casque ?",
+                'label' => "Utilisez-vous un casque ?",
                 'required' => false,
             ])
             ->add('code', CheckboxType::class, [
-                'label' => "Indiquez le code transmis par l'enseignant",
+                'label' => "Si vous passez ce test dans le cadre d’un cours, indiquez le code indiqué par l’enseignant.",
                 'required' => false,
             ])
             ->add('questions',  CollectionType::class, [
