@@ -1,6 +1,15 @@
 easy_admin:
     entities:
+<<<<<<< HEAD
 #        # List the entity class name you want to manage
 #        - App\Entity\Product
 #        - App\Entity\Category
         - App\Entity\User
+=======
+        - App\Entity\User
+        - App\Entity\Test
+        - App\Entity\TestFolder
+        - App\Entity\Stimulus
+        - App\Entity\Response
+        - App\Entity\Page
+>>>>>>> c5d006e04aa4aafbea09d69efe123635baf2240a
