@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TestsController extends Controller
 {
     /**
+     * @Route("/", name="tests_index")
      * @Route("/{id}", name="tests_index", requirements={"id"="\d*"})
      * @ParamConverter("test_folder", class="App:TestFolder", isOptional=true)
      * @param TestFolder|null $folder
@@ -56,11 +57,13 @@ class TestsController extends Controller
 
 
     /**
-     * @Route("/search/{query}", name="tests_search")
-     * @param $query
+     * @Route("/search", name="tests_search")
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function search($query){
+    public function search(Request $request){
+        $query = $request->get('query');
+
         $em = $this->getDoctrine()->getManager();
         $folders = $em->getRepository("App:TestFolder")->findByName($query);
         $tests = $em->getRepository("App:Test")->findByName($query);

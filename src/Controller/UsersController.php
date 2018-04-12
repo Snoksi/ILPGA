@@ -19,11 +19,16 @@ class UsersController extends Controller
 {
     /**
      * @Route("/", name="users_index")
-     * @Route("/search/{query}", name="users_search")
+     * @Route("/search", name="users_search")
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @param null $query
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request, UserRepository $userRepository, $query = null)
     {
         $page = $request->query->getInt('page', 1);
+        $query = $request->get('query');
         if($page == 0) $page = 1;
 
         if($query !== null) $users = $userRepository->search($query, $page);
