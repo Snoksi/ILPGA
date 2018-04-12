@@ -2,8 +2,6 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    excel_directory: '%kernel.project_dir%/public/uploads/excel/'
-    audio_directory: '%kernel.project_dir%/public/uploads/audio'
 
 services:
     # default configuration for services in *this* file
@@ -25,6 +23,11 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+
+    App\Service\Uploader\FileUploader:
+        arguments:
+            $rootDirectory: '%kernel.project_dir%/public'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -17,12 +17,17 @@ class Page
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=75)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=25)
      */
     private $type = "page";
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $content;
 
@@ -34,9 +39,24 @@ class Page
     /**
      * One Page belongs to one test
      * @ORM\ManyToOne(targetEntity="Test")
-     * @ORM\JoinColumn(name="test_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="test_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $test;
+
+    /**
+     * One Page belongs to many Stimulus
+     * @ORM\OneToMany(targetEntity="Stimulus", mappedBy="page", cascade={"persist"})
+     */
+    private $stimuli;
+
+
+    /**
+     * Page constructor.
+     */
+    public function __construct()
+    {
+        $this->stimuli = [];
+    }
 
 
     public function getId()
@@ -63,8 +83,10 @@ class Page
 
     public function setContent($content): self
     {
+        if(is_array($content)){
+            $content = serialize($content);
+        }
         $this->content = $content;
-
         return $this;
     }
 
@@ -94,6 +116,46 @@ class Page
     public function setTest($test): void
     {
         $this->test = $test;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStimuli()
+    {
+        return $this->stimuli;
+    }
+
+    /**
+     * @param mixed $stimuli
+     */
+    public function setStimuli($stimuli): void
+    {
+        $this->stimuli = $stimuli;
+    }
+
+    /**
+     * @param $stimulus
+     */
+    public function addStimulus($stimulus)
+    {
+        $this->stimuli[] = $stimulus;
     }
 
 }
