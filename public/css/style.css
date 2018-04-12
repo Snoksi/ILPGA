@@ -1,5 +1,25 @@
 /** Général **/
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* MESSAGE */
+
+.erreur, .succes{
+    border-radius: 3px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+}
+
+.erreur{
+    color: #fff;
+    background: #d12f25;
+}
+
+.succes{
+    color: #fff;
+    background: #00a65a;
+}
+
 /* RESET */
 *{
     padding: 0;

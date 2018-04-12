@@ -3,11 +3,6 @@
 
 {% block body %}
 
-
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
     {#<form action="{{ path('user_login') }}" method="post">#}
     {#<label for="username">Nom utilisateur :</label>#}
     {#<input type="text" id="username" name="_username" value="{{ last_username }}" />#}
@@ -33,6 +28,9 @@
     <main id="connexion">
         <div class="conteneurPasCo">
             <h1>Connexion</h1>
+            {% if error %}
+                <div class="erreur">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
             <form action="{{ path('user_login') }}" method="post">
                 <div>
                     <label for="username">
