@@ -1,9 +1,9 @@
 <header class="co">
     <nav>
         <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
-        <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+        <a href="{{ path("tests_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-            <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des utilisateurs</a>
+            <a href="{{ path("users_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des utilisateurs</a>
         {% endif %}
         <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
         <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
