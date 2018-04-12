@@ -1,8 +1,80 @@
-{% extends "../base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="button">S'inscrire</button>
-    {{ form_end(form) }}
+    {#{{ form_start(form) }}#}
+
+    {#{{ form_row(form.email) }}#}
+
+    {#{{ form_row(form.email) }}#}
+
+    {#{{ form_row(form.email) }}#}
+
+    {#{{ form_row(form.email) }}#}
+
+    {#<button type="submit" class="button">S'inscrire</button>#}
+    {#{{ form_end(form) }}#}
+
+
+
+
+    <header class="nonCo">
+        <nav>
+            <p>LOGO</p>
+            <div class="notConnected">
+                <a href="/register">Inscription</a>
+                <a href="/">Connexion</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inscription">
+        <div class="conteneurPasCo">
+            <h1>Inscription</h1>
+            {{ form_start(form) }}
+                <div>
+                    {{ form_row(form.username) }}
+                </div>
+                <div>
+                    {#<label for="nom">#}
+                        {#Nom#}
+                        {#<input type="text" name="nom" id="nom">#}
+                    {#</label>#}
+
+                    {#<label for="prenom">#}
+                        {#Prénom#}
+                        {#<input type="text" name="prenom" id="prenom">#}
+                    {#</label>#}
+
+                    {{ form_row(form.lastname) }}
+                    {{ form_row(form.firstname) }}
+                </div>
+                <div>
+                    {#<label for="courriel">#}
+                        {#E-mail#}
+                        {#<input type="email" name="mail" id="mail">#}
+                    {#</label>#}
+
+                    {{ form_row(form.email) }}
+                </div>
+
+                <div>
+                    {#<label for="mdp">#}
+                        {#Mot de passe#}
+                        {#<input type="password" name="mdp" id="mdp">#}
+                    {#</label>#}
+                    {#<label for="vmdp">#}
+                        {#Vérification du mot de passe#}
+                        {#<input type="password" name="vmdp" id="vmdp">#}
+                    {#</label>#}
+
+                    {{ form_row(form.plainPassword) }}
+                </div>
+
+
+                <button type="submit" class="boutonLarge">S'INSCRIRE</button>
+
+            {{ form_end(form) }}
+
+        </div>
+    </main>
 {% endblock %}

@@ -2,6 +2,8 @@
 
 {% block title %}Hello !{% endblock %}
 
+{% block etat %}class="bodyCo"{% endblock %}
+
 {% block body %}
     <h1> {{ current_folder.name }}</h1>
     <a href="/logout">Déconnexion</a>
@@ -16,4 +18,141 @@
             <li>{{ test.name }}</li>
         {% endfor %}
     </ul>
+
+
+    <header class="co">
+        <nav>
+            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+            <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+            <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
+            <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main id="listeTests" class="pagesNonForm">
+        <div class="conteneur">
+            <header>
+                <h1>Liste des tests</h1>
+                <form action="">
+                    <input type="text" placeholder="Rechercher un test, un dossier...">
+                </form>
+            </header>
+
+
+            {% for folder in current_folder.children %}
+                <section class="Dossier">
+                    <div class="nomDossier">
+                        <p><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></p>
+                        <img src="{{ asset('img/picto/fleche.svg') }}" alt="pictogramme" class="fleche">
+                    </div>
+                    <div class="contenuDossier visible">
+
+                        {% for folder in current_folder.children %}
+                            {% for folder in folder.children %}
+                                <article>
+                                    <a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a>
+                                </article>
+                            {% endfor %}
+                            {% for test in folder.tests %}
+                                <article>
+                                    <p>{{ test.name }}</p>
+                                    <div>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/exam.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/desktop-monitor.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/chain.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/copy-archive.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/turn-visibility-off-button.svg') }}" alt="picto">
+                                        </a>
+                                        <a href="">
+                                            <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
+                                        </a>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endfor %}
+
+            {% for test in current_folder.tests %}
+                <section class="exempleTest">
+                    <article>
+                        <p>{{ test.name }}</p>
+                        <div>
+                            <a href="">
+                                Visualiser le test
+                            </a>
+                            <a href="">
+                                Dupliquer
+                            </a>
+                        </div>
+                    </article>
+                </section>
+            {% endfor %}
+
+            <div class="bas">
+                <section class="exempleTest">
+                    <article>
+                        <p>Exemple de test</p>
+                        <div>
+                            <a href="">
+                                Visualiser le test
+                            </a>
+                            <a href="">
+                                Dupliquer
+                            </a>
+                        </div>
+                    </article>
+                </section>
+                <div class="boutonsValidation">
+                    <a href="" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un dossier</a>
+                    <a href="" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un Test</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        // $(".nomDossier").click(function(){
+        //     $(".contenuDossier").toggleClass("visible");
+
+        //     // $(".Dossier").css('height', '500');
+        // })
+
+
+        $(document).ready(function() {
+            $('.nomDossier').on('click', function() {
+                // console.log($(".contenuDossier"));
+                // console.log($(this));
+                // console.log($(this).siblings('.contenuDossier'));
+                console.log($(this).children('img').css('transform'));
+
+                $(this).siblings('.contenuDossier').toggle(".visible");
+
+                $(this).children('img').toggleClass('fleche');
+
+                // if($(this).children('img').css('transform') != 'rotate(90deg)') {
+                //     $(this).children('img').css('transform', 'rotate(90deg)');
+                // } else {
+                //     $(this).children('img').css('transform', 'rotate(270deg)');
+                // }
+
+            });
+        });
+    </script>
+
 {% endblock %}
