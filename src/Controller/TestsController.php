@@ -30,6 +30,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TestsController extends Controller
 {
     /**
+     * @Route("/", name="tests_index")
      * @Route("/{id}", name="tests_index", requirements={"id"="\d*"})
      * @ParamConverter("test_folder", class="App:TestFolder", isOptional=true)
      * @param TestFolder|null $folder
