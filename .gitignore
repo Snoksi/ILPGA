@@ -49,8 +49,8 @@
 !bin/symfony_requirements
 
 # Assets and user uploads
-/public/bundles/
-/public/uploads/
+/web/bundles/
+/web/uploads/
 
 # PHPUnit
 /app/phpunit.xml
@@ -63,8 +63,4 @@
 **/Entity/*~
 
 # PHPStorm .idea folder
-<<<<<<< HEAD
 
-=======
-.idea/
->>>>>>> c5d006e04aa4aafbea09d69efe123635baf2240a

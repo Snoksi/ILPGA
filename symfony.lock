@@ -114,11 +114,7 @@
         "version": "0.4.0"
     },
     "phpoffice/phpspreadsheet": {
-<<<<<<< HEAD
         "version": "1.2.0"
-=======
-        "version": "1.2.1"
->>>>>>> c5d006e04aa4aafbea09d69efe123635baf2240a
     },
     "psr/cache": {
         "version": "1.0.1"

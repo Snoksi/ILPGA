@@ -30,6 +30,7 @@ class UsersController extends Controller
         if($query !== null) $users = $userRepository->search($query, $page);
         else $users = $userRepository->getPage($page);
 
+
         return $this->render('users/index.html.twig', [
             'page' => $page,
             'totalPages' => ceil(count($users) / 20),

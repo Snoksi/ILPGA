@@ -6,7 +6,6 @@
     ],
     "content-hash": "cce889430b662e1dd8502d0dfc6efbae",
     "content-hash": "5207e0c33d3bc638dfdcadccff4b1869",
-    "content-hash": "4e954623865689cf5e09d60bea5b01ac",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1757,16 +1756,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/8380fb3ad28242093c18d0baa9b7e67fb429ea84",
                 "reference": "8380fb3ad28242093c18d0baa9b7e67fb429ea84",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "36acc372875c4d894dc093825ce4f62209db5a76"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/36acc372875c4d894dc093825ce4f62209db5a76",
-                "reference": "36acc372875c4d894dc093825ce4f62209db5a76",
                 "shasum": ""
             },
             "require": {
@@ -1840,7 +1829,6 @@
                 "xlsx"
             ],
             "time": "2018-03-04T20:41:15+00:00"
-            "time": "2018-04-10T03:53:16+00:00"
         },
         {
             "name": "psr/cache",
