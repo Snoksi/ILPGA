@@ -76,11 +76,13 @@ class TestManager
         $row = 2;
         while(true) {
             $stimulusName = $sheet->getCell("A" . $row)->getValue();
-
-            // If there is no stimulus, stops the parsing
-            if(!isset($this->stimuli[$stimulusName])) continue;
-
+            // If there is no stimulus, we stop
             if($stimulusName == "") break;
+            // If there is no stimulus, stops the parsing
+            if(!isset($this->stimuli[$stimulusName])){
+                $row++;
+                continue;
+            }
 
             // Else we fill the stimulus of informations
             $stimulus = $this->stimuli[$stimulusName];

@@ -8,6 +8,7 @@
     {#<input type="submit" value="Envoyer">#}
     {#{{ form_end(form) }}#}
 
+
     <header class="co">
         <nav>
             <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
@@ -36,7 +37,6 @@
                 </div>
                 <div>
                     <div class="ligneIntitule">
-
                         <label for="audioType">Fichier audio type</label>
                         <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                     </div>
@@ -61,12 +61,9 @@
 
                     <div class="ligneCheckbox">
                         <div class="bouton">
-
                             {{ form_widget(form.notified) }}
                             {#<input type="checkbox" name="notifReponses" id="notifReponses">#}
-
                             {{ form_label(form.notified) }}
-
                         </div>
                         <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
@@ -106,7 +103,7 @@
 
             <div class="bas">
                 <a href="" class="boutonValidation">Prévisualiser la page</a>
-                <input type="submit" class="boutonValidation" value="Passer au formulaire pré-test"/>
+                <input type="submit" class="boutonValidation" value="Passer au formulaire pré-test">
             </div>
             {{ form_end(form) }}
         </div>
