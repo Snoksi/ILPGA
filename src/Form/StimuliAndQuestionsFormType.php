@@ -12,10 +12,10 @@ class StimuliAndQuestionsFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('excel', FileType::class)
+            ->add('excel', FileType::class, ['label' => 'Fichier Excel des stimuli (et questions)'])
             ->add('audio', FileType::class, [
                 "multiple" => true
-            ])
+            ], ['label' => 'Fichiers mp3 des stimuli'])
         ;
     }
 
