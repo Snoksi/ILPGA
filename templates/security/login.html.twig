@@ -8,16 +8,61 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
+    {#<form action="{{ path('user_login') }}" method="post">#}
+    {#<label for="username">Nom utilisateur :</label>#}
+    {#<input type="text" id="username" name="_username" value="{{ last_username }}" />#}
+
+    {#<label for="password">Mot de passe :</label>#}
+    {#<input type="password" id="password" name="_password" />#}
+
+    {#<button type="submit" class="button">connexion</button>#}
+    {#</form>#}
+    {#<a href="/lost_password">forgot password ?</a>#}
+
+
+
+    <header class="nonCo">
+        <nav>
+            <p>LOGO</p>
+            <div class="notConnected">
+                <a href="/register">Inscription</a>
+                <a href="/">Connexion</a>
+            </div>
+        </nav>
+    </header>
+    <main id="connexion">
+        <div class="conteneurPasCo">
+            <h1>Connexion</h1>
             <form action="{{ path('user_login') }}" method="post">
-                <label for="username">Nom utilisateur :</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                <div>
+                    <label for="username">
+                        Nom d'utilisateur
+                        <input type="text" name="_username" id="username">
+                    </label>
+                </div>
 
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="_password" />
+                <div>
+                    <label for="password">
+                        Mot de passe
+                        <input type="password" name="_password" id="password">
+                    </label>
+                </div>
 
-                <button type="submit" class="button">connexion</button>
+                <div>
+                    <label for="resterCo">
+                        <input type="checkbox" name="resterCo" id="resterCo">
+                        Rester connecté
+                    </label>
+
+                    <div class="trait">
+                    </div>
+
+                    <a href="/lost_password">Mot de passe oublié</a>
+                </div>
+
+                <button type="submit" class="button boutonLarge">CONNEXION</button>
             </form>
-    <a href="/register">register</a>
-    <a href="/lost_password">forgot password ?</a>
+        </div>
+    </main>
 
 {% endblock %}

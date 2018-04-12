@@ -1,3 +1,867 @@
-body {
-    color:red;
+/** Général **/
+
+/* RESET */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    /* display: flex; */
+    min-height: 100%;
+}
+
+.bodyCo{
+    display: flex;
+    background-color: #f5f8fc;
+}
+
+/* Conteneur */
+.conteneurPasCo{
+    width: 1000px;
+    margin: auto;
+}
+
+.conteneur {
+    width: 900px;
+    margin: auto;
+}
+
+/* Formulaire */
+
+.bas a {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+.boutonLarge {
+    height: 50px;
+    width: 40%;
+    background-color: #619cf3;
+    border: 0;
+    color: white;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+.boutonsValidation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.boutonValidation {
+    background-color: #619CF3;
+    padding: 25px;
+    width: 48%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+.boutonValidation.blanc {
+    color: #619CF3;
+    background-color: white;
+    border: 3px #619CF3 solid;
+}
+
+.boutonValidation img {
+    height: 20px;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+input {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    padding-left: 13px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline:  none;
+}
+
+label {
+    font-weight: 600;
+}
+
+/* Hn */
+h1{
+    font-size: 2.2rem;
+    color: #619cf3;
+    font-weight: bold;
+}
+
+h4{
+    font-size: 1.2rem;
+    color:#BDBDBD;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+#inscription, #connexion{
+    background-color: #F5F8FC;
+    min-height: calc(100vh - 60px);
+}
+
+#parametresgeneraux img, #formulairepretest img, #remerciements img, #stimulietquestion img, #instructions img, #generationlien img {
+    height: 20px;
+    width: 20px;
+}
+
+/** Menu non connecté**/
+
+/* Fond menu */
+header.nonCo{
+    background-color: #FAFAFA;
+}
+
+/* Disposition du contenu */
+header.nonCo nav{
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+header.nonCo nav > p {
+    text-transform: uppercase;
+    color: #585858;
+    font-size: 1.6rem;
+}
+
+/* Disposition des items droits du menu */
+header.nonCo nav > .notConnected {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style des liens des items droits du menu */
+header.nonCo nav > .notConnected a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+/** Menu connecté**/
+
+header.co {
+    background-color: #619cf3;
+    height: 100vh;
+    width: 13.5%;
+    text-align: center;
+    position: fixed;
+}
+
+header.co nav{
+    width: 65%;
+    position: relative;
+    height: 95vh;
+    margin: auto;
+    padding-top: 30px;
+}
+
+header.co nav img {
+    width: 100%;
+}
+
+header.co nav a{
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+header.co nav a:first-of-type{
+    margin-top: 15px;
+}
+
+header.co nav a:not(:last-of-type) {
+    margin-top: 15px;
+}
+
+header.co nav a:not(:last-of-type):hover {
+    color: #f5f8fc;
+}
+
+header.co nav a:last-of-type {
+    bottom: 10px;
+    position: absolute;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+header.co nav a:last-of-type:hover {
+    text-decoration: none;
+}
+
+header.co nav a.active {
+    font-weight: bold;
+}
+
+header.co nav a img {
+    width: 30px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+
+/* Bloc de base /*/
+.bodyCo main {
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-left: 13.5%;
+}
+
+/* #listeTests > div {
+    min-height: 100%;
+    position: relative;
+} */
+
+
+/* Header avec recherche */
+
+.pagesNonForm header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagesNonForm header > * {
+    display: inline;
+}
+
+.pagesNonForm header form {
+    width: 60%;
+}
+
+.pagesNonForm header form input {
+    background: url('src/MyBundle/Resources/public/img/search.svg') no-repeat scroll 97% 14px;
+    background-size: 15px;
+    width: 100%;
+    color: #BDBDBD;
+    font-style: italic;
+    height: 40px;
+    background-color: white;
+}
+
+/** Liste des tests **/
+
+.contenuListe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 170px);
+}
+
+
+
+.Dossier {
+    height: auto;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    padding: 20px 40px;
+    overflow: hidden;
+    margin-top: 30px;
+    /* transition: height 0.25s ease-in; */
+}
+
+.Dossier:first-of-type {
+    margin-top: 50px;
+}
+
+.nomDossier:hover {
+    cursor: pointer;
+}
+
+.Dossier .nomDossier {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.Dossier .nomDossier img {
+    height: 20px;
+}
+
+.Dossier .contenuDossier {
+    margin-top: 20px;
+}
+
+#listeTests .Dossier .contenuDossier article {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 10px 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    margin-top: 15px;
+}
+
+#listeTests .contenuDossier article p {
+    font-size: 1.6rem;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+#listeTests .contenuDossier article div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#listeTests .contenuDossier article div a {
+    background-color: #619CF3;
+    border-radius: 2px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#listeTests .contenuDossier article div a img {
+    height: 17px;
+    vertical-align: middle;
+}
+
+#gestionadmins .Dossier .contenuDossier p {
+    font-size: 1.3rem;
+}
+
+/* Pied de page */
+
+.bas {
+    margin-top: 80px;
+    width: 900px;
+    padding-bottom: 50px;
+}
+
+.bas .doubleBoutons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.bas .doubleBoutons a {
+    background-color: #619CF3;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    width: 98%;
+    padding: 5px 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+.pagesForm .bas {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+
+
+
+.exempleTest {
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.exempleTest article {
+    height: 40px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 35px;
+    font-size: 1.3rem;
+}
+
+.exempleTest article p {
+    font-style: italic;
+}
+
+.exempleTest article div a {
+    background-color: #619CF3;
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+}
+/* Paramètres généraux */
+
+input{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border-style: none;
+    font-size: 15px;
+    padding: 10px;
+}
+
+label{
+    font-size: 1.5rem;
+}
+
+.bloc-nomfichier{
+    display: flex;
+    justify-content: center;
+}
+
+
+/** Inscription et Connexion **/
+
+
+#inscription h1, #connexion h1{
+    padding: 30px 0 30px 0;
+}
+
+#inscription .conteneur, #connexion .conteneur{
+    padding: 20px;
+}
+
+#inscription form, #connexion form{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#inscription form label > *, #connexion form > div:not(:last-of-type) > label > *{
+    display: block;
+}
+
+#inscription form > div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Inscription seulement */
+#inscription form > div > label {
+    width: 100%;
+}
+
+#inscription label select, #inscription label input{
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+}
+
+#inscription form > div:not(:nth-child(2)) > label:first-child {
+    padding-right: 20px;
+}
+
+#inscription form > div:not(:nth-child(2)) > label:last-child {
+    padding-left: 20px;
+}
+
+/* Connexion seulement */
+#connexion form > div {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#connexion form{
+    max-width: 300px;
+    margin: auto;
+}
+
+#connexion form > div:not(:last-of-type) label > input {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+}
+
+#connexion form > div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#connexion form > div:last-of-type a{
+    font-style: italic;
+    color: black;
+    text-decoration: none;
+}
+
+#connexion .trait{
+    width: 1px;
+    background-color: black;
+    height: 25px;
+}
+
+#connexion .boutonLarge{
+    width: 100%;
+}
+
+/** Page pre-test **/
+
+.ajoutQuestion > div:not(:first-of-type) {
+    margin-top: 20px;
+}
+
+/* Remerciements */
+
+#remerciements .ligneCheckbox {
+    margin-top: 20px;
+}
+
+/* Instructions */
+#instructions .boutonValidation {
+    padding: 14px;
+}
+
+/* Organisation */
+#organisation .bas {
+    flex-direction: column;
+}
+
+#organisation .bas div.multipleChamp {
+    display: flex;
+    justify-content: space-between;
+}
+
+#organisation .bas div.multipleChamp a {
+    width: 32%;
+    background-color: #619cf3;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    text-decoration: none;
+    padding: 15px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+#organisation .bas div:last-of-type {
+    margin-top: 20px;
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Generation */
+
+#generationLien textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    border-radius: 3px;
+    border: 0;
+    margin-top: 15px;
+}
+
+#generationLien form > p {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 60px;
+}
+
+/** Forms **/
+
+.pagesForm header > p{
+    color: #828282;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+
+.pagesForm input[type="text"] {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pagesForm img {
+    height: 20px;
+}
+
+.pagesForm form {
+    margin-top: 50px;
+}
+
+.pagesForm form > div:not(.bas) {
+    margin-top: 20px;
+}
+
+
+.ligneIntitule {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.pagesForm span, .liste span {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+.ajoutQuestion {
+    margin-top: 15px;
+}
+
+
+.groupeRadio {
+    margin-top: 10px;
+}
+
+.groupeRadio label {
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.groupeRadio input {
+    display: inline;
+}
+
+.groupeRadio label {
+    display: inline;
+    margin-left: 5px;
+}
+
+.groupeRadio input:last-of-type {
+    margin-left: 20px;
+}
+
+.listeCheckbox .ligneCheckbox {
+    margin-top: 15px;
+}
+
+.ligneCheckbox, .autreQuestion, .autreQuestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ligneCheckbox .bouton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ligneCheckbox .bouton label {
+    margin-left: 10px;
+}
+
+.ligneCheckbox .bouton img {
+    margin-left: 10px;
+}
+
+.ligneCheckbox input[type="checkbox"] {
+    border: 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+
+.listeChoix {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.choix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 24%;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    padding: 10px 15px;
+
+}
+
+.choix img {
+    height: 18px;
+}
+
+
+
+.multipleChamp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.multipleChamp.double > div {
+    width: 48%;
+}
+
+.multipleChamp.triple > div {
+    width: 31%;
+}
+
+
+
+.editeurTxt {
+    width: 100%;
+    height: 250px;
+    background-color: white;
+}
+
+
+/* Liste */
+
+.liste {
+
+}
+
+.liste article {
+    height: auto;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    padding: 10px 20px;
+    overflow: hidden;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.liste article p {
+    font-size: 1.4rem;
+}
+
+.liste article a {
+    background-color: #619CF3;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+.liste article img {
+    height: 17px;
+    vertical-align: middle;
+}
+
+.liste article div > img {
+    margin-left: 10px;
+}
+
+
+
+
+#gestionadmins .liste div a {
+    background-color: #619CF3;
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Documentation */
+
+#documentation .bas {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#documentation .bas .boutonValidation {
+    padding: 25px 80px;
+}
+
+/* Parametres */
+#parametres > div {
+    width: 500px;
+    margin: auto;
+}
+
+#parametres form {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+#parametres form label {
+    margin-top: 20px;
+}
+
+#parametres form input {
+    margin-top: 10px;
+}
+
+#parametres form > p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+#parametres form > div {
+    margin-top: 10px;
+}
+
+#parametres form > div img {
+    height: 25px;
+    margin-left: 10px;
+}
+
+#parametres input[type="submit"] {
+    background-color: #619cf3;
+    width: 70%;
+    margin: auto;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    margin-top: 80px;
+}
+
+
+/* ****************pour JS***************** */
+
+.visible {
+    display: none;
+}
+
+.fleche {
+    transform: rotate(180deg);
+}
+
+
+
