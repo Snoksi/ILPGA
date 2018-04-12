@@ -3,10 +3,10 @@
 {% block title %}Créer un test{% endblock %}
 {% block etat %}class="bodyCo"{% endblock %}
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Envoyer">
-    {{ form_end(form) }}
+    {#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<input type="submit" value="Envoyer">#}
+    {#{{ form_end(form) }}#}
 
     <header class="co">
         <nav>
@@ -30,8 +30,7 @@
                 <div>
                     <div class="ligneIntitule">
                         {{ form_label(form.name) }}
-                        <label for="nomTest">Nom du test</label>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                     </div>
                     {{ form_widget(form.name) }}
                 </div>
@@ -39,18 +38,16 @@
                     <div class="ligneIntitule">
 
                         <label for="audioType">Fichier audio type</label>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                     </div>
                     <input type="text" id="audioType" name="audioType">
                 </div>
             </div>
             <div class="ligneIntitule">
-                <label for="nomTest">Instructions générales</label>
-                <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                {{ form_label(form.instructionPage) }}
+                <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
             </div>
-            <div class="editeurTxt">
-
-            </div>
+            {{ form_widget(form.instructionPage.content) }}
 
             <div class="multipleChamp triple">
                 <div class="listeCheckbox">
@@ -59,19 +56,19 @@
                             <input type="checkbox" name="blocaleatoire" id="blocaleatoire">
                             <label for="blocaleatoire">Ordre des blocs aléatoires</label>
                         </div>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
 
                     <div class="ligneCheckbox">
                         <div class="bouton">
 
-                            {{ form_widget(form.name) }}
-                            <input type="checkbox" name="notifReponses" id="notifReponses">
+                            {{ form_widget(form.notified) }}
+                            {#<input type="checkbox" name="notifReponses" id="notifReponses">#}
 
                             {{ form_label(form.notified) }}
-                            <label for="notifReponses">Être notifié des réponses</label>
+
                         </div>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
 
                     <div class="ligneCheckbox">
@@ -80,7 +77,7 @@
                             <label for="partenaire">Partenaires</label>
                             <img src="{{ asset('img/picto/plus-sign-in-a-black-circle.svg') }}" alt="picto plus">
                         </div>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
 
                 </div>
@@ -88,7 +85,7 @@
                 <div>
                     <div class="ligneIntitule">
                         <label for="logoPartenaire">Logo du partenaire</label>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto interrogation">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                     </div>
                     <input type="text" id="logoPartenaire" name="logoPartenaire">
                 </div>
@@ -98,9 +95,9 @@
                         <div class="bouton">
                             <input type="checkbox" name="nomPartenaire" id="nomPartenaire">
                             <label for="nomPartenaire">Nom du partenaire</label>
-                            <img src="{ asset('img/picto/plus-sign-in-a-black-circle.svg') }}" alt="picto plus">
+                            <img src="{{  asset('img/picto/plus-sign-in-a-black-circle.svg') }}" alt="picto plus">
                         </div>
-                        <img src="{{ asset('img/picto/question-mark.svg') }}" alt="picto question">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
                     <input type="text" id="nomPartenaire" name="nomPartenaire">
                 </div>
@@ -109,9 +106,9 @@
 
             <div class="bas">
                 <a href="" class="boutonValidation">Prévisualiser la page</a>
-                <a href="" class="boutonValidation">Passer au formulaire pré-test</a>
+                <input type="submit" class="boutonValidation" value="Passer au formulaire pré-test"/>
             </div>
-            </form>
+            {{ form_end(form) }}
         </div>
     </main>
 {% endblock %}
