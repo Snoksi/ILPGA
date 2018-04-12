@@ -2,24 +2,73 @@
 
 {% block title %}Liste des utilisateurs{% endblock %}
 
+{% block etat %}class="bodyCo"{% endblock %}
+
 {% block body %}
-    faire une recherche :
-    <form action="{{ path('users_search') }}" method="get" class="main-search">
-        <!--<label for="searchBar">rechercher:</label>-->
-        <input type="text" id="query" name="query"/>
+    {#faire une recherche :#}
+    {#<form action="{{ path('users_search') }}" method="get" class="main-search">#}
+    {#<!--<label for="searchBar">rechercher:</label>-->#}
+    {#<input type="text" id="query" name="query"/>#}
 
-        <button type="submit" class="button">Rechercher</button>
-    </form>
-    Voici la liste des utilisateurs:
-    <ul>
-        {% for user in users %}
-            <li><a href="">{{ user.firstname }} {{ user.lastname }}</a>[<a href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>]</li>
-        {% endfor %}
-    </ul>
+    {#<button type="submit" class="button">Rechercher</button>#}
+    {#</form>#}
+    {#Voici la liste des utilisateurs :#}
+    {#<ul>#}
+    {#{% for user in users %}#}
+    {#<li><a href="">{{ user.firstname }} {{ user.lastname }}</a>[<a href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>]</li>#}
+    {#{% endfor %}#}
+    {#</ul>#}
 
-    {% include '_layouts/pagination.html.twig' with {
-        currentPage: page,
-        paginationPath: "users_index",
-        lastPage: totalPages
-    } only %}
+    {#{% include '_layouts/pagination.html.twig' with {#}
+    {#currentPage: page,#}
+    {#paginationPath: "users_index",#}
+    {#lastPage: totalPages#}
+    {#} only %}#}
+
+
+
+
+
+    <header class="co">
+        <nav>
+            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+            <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+            <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
+            <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main id="gestionadmins" class="pagesNonForm">
+        <div class="conteneur">
+            <header>
+                <h1>Gestion des utilisateurs</h1>
+                <form action="{{ path('users_search') }}" method="get" class="main-search">
+                    <input type="text" id="query" name="query" placeholder="Rechercher un test, un dossier...">
+                </form>
+            </header>
+
+            <section class="liste">
+
+                {% for user in users %}
+                    <article><p>{{ user.firstname }} {{ user.lastname }} <span>{{ user.role }}</span></p>
+                        <div>
+                            <a href="{{ path('users_edit', {'id': user.id}) }}">
+                                Modifier le statut
+                            </a>
+                            <a href="">
+                                Supprimer
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </section>
+            {% include '_layouts/pagination.html.twig' with {
+                currentPage: page,
+                paginationPath: "users_index",
+                lastPage: totalPages
+            } only %}
+        </div>
+    </main>
+
 {% endblock %}
