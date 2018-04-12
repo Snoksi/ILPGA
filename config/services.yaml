@@ -27,7 +27,7 @@ services:
 
     App\Service\Uploader\FileUploader:
         arguments:
-            $rootDirectory: '%kernel.project_dir%/../public'
+            $rootDirectory: '%kernel.project_dir%/public'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
