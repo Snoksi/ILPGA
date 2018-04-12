@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un test{% endblock %}
+{% block etat %}class="bodyCo"{% endblock %}
+{% block body %}
+    {% include '_layouts/sidebar.html.twig' %}
+    <main id="parametresgeneraux" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Génération du lien</h1>
+                <p>Copier-collez le lien ci-dessous et diffusez-le à vos auditeurs. Visionnez les réponses dans la page "Liste des tests"</p>
+            </header>
+
+            <form action="">
+                <div class="ligneIntitule">
+                    <label for="">Lien du test</label>
+                </div>
+                <input type="text" style="width:100%;" value="{{ link }}">
+            </form>
+
+            <div class="bas">
+                <a href="" class="boutonValidation">Modifier le test</a>
+                <a href="{{ path("tests_index", {"id": null}) }}" class="boutonValidation">Retour à la liste de tests</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

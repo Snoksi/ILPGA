@@ -191,6 +191,8 @@ class TestsController extends Controller
                 $em->persist($question);
             }
             $em->flush();
+
+            return $this->redirectToRoute('tests_get_link', ['id' => $test->getId()]);
         }
         return $this->render('tests/step_3.html.twig', ['form' => $form->createView()]);
     }
@@ -198,6 +200,19 @@ class TestsController extends Controller
     public function redirectToStep($step = 1){
         $this->get('session')->set('reached_step', $step);
         return $this->redirectToRoute('tests_create_step', ['step' => $step]);
+    }
+
+    /**
+     * @Route("/edit/{id}/get_link", name="tests_get_link")
+     * @ParamConverter("test", class="App:Test")
+     * @param Request $request
+     * @param Test $test
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getTestLink(Request $request, Test $test){
+        $domain = $request->getSchemeAndHttpHost();
+        $link = $domain.$this->generateUrl('test', ['id' => $test->getId()]);
+        return $this->render('tests/get_test_link.html.twig', ['link' => $link]);
     }
 
 }
