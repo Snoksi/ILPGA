@@ -89,6 +89,12 @@ body{
     text-transform: uppercase;
     border-radius: 3px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boutonValidation:hover{
+    background: #79afff;
 }
 
 .boutonValidation.blanc {
@@ -103,7 +109,8 @@ body{
     padding-right: 10px;
 }
 
-input {
+input,
+textarea{
     border: 0;
     border-radius: 3px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
@@ -114,6 +121,11 @@ input {
 
 input:focus {
     outline:  none;
+}
+
+textarea{
+    width: 100%;
+    min-height: 160px;
 }
 
 label {

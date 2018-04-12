@@ -47,7 +47,7 @@
                 {{ form_label(form.instructionPage) }}
                 <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
             </div>
-            {{ form_widget(form.instructionPage.content) }}
+            {{ form_widget(form.instructionPage.content, { 'attr': {'size': '10'} }) }}
 
             <div class="multipleChamp triple">
                 <div class="listeCheckbox">
