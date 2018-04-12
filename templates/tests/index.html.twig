@@ -41,12 +41,12 @@
 
                         {% for folder in current_folder.children %}
                             {% for folder in folder.children %}
-                                <article>
+                                <article class="dossierLien">
                                     <a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a>
                                 </article>
                             {% endfor %}
                             {% for test in folder.tests %}
-                                <article>
+                                <article class="ligneTest">
                                     <p>{{ test.name }}</p>
                                     <div>
                                         <a href="">
@@ -79,15 +79,30 @@
             {% endfor %}
 
             {% for test in current_folder.tests %}
-                <section class="exempleTest">
-                    <article>
+                <section class="test">
+                    <article class="ligneTest">
                         <p>{{ test.name }}</p>
                         <div>
                             <a href="">
-                                Visualiser le test
+                                <img src="{{ asset('img/picto/exam.svg') }}" alt="picto">
                             </a>
                             <a href="">
-                                Dupliquer
+                                <img src="{{ asset('img/picto/desktop-monitor.svg') }}" alt="picto">
+                            </a>
+                            <a href="">
+                                <img src="{{ asset('img/picto/chain.svg') }}" alt="picto">
+                            </a>
+                            <a href="">
+                                <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
+                            </a>
+                            <a href="">
+                                <img src="{{ asset('img/picto/copy-archive.svg') }}" alt="picto">
+                            </a>
+                            <a href="">
+                                <img src="{{ asset('img/picto/turn-visibility-off-button.svg') }}" alt="picto">
+                            </a>
+                            <a href="">
+                                <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
                             </a>
                         </div>
                     </article>

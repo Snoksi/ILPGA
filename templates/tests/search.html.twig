@@ -1,19 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Résultats pour {{ query }}{% endblock %}
-
+{% block etat %}class="bodyCo"{% endblock %}
 {% block body %}
-    <h1>Résultats pour {{ query }}</h1>
 
-    <ul class="folders">
-        {% for folder in folders %}
-            <li><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></li>
-        {% endfor %}
-    </ul>
+    {% include '_layouts/sidebar.html.twig' %}
 
-    <ul class="tests">
+<main id="listeTests" class="pagesNonForm">
+    <div class="conteneur">
+        <header>
+            <h1>Résultats pour {{ query }}</h1>
+            <form action="{{ path('tests_search') }}" method="GET">
+                <input type="text" name="query" placeholder="Rechercher un test, un dossier...">
+            </form>
+        </header>
+
+
+        <section class="dossierLien">
+            {% for folder in folders %}
+                <article>
+                    <a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a>
+                </article>
+            {% endfor %}
+        </section>
+
+    <section class="test">
         {% for test in tests %}
-            <li>{{ test.name }}</li>
+            <article class="ligneTest">
+                <p>{{ test.name }}</p>
+                <div>
+                    <a href="">
+                        <img src="{{ asset('img/picto/exam.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/desktop-monitor.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/chain.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/copy-archive.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/turn-visibility-off-button.svg') }}" alt="picto">
+                    </a>
+                    <a href="">
+                        <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
+                    </a>
+                </div>
+            </article>
         {% endfor %}
-    </ul>
+    </section>
 {% endblock %}

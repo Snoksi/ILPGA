@@ -1,6 +1,8 @@
 <header class="co">
     <nav>
-        <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+        <div>
+            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+        </div>
         <a href="{{ path("tests_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
             <a href="{{ path("users_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des utilisateurs</a>

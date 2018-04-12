@@ -227,6 +227,10 @@ header.co nav{
     padding-top: 30px;
 }
 
+header.co nav div {
+    height: 113px;
+}
+
 header.co nav img {
     width: 100%;
 }
@@ -361,6 +365,11 @@ header.co nav a img {
     margin-top: 20px;
 }
 
+.Dossier .nomDossier p > a {
+    text-decoration: none;
+    color: black;
+}
+
 #listeTests .Dossier .contenuDossier article {
     display: flex;
     justify-content: space-between;
@@ -376,12 +385,42 @@ header.co nav a img {
     vertical-align: middle;
 }
 
-#listeTests .contenuDossier article div {
+.dossierLien {
+    display: flex;
+    justify-content: space-between;
+
+   flex-direction: column;
+
+}
+
+.dossierLien article {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 10px 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    margin-top: 15px;
+    background-color: white;
+    align-items: center;
+}
+
+.dossierLien a{
+    color: black;
+    font-size: 1.3rem;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.ligneTest {
+    margin-top: 10px;
+}
+
+.ligneTest div {
     display: flex;
     justify-content: space-around;
 }
 
-#listeTests .contenuDossier article div a {
+.ligneTest a {
     background-color: #619CF3;
     border-radius: 2px;
     height: 30px;
@@ -392,7 +431,7 @@ header.co nav a img {
     margin-left: 10px;
 }
 
-#listeTests .contenuDossier article div a img {
+.ligneTest a img {
     height: 17px;
     vertical-align: middle;
 }
@@ -439,7 +478,7 @@ header.co nav a img {
 
 
 
-.exempleTest {
+.exempleTest, .test {
     margin-bottom: 25px;
     margin-top: 20px;
 }
@@ -454,6 +493,22 @@ header.co nav a img {
     align-items: center;
     padding: 25px 35px;
     font-size: 1.3rem;
+}
+
+.test article {
+    height: 50px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 35px;
+    font-size: 1.3rem;
+}
+
+.test .ligneTest a {
+    height: 100%;
 }
 
 .exempleTest article p {

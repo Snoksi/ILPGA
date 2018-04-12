@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Créer un test{% endblock %}
-
+{% block etat %}class="bodyCo"{% endblock %}
 {% block body %}
     {#{{ form_start(form) }}#}
     {#{{ form_widget(form) }}#}
@@ -67,7 +67,7 @@
                 <div class="ligneCheckbox">
                     <div class="bouton">
                         {{ form_widget(form.code) }}
-                        <p>{{ form_label(form.code) }}<span> (champ texte)</span></label>
+                        <p>{{ form_label(form.code) }}<span> (champ texte)</span></p>
                     </div>
                     <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                 </div>
@@ -84,9 +84,11 @@
 
                 <div class="redactionQuestion">
                     <div class="ligneIntitule">
-                        <label>Question</label>
+                        {{ form_label(form.questions) }}
+
                         <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
+                    {{ form_widget(form.questions) }}
                     <input type="text" name="questionAjoutee-1">
                 </div>
 
