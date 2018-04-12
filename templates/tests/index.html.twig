@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello !{% endblock %}
+{% block title %}Liste des tests{% endblock %}
 
 {% block etat %}class="bodyCo"{% endblock %}
 
@@ -25,7 +25,7 @@
         <div class="conteneur">
             <header>
                 <h1>Liste des tests</h1>
-                <form action="" method="GET">
+                <form action="{{ path('tests_search') }}" method="GET">
                     <input type="text" name="query" placeholder="Rechercher un test, un dossier...">
                 </form>
             </header>
