@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    {% for key,item in array %}
+        {% if   key != 1 %}
+            <ul>
+
+                <li>{{ key }}: {{ item.A }}</li>
+                <li>{{ key }}: {{ item.B }}</li>
+                <li>{{ key }}: {{ item.C }}</li>
+
+            </ul>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

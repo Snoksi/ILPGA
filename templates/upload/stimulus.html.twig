@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    <h1>Adding a new mp3</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.stimulus) }}
+        <button type="submit" class="button">Upload</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+        t'es un super admin ! beau gosse !!!
+        <a href="/logout">Déconnexion</a>
+        <a href="/users">list</a>
+
+    {% elseif is_granted('ROLE_ADMIN') %}
+
+        t'es co, t'es un admin !
+        <a href="/logout">Déconnexion</a>
+
+    {% elseif is_granted('ROLE_USER') %}
+
+        t'es co !
+        <a href="/logout">Déconnexion</a>
+
+    {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+
+        t'es pas co
+        <a href="./login">Connexion</a>
+        <a href="./register">Inscription</a>
+
+    {% endif %}
+
+{% endblock %}
+
