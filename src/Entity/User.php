@@ -19,6 +19,7 @@ class User implements UserInterface, \Serializable
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      * @Assert\Length(
@@ -30,14 +31,20 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $username;
+
+
     /**
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
+
+
     /**
-     * @ORM\Column(type="string", length=75)
+     * @ORM\Column(type="string", length=191)
      */
     private $password;
+
+
     /**
      * @ORM\Column(type="string", length=75, unique=true)
      * @Assert\NotBlank()
@@ -45,14 +52,18 @@ class User implements UserInterface, \Serializable
      */
     private $email;
 
+
     /**
      * @ORM\Column(type="string", length=75)
      */
     private $lastname;
+
+
     /**
      * @ORM\Column(type="string", length=75)
      */
     private $firstname;
+
 
     /**
      * @ORM\Column(name="role", type="array")
@@ -72,6 +83,8 @@ class User implements UserInterface, \Serializable
     {
         return $this->getPlainPassword() !== $this->getUsername();
     }
+
+
     public function getSalt()
     {
         return null;
