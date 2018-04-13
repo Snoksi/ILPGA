@@ -9,15 +9,7 @@
     {#{{ form_end(form) }}#}
 
 
-    <header class="co">
-        <nav>
-            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
-            <a href="" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
-            <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
-            <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
-            <a href="/logout">Déconnexion</a>
-        </nav>
-    </header>
+    {% include "_layouts/sidebar.html.twig" %}
 
     <main id="parametresgeneraux" class="pagesForm">
         <div class="conteneur">

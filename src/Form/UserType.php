@@ -19,12 +19,11 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('lastname')
             ->add('firstname')
-            ->add('roles', ChoiceType::class, [
+            ->add('role', ChoiceType::class, [
                 'choices' => array(
                     'Administrateur' => 'ROLE_ADMIN',
                     'Super Administrateur' => 'ROLE_SUPER_ADMIN',
                 ),
-                'multiple' => true
             ])
         ;
     }

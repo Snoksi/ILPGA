@@ -110,7 +110,8 @@ body{
 }
 
 input,
-textarea{
+textarea,
+select{
     border: 0;
     border-radius: 3px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
@@ -228,7 +229,7 @@ header.co nav{
 }
 
 header.co nav div {
-    height: 113px;
+    height: 142px;
 }
 
 header.co nav img {
@@ -524,7 +525,8 @@ header.co nav a img {
 }
 /* Paramètres généraux */
 
-input{
+input,
+select{
     background: #FFFFFF;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -708,7 +710,11 @@ label{
 }
 
 
-.pagesForm input[type="text"] {
+.pagesForm input[type="text"],
+.pagesForm input[type="email"],
+.pagesForm input[type="number"],
+.pagesForm input[type="password"],
+.pagesForm select{
     width: 100%;
     margin-top: 15px;
 }

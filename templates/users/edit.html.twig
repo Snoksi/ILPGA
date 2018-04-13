@@ -2,29 +2,40 @@
 
 {% block title %}Modifier le compte {{ user.email }}{% endblock %}
 
+{% block etat %}class="bodyCo"{% endblock %}
 {% block body %}
-    <h2>Modifier le compte {{ user.email }}</h2>
-    {{ form_start(form) }}
-        <div class="form-group">
-            {{ form_label(form.username) }}
-            {{ form_widget(form.username) }}
+    {% include "_layouts/sidebar.html.twig" %}
+    <main id="parametresgeneraux" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Modifier le compte de {{ user.email }}</h1>
+            </header>
+
+            {{ form_start(form) }}
+                <div class="ligneIntitule">
+                    <label for="">Nom d'utilisateur</label>
+                </div>
+                {{ form_widget(form.username) }}
+                <div class="ligneIntitule">
+                    <label for="">Adresse email</label>
+                </div>
+                {{ form_widget(form.email) }}
+                <div class="ligneIntitule">
+                    <label for="">NOM</label>
+                </div>
+                {{ form_widget(form.lastname) }}
+                <div class="ligneIntitule">
+                    <label for="">Prénom</label>
+                </div>
+                {{ form_widget(form.firstname) }}
+                <div class="ligneIntitule">
+                    <label for="">Role</label>
+                </div>
+                {{ form_widget(form.role) }}
+                <div class="bas">
+                    <input class="boutonValidation" type="submit" value="Envoyer">
+                </div>
+            {{ form_end(form) }}
         </div>
-        <div class="form-group">
-            {{ form_label(form.email) }}
-            {{ form_widget(form.email) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.firstname) }}
-            {{ form_widget(form.firstname) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.lastname) }}
-            {{ form_widget(form.lastname) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.roles) }}
-            {{ form_widget(form.roles) }}
-        </div>
-        <input type="submit" value="Envoyer">
-    {{ form_end(form) }}
+    </main>
 {% endblock %}
