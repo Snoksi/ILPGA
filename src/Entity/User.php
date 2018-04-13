@@ -35,22 +35,22 @@ class User implements UserInterface, \Serializable
      */
     private $plainPassword;
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=75)
      */
     private $password;
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=75, unique=true)
      * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=75)
      */
     private $lastname;
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=75)
      */
     private $firstname;
 
