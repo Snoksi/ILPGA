@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Page;
+use App\Entity\Stimulus;
 use App\Entity\Test;
 use App\Entity\TestFolder;
-use App\Form\CreatePostTestFormType;
+use App\Form\PreTestFormType;
 use App\Form\CreateTestType;
 use App\Form\StimuliAndQuestionsFormType;
 use App\Service\TestManager;
@@ -15,6 +16,7 @@ use App\Service\Uploader\StimulusUploader;
 use App\Utils\FormGenerator\PreTestFormSerializer;
 use Doctrine\ORM\Mapping\Entity;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use phpDocumentor\Reflection\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -77,44 +79,13 @@ class TestsController extends Controller
 
     /**
      * @Route("/create", name="tests_create")
-     * @Route("/create/in_folder/{id}", name="tests_create_in")
-     * @Route("/create/step/{step}", name="tests_create_step")
-     * @ParamConverter(name="folder", class="App:TestFolder", isOptional=false)
-     * @param SessionInterface $session
-     * @param TestFolder|null $folder
-     * @param int $step
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function create(SessionInterface $session, TestFolder $folder = null, $step = 1)
-    {
-        $reachedStep = $session->get('reached_step', 1);
-
-        if($step > $reachedStep){
-            throw new AccessDeniedException();
-        }
-
-        if($step == 1){
-            return $this->forward("App\Controller\TestsController::step1", [
-                'folder' => $folder
-            ]);
-        }
-
-        $testId = $session->get('editing_test_id');
-        $em = $this->getDoctrine()->getManager();
-        $test = $em->getRepository('App:Test')->find($testId);
-
-        return $this->forward("App\Controller\TestsController::step".$step, [
-            'test' => $test
-        ]);
-    }
-
-    /**
      * @param Request $request
      * @param TestFolder|null $folder
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function step1(Request $request, SessionInterface $session, TestFolder $folder = null)
+    public function createTest(Request $request, FileUploader $uploader)
     {
+        $folder = $request->get('folder') ?? null;
         $test = new Test();
         $page = new Page();
 
@@ -134,11 +105,40 @@ class TestsController extends Controller
             $em->persist($test);
             $em->flush();
 
-            $session->set('editing_test_id', $test->getId());
-
-            return $this->redirectToStep(2);
+            return $this->redirectToRoute('tests_create_form', ['test_id' => $test->getId()]);
         }
-        return $this->render('tests/step_1.html.twig', ['form' => $form->createView()]);
+        return $this->render('tests/create.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/edit/{test_id}/form/create", name="tests_create_form")
+     * @ParamConverter("test", class="App:Test", options={"mapping": {"test_id": "id"}})
+     * @param Request $request
+     * @param Test $test
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function createTestForm(Request $request, Test $test)
+    {
+        $form = $this->createForm(PreTestFormType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $formSerializer = new PreTestFormSerializer($form->getData());
+
+            $page = new Page();
+            $page->setTitle("Formulaire pre-test");
+            $page->setType('form');
+            $page->setContent($formSerializer->getSerializedForm());
+            $page->setTest($test);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($page);
+            $em->flush();
+
+            return $this->redirectToRoute('tests_index');
+        }
+        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
     }
 
     /**
@@ -146,7 +146,7 @@ class TestsController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function step2(Request $request, SessionInterface $session, Test $test){
-        $form = $this->createForm(CreatePostTestFormType::class);
+        $form = $this->createForm(PreTestFormType::class);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())

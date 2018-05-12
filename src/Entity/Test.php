@@ -25,13 +25,17 @@ class Test
     /**
      * @ORM\Column(type="boolean")
      */
+    private $random;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
     private $notified;
 
     /**
-     * @ORM\OneToOne(targetEntity="Stimulus")
-     * @JoinColumn(name="stimulus_test_id", referencedColumnName="id")
+     * @ORM\Column(type="string")
      */
-    private $audioTest;
+    private $stimulusTest;
 
     /**
      * @ORM\OneToOne(targetEntity="Page", cascade={"persist"})
@@ -104,22 +108,6 @@ class Test
     /**
      * @return mixed
      */
-    public function getAudioTest()
-    {
-        return $this->audioTest;
-    }
-
-    /**
-     * @param mixed $audioTest
-     */
-    public function setAudioTest($audioTest): void
-    {
-        $this->audioTest = $audioTest;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getInstructionPage()
     {
         return $this->instructionPage;
@@ -137,5 +125,45 @@ class Test
     public function addInstructionPage($instructionPage): void
     {
         $this->setInstructionPage($instructionPage);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStimulusTest()
+    {
+        return $this->stimulusTest;
+    }
+
+    /**
+     * @param mixed $stimulusTest
+     */
+    public function setStimulusTest($stimulusTest): void
+    {
+        $this->stimulusTest = $stimulusTest;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRandom()
+    {
+        return $this->random;
+    }
+
+    /**
+     * @param mixed $random
+     */
+    public function setRandom($random): void
+    {
+        $this->random = $random;
+    }
+
+    /**
+     * @param mixed $random
+     */
+    public function isRandom()
+    {
+        return $this->random;
     }
 }

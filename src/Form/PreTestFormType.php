@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CreatePostTestFormType extends AbstractType
+class PreTestFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -31,13 +31,16 @@ class CreatePostTestFormType extends AbstractType
                 'required' => false,
             ])
             ->add('questions',  CollectionType::class, [
-                'entry_type' => QuestionType::class
+                'entry_type' => QuestionType::class,
+                'allow_add' => true
             ])
             ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'allow_extra_fields' => true
+        ]);
     }
 }

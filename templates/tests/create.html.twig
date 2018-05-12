@@ -29,10 +29,10 @@
                 </div>
                 <div>
                     <div class="ligneIntitule">
-                        <label for="audioType">Fichier audio type</label>
+                        {{ form_label(form.stimulus_test) }}
                         <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                     </div>
-                    <input type="text" id="audioType" name="audioType">
+                    {{ form_widget(form.stimulus_test) }}
                 </div>
             </div>
             <div class="ligneIntitule">
@@ -45,8 +45,9 @@
                 <div class="listeCheckbox">
                     <div class="ligneCheckbox">
                         <div class="bouton">
-                            <input type="checkbox" name="blocaleatoire" id="blocaleatoire">
-                            <label for="blocaleatoire">Ordre des blocs aléatoires</label>
+                            {{ form_widget(form.random) }}
+                            {#<input type="checkbox" name="notifReponses" id="notifReponses">#}
+                            {{ form_label(form.random) }}
                         </div>
                         <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
