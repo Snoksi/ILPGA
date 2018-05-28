@@ -11,7 +11,7 @@ namespace App\Utils\FormGenerator;
 use App\Utils\FormBuilder;
 use Symfony\Component\HttpFoundation\Request;
 
-class PreTestFormSerializer extends FormBuilder
+class PreTestFormSerializer extends QuestionSerializer
 {
     protected $data;
 
@@ -26,6 +26,13 @@ class PreTestFormSerializer extends FormBuilder
 
     public function generateGeneralQuestions(){
         $input = $this->data;
+
+        foreach($this->data as $question)
+        {
+
+        }
+
+
 
         if(isset($input['gender'])){
             $this->form[] = [

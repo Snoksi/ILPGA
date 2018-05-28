@@ -2,16 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Question;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Choice;
 
 class QuestionType extends AbstractType
 {
@@ -24,30 +20,18 @@ class QuestionType extends AbstractType
                     'Choix unique' => 'radio',
                     'Choix multiple' => 'checkbox',
                     'Champ texte' => 'text',
+                    'Champ nomnbre' => 'nombre',
                     'Échelle' => 'range'
                 ]
             ])
-            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-                $form = $event->getForm();
-                $data = $event->getData();
-
-                if ($data['type'] == 'radio' || $data['type'] == 'checkbox') {
-                    $form->add('choices', CollectionType::class, [
-                        'entry_type' => TextType::class
-                    ]);
-                }
-
-                if($data['type'] == 'range'){
-                    $form->add('min', NumberType::class);
-                    $form->add('max', NumberType::class);
-                }
-            });
+            ->add('options', QuestionOptionsType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'data_class' => Question::class,
             'allow_extra_fields' => true
         ]);
     }

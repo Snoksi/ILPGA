@@ -23,7 +23,7 @@
                     <label for="titrePage"><p>Titre de la page</p></label>
                     <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
                 </div>
-                <input type="text" id="titrePage" name="titrePage">
+                {{ form_widget(form.title) }}
             </div>
             <div class="positionnement">
                 <label>Positionnement de cette page</label>
@@ -39,39 +39,18 @@
             </div>
 
             <div class="listeCheckbox">
-                <div class="ligneCheckbox">
-                    <div class="bouton">
-                        {{ form_widget(form.gender) }}
 
-                        <p>{{ form_label(form.gender) }}<span> (homme/femme)</span></p>
-                    </div>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
-                </div>
 
                 <div class="ligneCheckbox">
                     <div class="bouton">
-                        {{ form_widget(form.age) }}
-                        <p>{{ form_label(form.age) }}<span> (valeur)</span></p>
-                    </div>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
-                </div>
+                        {{ form_widget(form.optional_questions) }}
 
-                <div class="ligneCheckbox">
-                    <div class="bouton">
-                        {{ form_widget(form.has_headphones) }}
-                        <p>{{ form_label(form.has_headphones) }}<span> (oui/non)</span></p>
-                    </div>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
-                </div>
-
-                <div class="ligneCheckbox">
-                    <div class="bouton">
-                        {{ form_widget(form.code) }}
-                        <p>{{ form_label(form.code) }}<span> (champ texte)</span></p>
+                        <p>{{ form_label(form.optional_questions) }}<span> (homme/femme)</span></p>
                     </div>
                     <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                 </div>
             </div>
+            <!-- OPTIONAL FORM
             <section class="ajoutQuestion">
                 <h2>Nouvelle question</h2>
                 <label for="">Intitulé de la question</label>
@@ -87,6 +66,7 @@
                 <label for="">Choix n°1</label>
                 <input type="text" name="pre_test_form[questions][0][choices][0]">
             </section>
+            --->
 
             <div class="bas">
                 <div class="doubleBoutons">

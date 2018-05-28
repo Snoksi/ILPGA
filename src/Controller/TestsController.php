@@ -124,13 +124,13 @@ class TestsController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $formSerializer = new PreTestFormSerializer($form->getData());
+            $input = $form->getData();
+            $questions = array_merge($input['optional_questions'], $input['questions']);
+            var_dump($questions);
 
             $page = new Page();
-            $page->setTitle("Formulaire pre-test");
-            $page->setType('form');
-            $page->setContent($formSerializer->getSerializedForm());
-            $page->setTest($test);
+            $page->setTitle($input['title']);
+            $page->setQuestions($questions);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($page);
@@ -138,7 +138,7 @@ class TestsController extends Controller
 
             return $this->redirectToRoute('tests_index');
         }
-        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
+        return $this->render('tests/form_create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
