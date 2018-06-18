@@ -110,10 +110,14 @@ class Page
     public function setQuestions($questions): void
     {
         foreach($questions as $question){
-            $question->setPage($this);
+            $this->addQuestion($question);
         }
+    }
 
-        $this->questions = $questions;
+    public function addQuestion(Question $question)
+    {
+        $question->setPage($this);
+        $this->questions[] = $question;
     }
 
     public function getPosition(): ?int

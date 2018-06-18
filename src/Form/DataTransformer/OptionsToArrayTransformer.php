@@ -15,7 +15,7 @@ class OptionsToArrayTransformer implements DataTransformerInterface
 
     public function transform($value)
     {
-        return
+
     }
 
     public function reverseTransform($value)

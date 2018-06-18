@@ -3,21 +3,24 @@
 namespace App\Service;
 
 use App\Entity\Page;
+use App\Entity\Question;
 use App\Entity\Stimulus;
 use App\Entity\Test;
+use App\Service\ExcelStimuliParser\RowReader;
+use App\Service\ExcelStimuliParser\SheetReader;
 use App\Service\Uploader\FileUploader;
-use PhpOffice\PhpSpreadsheet\IOFactory;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Intl\Exception\MissingResourceException;
 
 class TestManager
 {
     protected $test;
 
+    protected $sheet;
+
     protected $stimuli = [];
 
-    protected $questions = [];
+    protected $pages = [];
 
     protected $lastQuestion;
 
@@ -61,57 +64,52 @@ class TestManager
             $stimulus->setName($file->getClientOriginalName());
 
             $fileName = $this->uploader->upload($file);
-            $stimulus->setSource($this->uploader->getTargetDirectory()."/".$fileName);
+            $stimulus->setSource($fileName);
 
-            $this->stimuli[$file->getClientOriginalName()] = $stimulus;
+            $this->stimuli[$stimulus->getName()] = $stimulus;
         }
     }
 
     /**
-     *  Read excel and bind informations to the correct stimulus
+     * Read excel and bind informations to the correct stimulus
+     * @param UploadedFile $excel
      */
-    public function bindExcel(UploadedFile $excel){
-        $sheet = $this->getSheetReader($excel);
+    public function bindExcel(UploadedFile $excel)
+    {
+        $this->sheet = new SheetReader($excel);
 
-        $row = 2;
-        while(true) {
-            $stimulusName = $sheet->getCell("A" . $row)->getValue();
-            // If there is no stimulus, we stop
-            if($stimulusName == "") break;
-            // If there is no stimulus, stops the parsing
+        foreach($this->sheet as $row){
+            $stimulusName = $row->getStimulusName();
+            var_dump($stimulusName);
+            // If there is no stimulus matching the sheet name, next row
             if(!isset($this->stimuli[$stimulusName])){
-                $row++;
                 continue;
             }
 
             // Else we fill the stimulus of informations
             $stimulus = $this->stimuli[$stimulusName];
 
-            $stimulus->setSpeakerAge($sheet->getCell("B" . $row)->getValue());
-            $stimulus->setSpeakerGender($sheet->getCell("C" . $row)->getValue());
-            $stimulus->setSpeakerLang($sheet->getCell("D" . $row)->getValue());
-            $stimulus->setPlayCount($sheet->getCell("E" . $row)->getValue());
+            $stimulus->setSpeakerAge($row->getSpeakerAge());
+            $stimulus->setSpeakerGender($row->getSpeakerGender());
+            $stimulus->setSpeakerLang($row->getSpeakerLang());
+            $stimulus->setPlayCount($row->getPlayCount());
 
-            $question = $this->generateQuestionPage($row, $sheet);
-            $question->addStimulus($stimulus);
+            // And we add the stimulus to the page
+            $page = $this->generateQuestionPage($row);
+            $page->addStimulus($stimulus);
 
-            $this->questions[] = $question;
-
-            $row++;
+            $this->getTest()->add($page);
         }
-    }
-
-    public function getQuestions()
-    {
-        return $this->questions;
     }
 
     private function getType($type)
     {
         switch($type)
         {
+            case "checkbox":
             case "choix_multiple":
                 return "checkbox";
+            case "radio":
             case "choix_unique":
                 return "radio";
             case "nombre":
@@ -123,72 +121,59 @@ class TestManager
         }
     }
 
-    private function generateQuestionPage($row, $sheet)
+    private function generateQuestionPage(RowReader $row)
     {
         // Si aucune question n'a été associé à ce stimulus, alors on l'associe à la question précédente
-        if($sheet->getCell("F".$row)->getValue() == "") return $this->lastQuestion;
+        if($row->getQuestion() == "") return $this->lastQuestion;
 
-        $question = new Page();
-        $question->setTest($this->getTest());
-        $question->setType("question");
-        $question->setTitle($sheet->getCell("F" . $row)->getValue());
+        $page = new Page();
+        $page->setTest($this->getTest());
+        $page->setType("question");
+        $page->setTitle($row->getQuestion());
+        $page->addQuestion($this->generateQuestionFromRow($row));
 
-        $question->setContent($this->generateQuestionContent($row, $sheet));
-        $question->lastQuestion = $question;
+        $this->lastQuestion = $page;
+        return $page;
+    }
+
+    private function generateQuestionFromRow(RowReader $row)
+    {
+        $question = new Question();
+        $question->setLabel($row->getQuestion());
+        $question->setType($this->getType($row->getType()));
+        $question->setOptions($this->generateQuestionOptions($row));
+
         return $question;
     }
 
-    private function generateQuestionContent($row, $sheet)
+    public function generateQuestionOptions(RowReader $row)
     {
-        $content = [
-            "label" => $sheet->getCell("F" . $row)->getValue(),
-            "type" => $this->getType($sheet->getCell("G" . $row)->getValue()),
-        ];
+        $type = $row->getType();
+        $options = [];
 
-        if ($content['type'] == "checkbox" || $content['type'] == "radio")
+        if ($type == "checkbox" || $type == "radio")
         {
             $choices = [];
             $col = "H";
-            $has_choices = true;
+            $hasChoices = true;
 
-            while ($has_choices) {
-                $choice = $sheet->getCell($col . $row)->getValue();
+            while($hasChoices) {
+                $choice = $row->getCell($col);
 
                 if ($choice == "") exit;
-                $choices[$choice] = $choice;
+                $choices[] = $choice;
                 $col++;
             }
 
-            $content["choices"] = $choices;
+            $options["choices"] = $choices;
         }
 
-        if($content['type'] == "range")
+        if($type == "range")
         {
-            $content['min'] = $sheet->getCell("H".$row)->getValue();
-            $content['max'] = $sheet->getCell("I".$row)->getValue();
+            $options['min'] = $row->getCell("H");
+            $options['max'] = $row->getCell("I");
         }
 
-        return $content;
-    }
-
-    /**
-     * @param $excel
-     * @return \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
-     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
-     */
-    private function getSheetReader($excel){
-        try{
-            $inputFileType = IOFactory::identify($excel->getRealPath());
-            /**  Create a new Reader of the type that has been identified  **/
-            $reader = IOFactory::createReader($inputFileType);
-            /**  Load $inputFileName to a Spreadsheet Object  **/
-            $spreadsheet = $reader->load($excel);
-        }
-        catch(\Exception $exception){
-            throw new BadRequestHttpException("Inccorrect Excel file");
-        }
-
-        return $spreadsheet->getActiveSheet();
+        return $options;
     }
 }
