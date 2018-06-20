@@ -39,7 +39,7 @@ class RowReader
      */
     public function getCell($cell)
     {
-        return $this->sheet->getCell($cell.$this->row)->getValue();
+        return $this->sheet->getCell($cell.$this->row)->getCalculatedValue();
     }
 
 
@@ -75,6 +75,20 @@ class RowReader
 
     public function getType()
     {
-        return $this->getCell('G');
+        switch($this->getCell('G'))
+        {
+            case "checkbox":
+            case "choix_multiple":
+                return "checkbox";
+            case "radio":
+            case "choix_unique":
+                return "radio";
+            case "nombre":
+                return "number";
+            case "range":
+                return "range";
+            default:
+                return "text";
+        }
     }
 }

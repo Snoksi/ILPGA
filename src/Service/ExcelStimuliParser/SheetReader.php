@@ -80,6 +80,8 @@ class SheetReader implements \Iterator
         $stimulusName = $this->current()->getStimulusName();
         // If there is no stimulus, we stop
         if($stimulusName == "") return false;
+
+        return true;
     }
 
     /**
@@ -90,6 +92,6 @@ class SheetReader implements \Iterator
      */
     public function rewind()
     {
-        $this->row = 1;
+        $this->row = 2;
     }
 }

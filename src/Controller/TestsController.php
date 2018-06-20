@@ -3,22 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Page;
-use App\Entity\Stimulus;
+use App\Entity\PageGroup;
 use App\Entity\Test;
 use App\Entity\TestFolder;
 use App\Form\PreTestFormType;
 use App\Form\CreateTestType;
 use App\Form\StimuliAndQuestionsFormType;
+use App\Service\QuestionsImporter;
+use App\Service\StimuliBlockMaker;
 use App\Service\TestManager;
 use App\Service\Uploader\ExcelParser;
 use App\Service\Uploader\FileUploader;
 use App\Service\Uploader\StimulusUploader;
-use Doctrine\ORM\Mapping\Entity;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use phpDocumentor\Reflection\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -146,7 +143,7 @@ class TestsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function createStimuliBlock(Request $request, TestManager $testManager, Test $test){
+    public function createStimuliBlock(Request $request, StimuliBlockMaker $block, Test $test){
         $form = $this->createForm(StimuliAndQuestionsFormType::class);
         $form->handleRequest($request);
 
@@ -154,29 +151,34 @@ class TestsController extends Controller
         {
             $input = $form->getData();
 
-            $testManager->setTest($test);
-            $testManager->addStimuli($input['audio']);
-            $testManager->bindExcel($input['excel']);
+            $block->setTitle($input['title']);
+            $block->setTest($test);
+            $block->setRandom(true);
+            $block->import($input['audio'], $input['excel']);
 
             // Updates the test
             $em = $this->getDoctrine()->getManager();
-            $em->persist($test);
+            $em->persist($block->getBlock());
             $em->flush();
 
-            die();
-
-            return $this->redirectToRoute('tests_get_link', ['id' => $test->getId()]);
+            return $this->redirectToRoute('test_link', ['id' => $test->getId()]);
         }
-        return $this->render('tests/step_3.html.twig', ['form' => $form->createView()]);
-    }
-
-    public function redirectToStep($step = 1){
-        $this->get('session')->set('reached_step', $step);
-        return $this->redirectToRoute('tests_create_step', ['step' => $step]);
+        return $this->render('tests/stimuli_create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/edit/{id}/get_link", name="tests_get_link")
+     * @Route("/edit/{test_id}", name="tests_edit")
+     * @ParamConverter("test", class="App:Test", options={"mapping": {"test_id": "id"}})
+     * @param Request $request
+     * @param Test $test
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function questions(Request $request, Test $test){
+        return $this->render('tests/questions.html.twig', ['test' => $test]);
+    }
+
+    /**
+     * @Route("/edit/{id}/link", name="test_link")
      * @ParamConverter("test", class="App:Test")
      * @param Request $request
      * @param Test $test
@@ -185,7 +187,7 @@ class TestsController extends Controller
     public function getTestLink(Request $request, Test $test){
         $domain = $request->getSchemeAndHttpHost();
         $link = $domain.$this->generateUrl('test', ['id' => $test->getId()]);
-        return $this->render('tests/get_test_link.html.twig', ['link' => $link]);
+        return $this->render('tests/test_link.html.twig', ['link' => $link]);
     }
 
 }

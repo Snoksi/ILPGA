@@ -50,6 +50,11 @@ class Test
      */
     private $folder;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="test", cascade={"persist"})
+     */
+    private $pages;
+
 
 
     public function getId()
@@ -165,5 +170,26 @@ class Test
     public function isRandom()
     {
         return $this->random;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     */
+    public function setPages($pages): void
+    {
+        $this->pages = $pages;
+    }
+
+    public function addPage(Page $page)
+    {
+        $this->pages[] = $page;
     }
 }
