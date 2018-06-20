@@ -45,7 +45,7 @@ class StimulusTestUploadListener
         // only upload new files
         if ($file instanceof UploadedFile) {
             $fileName = $this->uploader->upload($file);
-            $entity->setStimulusTest($this->uploader->getFullPath().'/'.$fileName);
+            $entity->setStimulusTest($fileName);
         }
     }
 }

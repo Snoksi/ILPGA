@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Response;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -47,4 +48,17 @@ class ResponseRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAnswers($id, $profil)
+    {
+        $q = $this->createQueryBuilder('response_table')
+            ->innerJoin('App:Page', 'page_table', Join::WITH, 'response_table.page = page_table.id')
+            ->where('page_table.test = :id')
+            ->andWhere('response_table.profil = :profil')
+            ->setParameter('id', $id)
+            ->setParameter('profil', $profil);
+
+        return ($q->getQuery()->getResult());
+    }
+
 }

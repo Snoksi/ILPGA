@@ -10,20 +10,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 
 class TestController extends Controller
 {
-    /**
-     * @Route("/test", name="test_index")
-     */
-    public function index(Request $request, $question)
-    {
-        $answer = $request->get('country');
-        // if ($form->isSubmitted() && $form->isValid())
-        if (!empty($answer)){
 
-
-            return $this->redirectToRoute('next_page');
-        }
-        return $this->render('questions/page.html.twig');
-    }
     /**
      * @Rest\Put("/test/next", name="next_page")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -35,6 +22,8 @@ class TestController extends Controller
         // l'id du profil
         $profil = 1;
 
+        $user = $this->getUser();
+        var_dump($user);
         $em = $this->getDoctrine()->getManager();
         // get all the page about a test
         $questions = $em->getRepository("App:page")->findBy(['test_id' => $test_id]);

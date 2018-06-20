@@ -37,6 +37,12 @@ class Page
     private $position;
 
     /**
+     * One Page has many questions
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="page", cascade={"persist"})
+     */
+    private $questions;
+
+    /**
      * One Page belongs to one test
      * @ORM\ManyToOne(targetEntity="Test")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id", onDelete="CASCADE")
@@ -88,6 +94,30 @@ class Page
         }
         $this->content = $content;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+
+    /**
+     * @param mixed $questions
+     */
+    public function setQuestions($questions): void
+    {
+        foreach($questions as $question){
+            $this->addQuestion($question);
+        }
+    }
+
+    public function addQuestion(Question $question)
+    {
+        $question->setPage($this);
+        $this->questions[] = $question;
     }
 
     public function getPosition(): ?int

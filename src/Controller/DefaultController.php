@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Test;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
+use App\Service\QuestionManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -11,12 +11,19 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/test/{id}", name="test")
-     * @ParamConverter("test", class="App:Test")
      */
-    public function test(Test $test)
+    public function test($id,QuestionManager $questionManager)
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
+        $profil =$this->getUser()->getID();
+
+        $em = $this->getDoctrine()->getManager();
+        $questions = $em->getRepository("App:Question")->findQuestions($id);
+        var_dump($questions);
+        $answers = $em->getRepository("App:Response")->findAnswers($id, $profil);
+
+        $randomQuestion = $questionManager->randomQuestion($questions, $answers);
+        var_dump($randomQuestion);
+
+        return $this->render('default/index.html.twig');
     }
 }
