@@ -2,19 +2,19 @@
 
 namespace App\Service;
 
+use App\Entity\Block;
 use App\Entity\Page;
 use App\Entity\Question;
 use App\Entity\Stimulus;
-use App\Entity\Test;
 use App\Service\ExcelStimuliParser\RowReader;
 use App\Service\ExcelStimuliParser\SheetReader;
 use App\Service\Uploader\FileUploader;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Intl\Exception\MissingResourceException;
 
-class TestManager
+class StimuliBlockMaker
 {
-    protected $test;
+    protected $block;
 
     protected $sheet;
 
@@ -30,14 +30,7 @@ class TestManager
     public function __construct(FileUploader $uploader)
     {
         $this->uploader = $uploader;
-    }
-
-    /**
-     * @param Test $test
-     */
-    public function setTest(Test $test)
-    {
-        $this->test = $test;
+        $this->block = new Block();
     }
 
     /**
@@ -45,21 +38,72 @@ class TestManager
      */
     public function getTest()
     {
-        return $this->test;
+        return $this->getBlock()->getTest();
+    }
+
+    /**
+     * @param mixed $test
+     */
+    public function setTest($test): void
+    {
+        $this->getBlock()->setTest($test);
+    }
+
+    /**
+     * @return Block
+     */
+    public function getBlock(): Block
+    {
+        return $this->block;
+    }
+
+    /**
+     * @param Block $block
+     */
+    public function setBlock(Block $block): void
+    {
+        $this->block = $block;
+    }
+
+    /**
+     * @param $title
+     */
+    public function setTitle($title)
+    {
+        $this->getBlock()->setTitle($title);
+    }
+
+    /**
+     * @param bool $boolean
+     */
+    public function setRandom($boolean = false)
+    {
+        $this->getBlock()->setRandom(false);
+    }
+
+    /**
+     * @param $files
+     * @param UploadedFile $excel
+     */
+    public function import($files, UploadedFile $excel)
+    {
+        $this->addStimuli($files);
+        $this->bindExcel($excel);
     }
 
     /**
      * Uploads all mp3/mp4 files to a public folder in the test folder
      * @param $files
      */
-    public function addStimuli($files){
-        if(!$this->test instanceof Test){
-            throw new MissingResourceException("App\Entity\Test is missing");
+    public function addStimuli($files)
+    {
+        if (!$this->block instanceof Block) {
+            throw new MissingResourceException("App\Entity\PageGroup is missing");
         }
 
-        $this->uploader->setTargetDirectory("/uploads/tests/".$this->test->getId());
+        $this->uploader->setTargetDirectory("/uploads/tests/" . $this->block->getId());
 
-        foreach($files as $file){
+        foreach ($files as $file) {
             $stimulus = new Stimulus();
             $stimulus->setName($file->getClientOriginalName());
 
@@ -78,11 +122,11 @@ class TestManager
     {
         $this->sheet = new SheetReader($excel);
 
-        foreach($this->sheet as $row){
+        foreach ($this->sheet as $row) {
             $stimulusName = $row->getStimulusName();
-            var_dump($stimulusName);
-            // If there is no stimulus matching the sheet name, next row
-            if(!isset($this->stimuli[$stimulusName])){
+
+            var_dump($stimulusName); // If there is no stimulus matching the sheet name, next row
+            if (!isset($this->stimuli[$stimulusName])) {
                 continue;
             }
 
@@ -93,38 +137,18 @@ class TestManager
             $stimulus->setSpeakerGender($row->getSpeakerGender());
             $stimulus->setSpeakerLang($row->getSpeakerLang());
             $stimulus->setPlayCount($row->getPlayCount());
-
             // And we add the stimulus to the page
             $page = $this->generateQuestionPage($row);
             $page->addStimulus($stimulus);
 
-            $this->getTest()->add($page);
-        }
-    }
-
-    private function getType($type)
-    {
-        switch($type)
-        {
-            case "checkbox":
-            case "choix_multiple":
-                return "checkbox";
-            case "radio":
-            case "choix_unique":
-                return "radio";
-            case "nombre":
-                return "number";
-            case "range":
-                return "range";
-            default:
-                return "text";
+            $this->getBlock()->addPage($page);
         }
     }
 
     private function generateQuestionPage(RowReader $row)
     {
         // Si aucune question n'a été associé à ce stimulus, alors on l'associe à la question précédente
-        if($row->getQuestion() == "") return $this->lastQuestion;
+        if ($row->getQuestion() == "") return $this->lastQuestion;
 
         $page = new Page();
         $page->setTest($this->getTest());
@@ -140,7 +164,7 @@ class TestManager
     {
         $question = new Question();
         $question->setLabel($row->getQuestion());
-        $question->setType($this->getType($row->getType()));
+        $question->setType($row->getType());
         $question->setOptions($this->generateQuestionOptions($row));
 
         return $question;
@@ -151,16 +175,15 @@ class TestManager
         $type = $row->getType();
         $options = [];
 
-        if ($type == "checkbox" || $type == "radio")
-        {
+        if ($type == "checkbox" || $type == "radio") {
             $choices = [];
             $col = "H";
             $hasChoices = true;
 
-            while($hasChoices) {
+            while ($hasChoices) {
                 $choice = $row->getCell($col);
 
-                if ($choice == "") exit;
+                if ($choice == "") break;
                 $choices[] = $choice;
                 $col++;
             }
@@ -168,12 +191,14 @@ class TestManager
             $options["choices"] = $choices;
         }
 
-        if($type == "range")
-        {
+        if ($type == "range") {
             $options['min'] = $row->getCell("H");
             $options['max'] = $row->getCell("I");
         }
 
         return $options;
     }
+
+
+
 }

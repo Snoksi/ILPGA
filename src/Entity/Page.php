@@ -55,6 +55,12 @@ class Page
      */
     private $stimuli;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Block", inversedBy="pages", cascade={"persist"})
+     * @ORM\JoinColumn(name="block_id", referencedColumnName="id")
+     */
+    private $block;
+
 
     /**
      * Page constructor.
@@ -186,6 +192,38 @@ class Page
     public function addStimulus($stimulus)
     {
         $this->stimuli[] = $stimulus;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * @param mixed $group
+     */
+    public function setGroup($group): void
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlock()
+    {
+        return $this->block;
+    }
+
+    /**
+     * @param mixed $block
+     */
+    public function setBlock($block): void
+    {
+        $this->block = $block;
     }
 
 }

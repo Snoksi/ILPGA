@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\PageGroup;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,17 +14,20 @@ class StimuliAndQuestionsFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('excel', FileType::class, ['label' => 'Fichier Excel des stimuli (et questions)'])
+            ->add('title', TextType::class, [
+                'label' => 'Titre du bloc'
+            ])
+            ->add('excel', FileType::class, [
+                'label' => 'Fichier Excel des stimuli (et questions)',
+            ])
             ->add('audio', FileType::class, [
-                "multiple" => true
+                'multiple' => true,
             ], ['label' => 'Fichiers mp3 des stimuli'])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            // Configure your form options here
-        ]);
+        $resolver->setDefaults([]);
     }
 }
