@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+
     <link rel="stylesheet" type="text/css" href={{ asset('css/style.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('css/trumbowyg.min.css') }}>
     {% block stylesheets %}{% endblock %}
 </head>
 <body {% block etat %}{% endblock %}>
