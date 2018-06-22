@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="012ca2f9-0b7c-4675-b0e1-a559a3afb461" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/tests/create.html.twig" afterPath="$PROJECT_DIR$/templates/tests/create.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/tests/step_3.html.twig" afterPath="$PROJECT_DIR$/templates/tests/step_3.html.twig" />
+=======
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Service/ExcelStimuliParser/SheetReader.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TestsController.php" afterPath="$PROJECT_DIR$/src/Controller/TestsController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Page.php" afterPath="$PROJECT_DIR$/src/Entity/Page.php" />
+      <change beforePath="$PROJECT_DIR$/src/Form/DataTransformer/OptionsToArrayTransformer.php" afterPath="$PROJECT_DIR$/src/Form/DataTransformer/OptionsToArrayTransformer.php" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Test/PreTestFormSerializer.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Test/QuestionSerializer.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Service/TestManager.php" afterPath="$PROJECT_DIR$/src/Service/TestManager.php" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,38 +39,121 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2310">
               <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
+=======
+            <state relative-caret-position="324">
+              <caret line="158" column="32" lean-forward="false" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+              <folding>
+                <element signature="e#34#54#0#PHP" expanded="true" />
+              </folding>
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="step_2.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tests/step_2.html.twig">
+      <file leaf-file-name="StimuliAndQuestionsFormType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/StimuliAndQuestionsFormType.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2205">
               <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="create.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tests/create.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
               <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="6" selection-end-line="116" selection-end-column="15" />
+=======
+      <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12">
+              <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TestManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/TestManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="78" column="47" lean-forward="false" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
+              <folding>
+                <element signature="e#31#51#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUploader.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/Uploader/FileUploader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
               <caret line="4" column="50" lean-forward="false" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+=======
+      <file leaf-file-name="StimulusTestUploadListener.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SheetReader.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/SheetReader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+              <folding>
+                <element signature="e#134#158#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RowReader.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-84">
+              <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2394">
+              <caret line="114" column="5" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
               <folding />
             </state>
           </provider>
@@ -71,12 +166,16 @@
       <find>get</find>
       <find>getInt</find>
       <find>input</find>
+<<<<<<< HEAD
       <find>instruc</find>
       <find>txt</find>
       <find>edi</find>
       <find>body</find>
       <find>font-fam</find>
       <find>font-si</find>
+=======
+      <find>getRow</find>
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,19 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Repository/USerRepository.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Profil.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Response.php" />
-        <option value="$PROJECT_DIR$/src/Repository/TestFolderRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/TestRepository.php" />
-        <option value="$PROJECT_DIR$/templates/tests/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/TestFolder.php" />
-        <option value="$PROJECT_DIR$/templates/_layouts/pagination.html.twig" />
-        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/Form/UserRoleType.php" />
-        <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/Api/TestsController.php" />
         <option value="$PROJECT_DIR$/config/packages/fos_rest.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/Api/UsersController.php" />
         <option value="$PROJECT_DIR$/templates/users/index.html.twig" />
@@ -111,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/Utils/FormGenerator/PreTestFormGenerator.php" />
         <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Stimulus.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Page.php" />
         <option value="$PROJECT_DIR$/src/Service/Uploader/StimulusUploader.php" />
         <option value="$PROJECT_DIR$/templates/tests/step_1.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/DefaultController.php" />
@@ -121,17 +206,43 @@
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/Form/CreateTestType.php" />
         <option value="$PROJECT_DIR$/src/Service/Uploader/FileUploader.php" />
-        <option value="$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php" />
         <option value="$PROJECT_DIR$/src/Entity/Test.php" />
+        <option value="$PROJECT_DIR$/src/Service/Test/QuestionManager.php" />
+        <option value="$PROJECT_DIR$/src/Service/Test/PreTestFormSerializer.php" />
+        <option value="$PROJECT_DIR$/src/Repository/PageRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Response.php" />
+        <option value="$PROJECT_DIR$/src/Form/DataTransformer/CheckboxToQuestionTransformer.php" />
+        <option value="$PROJECT_DIR$/src/Form/QuestionOptionsType.php" />
+        <option value="$PROJECT_DIR$/src/Form/QuestionType.php" />
+        <option value="$PROJECT_DIR$/src/Form/PreTestFormType.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Question.php" />
         <option value="$PROJECT_DIR$/templates/tests/step_2.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/TestFolderRepository.php" />
+        <option value="$PROJECT_DIR$/src/Form/DataTransformer/OptionsToArrayTransformer.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Page.php" />
+        <option value="$PROJECT_DIR$/src/Service/Iterator/ExcelIterator.php" />
+        <option value="$PROJECT_DIR$/src/Service/Iterator/ExcelQuestionIterator.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/ExcelStimuliIterator.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/ExcelStimuliArray.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/QuestionRow.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/QuestionRowReader.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/ExcelIterator.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/StimuliAndQuestionsSheetReader.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/StimuliAndQuestionsRowReader.php" />
+        <option value="$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php" />
         <option value="$PROJECT_DIR$/src/Controller/TestsController.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Form/PreTestFormType.php" />
         <option value="$PROJECT_DIR$/src/Form/QuestionType.php" />
         <option value="$PROJECT_DIR$/templates/tests/step_3.html.twig" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/tests/create.html.twig" />
+=======
+        <option value="$PROJECT_DIR$/src/Service/TestManager.php" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
       </list>
     </option>
   </component>
@@ -288,9 +399,16 @@
               <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+              <item name="ilpga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ilpga" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="EventListener" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
@@ -298,6 +416,7 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
@@ -311,6 +430,10 @@
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+              <item name="ilpga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ilpga" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
@@ -343,6 +466,10 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
       <pane id="Scope" />
     </panes>
   </component>
@@ -353,6 +480,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Sites\ilpga\src\Service\Test" />
+      <recent name="D:\Sites\ilpga\src\Service" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Sites\ilpga\templates\tests" />
       <recent name="D:\Sites\ilpga\templates\users" />
@@ -406,30 +537,60 @@
       <workItem from="1525333203710" duration="15000" />
       <workItem from="1526134301567" duration="66000" />
       <workItem from="1526134471427" duration="9723000" />
+<<<<<<< HEAD
       <workItem from="1529311862124" duration="1476000" />
       <workItem from="1529313516968" duration="6003000" />
       <workItem from="1529481758669" duration="9340000" />
       <workItem from="1529588429862" duration="2944000" />
+=======
+      <workItem from="1527003264093" duration="3949000" />
+      <workItem from="1527066528920" duration="2737000" />
+      <workItem from="1527376366494" duration="3059000" />
+      <workItem from="1527439052076" duration="6726000" />
+      <workItem from="1527458318625" duration="1854000" />
+      <workItem from="1527486305976" duration="1156000" />
+      <workItem from="1527488084154" duration="349000" />
+      <workItem from="1527854083937" duration="6602000" />
+      <workItem from="1527949292571" duration="16685000" />
+      <workItem from="1528239539868" duration="56000" />
+      <workItem from="1529310190088" duration="2859000" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="154280000" />
+=======
+    <option name="totallyTimeSpent" value="180549000" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25295383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26387316" sideWeight="0.5150376" order="7" side_tool="true" content_ui="tabs" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35820895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.52771854" order="7" side_tool="true" content_ui="tabs" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26387316" sideWeight="0.4849624" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.47228146" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -477,11 +638,12 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Controller/CreateTestController.php" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/form/Extension/Core/Type/TextType.php" />
     <entry file="file://$PROJECT_DIR$/src/Controller/Api/UsersController.php">
@@ -505,38 +667,18 @@
     <entry file="file://$PROJECT_DIR$/vendor/symfony/form/FormEvent.php" />
     <entry file="file://$PROJECT_DIR$/src/Utils/FormGenerator/PreTestFormGenerator.php" />
     <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="64" column="6" lean-forward="false" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Uploader/StimulusUploader.php" />
-    <entry file="file://$PROJECT_DIR$/src/Entity/Page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/StimuliAndQuestionsFormType.php">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/tests/step_3.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tests/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -568,7 +710,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env" />
+    <entry file="file://$PROJECT_DIR$/.env">
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -584,36 +733,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1357">
-          <caret line="52" column="14" lean-forward="false" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Age.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/FormBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/FormGenerator/PreTestFormSerializer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/CreateTestType.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1566">
+          <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+=======
         <state relative-caret-position="462">
           <caret line="29" column="103" lean-forward="false" selection-start-line="29" selection-start-column="103" selection-end-line="29" selection-end-column="103" />
         </state>
@@ -626,29 +751,224 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/TestManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Uploader/FileUploader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/services_test.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-139">
+          <caret line="19" column="7" lean-forward="false" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+=======
+    <entry file="file://$PROJECT_DIR$/templates/tests/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="32" column="44" lean-forward="false" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Test/QuestionManager.php" />
+    <entry file="file://$PROJECT_DIR$/src/Service/Age.php" />
+    <entry file="file://$PROJECT_DIR$/src/Utils/FormBuilder.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="7" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="22" selection-end-column="7" />
+          <folding />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Stimulus.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="239">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+=======
+        <state relative-caret-position="588">
+          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="74" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/DataTransformer/CheckboxToQuestionTransformer.php" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/PageRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/PreTestFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-441">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env" />
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+=======
+        <state relative-caret-position="630">
+          <caret line="30" column="59" lean-forward="false" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tests/step_2.html.twig" />
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="176" column="23" lean-forward="false" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php">
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="35" column="47" lean-forward="false" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TestFolderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1226">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+=======
+        <state relative-caret-position="408">
+          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-1357">
+          <caret line="52" column="14" lean-forward="false" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+=======
+        <state relative-caret-position="-12">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TestRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuestionOptionsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="294">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+=======
+        <state relative-caret-position="450">
+          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-96">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="-703">
+          <caret line="52" column="14" lean-forward="false" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="462">
+          <caret line="29" column="103" lean-forward="false" selection-start-line="29" selection-start-column="103" selection-end-line="29" selection-end-column="103" />
+=======
+        <state relative-caret-position="534">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Test/PreTestFormSerializer.php" />
+    <entry file="file://$PROJECT_DIR$/src/Service/Test/QuestionSerializer.php" />
+    <entry file="file://$PROJECT_DIR$/src/Service/Model/Stimulus.php" />
+    <entry file="file://$PROJECT_DIR$/src/Service/Iterator/ExcelQuestionIterator.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/DataTransformer/OptionsToArrayTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="156">
+          <caret line="74" column="87" lean-forward="false" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="97" />
+=======
+        <state relative-caret-position="273">
+          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/ExcelStimuliArray.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-199">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+=======
+        <state relative-caret-position="2394">
+          <caret line="114" column="5" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+          <folding />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Spreadsheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="189">
+          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+=======
+        <state relative-caret-position="248">
+          <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Worksheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="281">
+          <caret line="2680" column="61" lean-forward="false" selection-start-line="2680" selection-start-column="55" selection-end-line="2680" selection-end-column="61" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Model/ExcelQuestion.php" />
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="672">
           <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
         </state>
@@ -658,25 +978,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1176">
           <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Stimulus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+=======
+        <state relative-caret-position="-12">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TestsController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="525">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+=======
+        <state relative-caret-position="324">
+          <caret line="158" column="32" lean-forward="false" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+          <folding>
+            <element signature="e#34#54#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="672">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+=======
+        <state relative-caret-position="-84">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/StimuliAndQuestionsFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2478">
           <caret line="138" column="57" lean-forward="false" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
         </state>
@@ -693,19 +1033,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PreTestFormType.php">
+    <entry file="file://$PROJECT_DIR$/src/Service/Uploader/FileUploader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="210">
+          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+    <entry file="file://$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/TestManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="547">
+          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+=======
+        <state relative-caret-position="381">
+          <caret line="78" column="47" lean-forward="false" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
+          <folding>
+            <element signature="e#31#51#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/SheetReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="547">
           <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
         </state>
@@ -776,6 +1145,13 @@
         <state relative-caret-position="169">
           <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="6" selection-end-line="116" selection-end-column="15" />
           <folding />
+=======
+        <state relative-caret-position="462">
+          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="e#134#158#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
         </state>
       </provider>
     </entry>
