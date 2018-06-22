@@ -18,7 +18,7 @@ class Test
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=75)
      */
     private $name;
 
@@ -49,6 +49,11 @@ class Test
      * @ORM\JoinColumn(name="folder_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $folder;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="test", cascade={"persist"})
+     */
+    private $pages;
 
 
 
@@ -165,5 +170,26 @@ class Test
     public function isRandom()
     {
         return $this->random;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     */
+    public function setPages($pages): void
+    {
+        $this->pages = $pages;
+    }
+
+    public function addPage(Page $page)
+    {
+        $this->pages[] = $page;
     }
 }

@@ -3,23 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Page;
-use App\Entity\Stimulus;
+use App\Entity\PageGroup;
 use App\Entity\Test;
 use App\Entity\TestFolder;
 use App\Form\PreTestFormType;
 use App\Form\CreateTestType;
 use App\Form\StimuliAndQuestionsFormType;
+use App\Service\QuestionsImporter;
+use App\Service\StimuliBlockMaker;
 use App\Service\TestManager;
 use App\Service\Uploader\ExcelParser;
 use App\Service\Uploader\FileUploader;
 use App\Service\Uploader\StimulusUploader;
-use App\Utils\FormGenerator\PreTestFormSerializer;
-use Doctrine\ORM\Mapping\Entity;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use phpDocumentor\Reflection\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -124,55 +120,30 @@ class TestsController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $formSerializer = new PreTestFormSerializer($form->getData());
+            $input = $form->getData();
+            $questions = array_merge($input['optional_questions'], $input['questions']);
 
             $page = new Page();
-            $page->setTitle("Formulaire pre-test");
-            $page->setType('form');
-            $page->setContent($formSerializer->getSerializedForm());
             $page->setTest($test);
+            $page->setTitle($input['title']);
+            $page->setQuestions($questions);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('tests_index');
+            return $this->redirectToRoute('tests_create_stimuli', ['test_id' => $test->getId()]);
         }
-        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
+        return $this->render('tests/form_create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
+     * @Route("/edit/{test_id}/stimuli/create", name="tests_create_stimuli")
+     * @ParamConverter("test", class="App:Test", options={"mapping": {"test_id": "id"}})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function step2(Request $request, SessionInterface $session, Test $test){
-        $form = $this->createForm(PreTestFormType::class);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $formSerializer = new PreTestFormSerializer($form->getData());
-
-            $page = new Page();
-            $page->setTitle("Formulaire pre-test");
-            $page->setType('form');
-            $page->setContent($formSerializer->getSerializedForm());
-            $page->setTest($test);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($page);
-            $em->flush();
-
-            return $this->redirectToStep(3);
-        }
-        return $this->render('tests/step_2.html.twig', ['form' => $form->createView()]);
-    }
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function step3(Request $request, SessionInterface $session, TestManager $testManager, Test $test){
+    public function createStimuliBlock(Request $request, StimuliBlockMaker $block, Test $test){
         $form = $this->createForm(StimuliAndQuestionsFormType::class);
         $form->handleRequest($request);
 
@@ -180,30 +151,34 @@ class TestsController extends Controller
         {
             $input = $form->getData();
 
-            $testManager->setTest($test);
-            $testManager->addStimuli($input['audio']);
-            $testManager->bindExcel($input['excel']);
-            $questions = $testManager->getQuestions();
+            $block->setTitle($input['title']);
+            $block->setTest($test);
+            $block->setRandom(true);
+            $block->import($input['audio'], $input['excel']);
 
+            // Updates the test
             $em = $this->getDoctrine()->getManager();
-
-            foreach($questions as $question){
-                $em->persist($question);
-            }
+            $em->persist($block->getBlock());
             $em->flush();
 
-            return $this->redirectToRoute('tests_get_link', ['id' => $test->getId()]);
+            return $this->redirectToRoute('test_link', ['id' => $test->getId()]);
         }
-        return $this->render('tests/step_3.html.twig', ['form' => $form->createView()]);
-    }
-
-    public function redirectToStep($step = 1){
-        $this->get('session')->set('reached_step', $step);
-        return $this->redirectToRoute('tests_create_step', ['step' => $step]);
+        return $this->render('tests/stimuli_create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/edit/{id}/get_link", name="tests_get_link")
+     * @Route("/edit/{test_id}", name="tests_edit")
+     * @ParamConverter("test", class="App:Test", options={"mapping": {"test_id": "id"}})
+     * @param Request $request
+     * @param Test $test
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function questions(Request $request, Test $test){
+        return $this->render('tests/questions.html.twig', ['test' => $test]);
+    }
+
+    /**
+     * @Route("/edit/{id}/link", name="test_link")
      * @ParamConverter("test", class="App:Test")
      * @param Request $request
      * @param Test $test
@@ -212,7 +187,7 @@ class TestsController extends Controller
     public function getTestLink(Request $request, Test $test){
         $domain = $request->getSchemeAndHttpHost();
         $link = $domain.$this->generateUrl('test', ['id' => $test->getId()]);
-        return $this->render('tests/get_test_link.html.twig', ['link' => $link]);
+        return $this->render('tests/test_link.html.twig', ['link' => $link]);
     }
 
 }

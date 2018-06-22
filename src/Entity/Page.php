@@ -37,6 +37,12 @@ class Page
     private $position;
 
     /**
+     * One Page has many questions
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="page", cascade={"persist"})
+     */
+    private $questions;
+
+    /**
      * One Page belongs to one test
      * @ORM\ManyToOne(targetEntity="Test")
      * @ORM\JoinColumn(name="test_id", referencedColumnName="id", onDelete="CASCADE")
@@ -48,6 +54,12 @@ class Page
      * @ORM\OneToMany(targetEntity="Stimulus", mappedBy="page", cascade={"persist"})
      */
     private $stimuli;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Block", inversedBy="pages", cascade={"persist"})
+     * @ORM\JoinColumn(name="block_id", referencedColumnName="id")
+     */
+    private $block;
 
 
     /**
@@ -88,6 +100,30 @@ class Page
         }
         $this->content = $content;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+
+    /**
+     * @param mixed $questions
+     */
+    public function setQuestions($questions): void
+    {
+        foreach($questions as $question){
+            $this->addQuestion($question);
+        }
+    }
+
+    public function addQuestion(Question $question)
+    {
+        $question->setPage($this);
+        $this->questions[] = $question;
     }
 
     public function getPosition(): ?int
@@ -156,6 +192,38 @@ class Page
     public function addStimulus($stimulus)
     {
         $this->stimuli[] = $stimulus;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * @param mixed $group
+     */
+    public function setGroup($group): void
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlock()
+    {
+        return $this->block;
+    }
+
+    /**
+     * @param mixed $block
+     */
+    public function setBlock($block): void
+    {
+        $this->block = $block;
     }
 
 }

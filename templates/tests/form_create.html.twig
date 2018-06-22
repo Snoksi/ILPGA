@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un test{% endblock %}
+{% block etat %}class="bodyCo"{% endblock %}
+{% block body %}
+    {#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<input type="submit" value="Envoyer">#}
+    {#{{ form_end(form) }}#}
+
+    {% include '_layouts/sidebar.html.twig' %}
+
+    <main id="pretest" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Formulaire pre/post-test</h1>
+                <p>Sélectionnez les questions qui seront posées avant ou après le test. Vous pouvez ajouter d’autres pages de questions si besoin.</p>
+            </header>
+
+            {{ form_start(form) }}
+            <div class="definirTitre">
+                <div class="ligneIntitule">
+                    <label for="titrePage"><p>Titre de la page</p></label>
+                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                </div>
+                {{ form_widget(form.title) }}
+            </div>
+            <div class="positionnement">
+                <label>Positionnement de cette page</label>
+
+                <div class="groupeRadio">
+                    <input type="radio" name="positionnement" id="radioDebut">
+                    <label for="radioDebut">Au début du test</label>
+
+                    <input type="radio" name="positionnement" id="radioFin">
+                    <label for="radioFin">A la fin du test</label>
+                </div>
+
+            </div>
+
+            <div class="listeCheckbox">
+
+
+                <div class="ligneCheckbox">
+                    <div class="bouton">
+                        {{ form_widget(form.optional_questions) }}
+
+                        <p>{{ form_label(form.optional_questions) }}<span> (homme/femme)</span></p>
+                    </div>
+                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
+                </div>
+            </div>
+            <!-- OPTIONAL FORM
+            <section class="ajoutQuestion">
+                <h2>Nouvelle question</h2>
+                <label for="">Intitulé de la question</label>
+                <input type="text" name="pre_test_form[questions][0][label]">
+
+                <label for="">Type de question</label>
+                <select name="pre_test_form[questions][0][type]">
+                    <option value="radio">Radio</option>
+                    <option value="checkbox" selected>Checkboxes</option>
+                    <option value="range">Range</option>
+                </select>
+
+                <label for="">Choix n°1</label>
+                <input type="text" name="pre_test_form[questions][0][choices][0]">
+            </section>
+            --->
+
+            <div class="bas">
+                <div class="doubleBoutons">
+                    <a href="" class="demiboutonValidation">Ajouter une autre page de questions</a>
+                    <a href="" class="demiboutonValidation">Prévisualiser la page</a>
+                </div>
+
+                <input type="submit" class="boutonValidation" value="Passer à la page de remerciements">
+            </div>
+
+
+            {{ form_end(form) }}
+        </div>
+    </main>
+
+{% endblock %}

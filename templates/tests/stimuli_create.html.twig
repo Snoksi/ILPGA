@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un test{% endblock %}
+{% block etat %}class="bodyCo"{% endblock %}
+{% block body %}
+    {#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<input type="submit" value="Envoyer">#}
+    {#{{ form_end(form) }}#}
+
+
+    {% include '_layouts/sidebar.html.twig' %}
+
+    <main id="stimuliquestion" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Stimuli et question(s)</h1>
+                <p>Chargez votre fichier comportant les stimuli. Merci de lire la documentation pour connaître le modèle du fichier Excel.</p>
+            </header>
+
+            {{ form_start(form) }}
+                <div>
+                    <div class="ligneIntitule">
+                        <label for="nomBlocStimuli">Nom du bloc de stimuli</label>
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                    </div>
+                    <input type="text" id="nomBlocStimuli" name="nomBlocStimuli">
+                </div>
+
+                <div class="multipleChamp double">
+                    <div>
+                        <div class="ligneIntitule">
+                            {{ form_label(form.excel) }}
+                            <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                        </div>
+                        {{ form_widget(form.excel) }}
+                    </div>
+
+                    <div>
+                        <div class="ligneIntitule">
+                            {{ form_label(form.audio) }}
+                            <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                        </div>
+                        {{ form_widget(form.audio) }}
+                    </div>
+
+
+                </div>
+
+                <div>
+                    <label>Ordre des réponses</label>
+
+                    <div class="groupeRadio">
+                        <input type="radio" name="ordre" id="radioDebut">
+                        <label for="radioDebut">Aléatoire</label>
+
+                        <input type="radio" name="ordre" id="radioFin">
+                        <label for="radioFin">Dans l’ordre</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Consignes (facultatif)</label>
+
+                    <textarea class="editeurTxt"></textarea>
+                </div>
+
+                <div class="bas">
+                    <div class="doubleBoutons">
+                        <a href="" class="demiboutonValidation">Ajouter un autre bloc de stimuli</a>
+                        <a href="" class="demiboutonValidation">Prévisualiser la page</a>
+                    </div>
+                    <input type="submit" value="Passer à l'organisation des pages" class="boutonValidation">
+                </div>
+
+            {{ form_end(form) }}
+
+        </div>
+    </main>
+{% endblock %}
+{% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+    <script src="node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
+    <script>
+        $('.editeurTxt').trumbowyg();
+    </script>
+{% endblock %}

@@ -2,39 +2,73 @@
 
 namespace App\Form;
 
-use App\Entity\Page;
+use App\Entity\Question;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PreTestFormType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('gender', CheckboxType::class, [
-                'label' => "Quel est votre sexe ?",
+            ->add('title', TextType::class)
+            ->add('optional_questions', ChoiceType::class, array(
+                'choices' => $this->getOptions(),
                 'required' => false,
-            ])
-            ->add('age', CheckboxType::class, [
-                'label' => "Quel est votre âge ?",
-                'required' => false,
-            ])
-            ->add('has_headphones', CheckboxType::class, [
-                'label' => "Utilisez-vous un casque ?",
-                'required' => false,
-            ])
-            ->add('code', CheckboxType::class, [
-                'label' => "Si vous passez ce test dans le cadre d’un cours, indiquez le code indiqué par l’enseignant.",
-                'required' => false,
-            ])
+                'choice_label' => function($question, $key, $index) {
+                    /** @var Question $question */
+                    return strtoupper($question->getLabel());
+                },
+                'expanded' => true,
+                'multiple' => true,
+            ))
             ->add('questions',  CollectionType::class, [
                 'entry_type' => QuestionType::class,
                 'allow_add' => true
             ])
-            ;
+        ;
+    }
+
+    protected function getOptions()
+    {
+        $options['gender'] = new Question();
+        $options['gender']->setLabel("Quel est votre sexe ?");
+        $options['gender']->setType('radio');
+        $options['gender']->setOptions([
+            'choices' => [
+                'Homme',
+                'Femme'
+            ]
+        ]);
+
+        $options['age'] = new Question();
+        $options['age']->setLabel("Quel est votre age ?");
+        $options['age']->setType('number');
+        $options['age']->setOptions([
+            'min' => 0,
+            'max' => 100
+        ]);
+
+        $options['headphones'] = new Question();
+        $options['headphones']->setLabel("Utilisez-vous un casque ?");
+        $options['headphones']->setType('radio');
+        $options['headphones']->setOptions([
+            'choices' => [
+                'Oui',
+                'Non'
+            ]
+        ]);
+
+        $options['headphones'] = new Question();
+        $options['headphones']->setLabel("Si vous êtes étudiant, indiquez le code fourni par l'enseignant.");
+        $options['headphones']->setType('text');
+
+        return $options;
     }
 
     public function configureOptions(OptionsResolver $resolver)
