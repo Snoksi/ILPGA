@@ -711,12 +711,18 @@ label{
 
 
 .pagesForm input[type="text"],
+.pagesForm input[type="file"],
 .pagesForm input[type="email"],
 .pagesForm input[type="number"],
 .pagesForm input[type="password"],
+.pagesForm textarea,
 .pagesForm select{
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
+}
+
+.pagesForm input[type="file"]{
+    padding: 7px;
 }
 
 .pagesForm img {
@@ -728,7 +734,7 @@ label{
 }
 
 .pagesForm form > div:not(.bas) {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 

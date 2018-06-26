@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier "{{ test.name }}"{% endblock %}
+{% block etat %}class="bodyCo"{% endblock %}
+{% block body %}
+    {#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<input type="submit" value="Envoyer">#}
+    {#{{ form_end(form) }}#}
+
+
+    {% include "_layouts/sidebar.html.twig" %}
+
+    <main id="parametresgeneraux" class="pagesForm">
+        <div class="conteneur">
+            <header>
+                <h1>Modifier le test "{{ test.name }}"</h1>
+                <p>Modifier, Supprimez et réorganisez les blocs dans l'ordre d'apparition</p>
+            </header>
+
+            {% for block in list %}
+                <article class="ligneTest">
+                    <p>{{ block.title }}</p>
+                    <div>
+                        <a href="#">
+                            <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
+                        </a>
+                        <a href="" data-type="{{ block.type }}">
+                            <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+            <div class="bas">
+                <a href="" class="boutonValidation">Ajouter une autre page de questions</a>
+                <input type="submit" class="boutonValidation" value="Générer le lien">
+            </div>
+        </div>
+    </main>
+{% endblock %}

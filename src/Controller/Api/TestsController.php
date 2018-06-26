@@ -2,6 +2,8 @@
 
 namespace App\Controller\Api;
 
+use App\Entity\Block;
+use App\Entity\Page;
 use App\Entity\Test;
 use App\Entity\TestFolder;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -52,6 +54,49 @@ class TestsController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('tests_index');
+    }
+
+    /**
+     * @Rest\Delete("/delete_page/{id}", name="tests_delete_page", defaults={"_format" = "json"})
+     * @ParamConverter("page", class="App:Page")
+     * @param Page $page
+     * @return array
+     */
+    public function deletePage(Page $page)
+    {
+        if(!$page){
+            throw new NotFoundHttpException();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($page);
+        $em->flush();
+
+        return [
+            'success' => true
+        ];
+    }
+
+
+    /**
+     * @Rest\Delete("/delete_block/{id}", name="tests_delete_block", defaults={"_format" = "json"})
+     * @ParamConverter("block", class="App:Block")
+     * @param Block $block
+     * @return array
+     */
+    public function deleteBlock(Block $block)
+    {
+        if(!$block){
+            throw new NotFoundHttpException();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($block);
+        $em->flush();
+
+        return [
+            'success' => true
+        ];
     }
 
     /**
