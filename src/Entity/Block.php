@@ -22,7 +22,7 @@ class Block
     private $title;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true, options={"default" : 0})
      */
     private $position;
 

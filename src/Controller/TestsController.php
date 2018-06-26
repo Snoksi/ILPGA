@@ -173,9 +173,12 @@ class TestsController extends Controller
      * @param Test $test
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function questions(Request $request, Test $test){
-        return $this->render('tests/questions.html.twig', ['test' => $test]);
+    public function editTest(Request $request, Test $test){
+        $list = $this->getDoctrine()->getRepository('App:Page')->getPagesAndBlocks($test);
+        return $this->render('tests/edit.html.twig', ['list' => $list, 'test' => $test]);
     }
+
+
 
     /**
      * @Route("/edit/{id}/link", name="test_link")
