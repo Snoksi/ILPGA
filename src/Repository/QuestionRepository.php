@@ -53,7 +53,7 @@ class QuestionRepository extends ServiceEntityRepository
     {
         $q = $this->createQueryBuilder('question_table')
             ->innerJoin('App:Page', 'page_table', Join::WITH, 'question_table.page = page_table.id')
-            ->andWhere('page_table.test = :id')
+            ->andWhere('page_table.test == :id')
             ->setParameter('id', $id);
 
         return ($q->getQuery()->getResult());

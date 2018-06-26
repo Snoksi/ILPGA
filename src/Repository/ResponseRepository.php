@@ -49,16 +49,16 @@ class ResponseRepository extends ServiceEntityRepository
     }
     */
 
-    public function findAnswers($id, $profil)
+    public function findResponse($profil = null)
     {
-        $q = $this->createQueryBuilder('response_table')
-            ->innerJoin('App:Page', 'page_table', Join::WITH, 'response_table.page = page_table.id')
-            ->where('page_table.test = :id')
-            ->andWhere('response_table.profil = :profil')
-            ->setParameter('id', $id)
-            ->setParameter('profil', $profil);
-
-        return ($q->getQuery()->getResult());
+        $qb = $this->createQueryBuilder('u')
+            ->select('u.page')
+            ->where('u.profil = :profil')
+            ->setParameter('profil', $profil)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $qb;
     }
 
 }
