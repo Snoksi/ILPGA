@@ -89,10 +89,9 @@ class PageRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('u')
             ->select('u.id', 'u.title')
-            ->leftJoin('App:Response', 'q')
+            ->innerJoin('App:Response', 'q',  'WITH',  'q.page <> u.id')
             ->where('u.test = :id')
             ->andWhere('q.profil = :profil')
-            ->andWhere('q.page IS NULL')
             ->setParameter('id', $idTest)
             ->setParameter('profil', $profil)
             ->getQuery()
