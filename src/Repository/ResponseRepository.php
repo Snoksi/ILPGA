@@ -49,7 +49,7 @@ class ResponseRepository extends ServiceEntityRepository
     }
     */
 
-    public function findResponse($profil = null)
+    public function findResponse($profil)
     {
         $qb = $this->createQueryBuilder('u')
             ->select('u.page')

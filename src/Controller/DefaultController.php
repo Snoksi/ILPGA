@@ -19,13 +19,14 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-
-//      $pages = $em->getRepository("App:Page")->findPages($id, $profil);
-        $pages = $em->getRepository("App:Page")->findPageBasic($id, $profil);
-
+        $pages = $em->getRepository("App:Page")->findPagesSql($id, $profil);
 
         echo '<pre>' , var_dump($pages) , '</pre>';
 
+
         return $this->render('default/index.html.twig');
+
+
+
     }
 }

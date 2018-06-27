@@ -56,47 +56,35 @@ class PageRepository extends ServiceEntityRepository
     */
 
 
-    public function findPages($idTest = null, $profil = null)
+
+    public function findPages($idTest, $profil)
     {
-        $qb = $this->createQueryBuilder('u')
-            ->select('u.id', 'u.title')
-            ->leftJoin('App:Response', 'q', Join::WITH, 'q.profil = :profil')
-            ->where('u.test = :id')
-            ->setParameter('id', $idTest)
-            ->andWhere('q.page IS NULL')
-            ->setParameter('profil', $profil)
-            ->getQuery()
-            ->getResult();
-        return $qb;
-    }
-
-    public function findPagesSql($id = null, $profil = null)
-    {
-        $entityManager = $this->getEntityManager();
-
-        $query = $entityManager->createQuery(
-            'SELECT p.id
-        FROM \App\Entity\Page p
-        INNER JOIN \App\Entity\Response q ON q.page = p.id;
-        WHERE p.test = :id AND q.profil = :profil'
-        )->setParameter('id', $id)->setParameter('profil', $profil);
-
-        // returns an array of Product objects
-        return $query->execute();
-    }
-
-    public function findPageBasic($idTest = null, $profil = null)
-    {
-        $qb = $this->createQueryBuilder('u')
-            ->select('u.id', 'u.title')
-            ->innerJoin('App:Response', 'q',  'WITH',  'q.page <> u.id')
-            ->where('u.test = :id')
-            ->andWhere('q.profil = :profil')
+        $qb = $this->createQueryBuilder('page')
+            ->select('page.id', 'page.title')
+            ->leftJoin('App:Response', 'reponse',  'WITH',  'reponse.profil = :profil')
+            ->where('page.test = :id')
+            ->andWhere('page.id = reponse.page')
             ->setParameter('id', $idTest)
             ->setParameter('profil', $profil)
             ->getQuery()
             ->getResult()
         ;
         return $qb;
+    }
+
+    public function findPagesSql($idTest, $profil): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT page.id 
+            FROM App\Entity\Page page
+            LEFT JOIN App\Entity\Response response WITH (page.id = response.page AND response.profil = :profil) 
+            WHERE response.page IS NULL AND page.test = :idTest'
+        )->setParameter('idTest', $idTest)
+            ->setParameter('profil', $profil);
+
+        // returns an array of Product objects
+        return $query->execute();
     }
 }
