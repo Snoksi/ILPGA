@@ -179,12 +179,21 @@ h4{
 
 /* Fond menu */
 header.nonCo{
-    background-color: #FAFAFA;
+    border-top: 3px solid #619cf3;
+    padding: 10px 0px;
+    background: #F5F8FC;
+}
+
+header.nonCo .logo{
+    background-image: url("/img/lpp_logo.png");
+    background-size: 70px 70px;
+    width: 70px;
+    height: 70px;
 }
 
 /* Disposition du contenu */
 header.nonCo nav{
-    height: 60px;
+    height: 80px;
     width: 90%;
     margin: auto;
     display: flex;
