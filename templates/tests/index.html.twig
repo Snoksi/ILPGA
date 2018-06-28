@@ -185,9 +185,14 @@
         </div>
     </main>
     <div class="pop">
-        <span>✖</span>
-        <h1>jQuery Pop Up</h1>
-        <p>This is a random pop up, hopefully its not annoying.</p>
+        <div class="popHeader">
+            <h2>Créer un dossier</h2>
+            <span class="popClose">✖</span>
+        </div>
+        <form id="createFolder" class="popContent" action="/submit" method="POST">
+            <input type="text" name="name" placeholder="Entrez le nom du dossier...">
+            <input type="submit" value="Envoyer">
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>

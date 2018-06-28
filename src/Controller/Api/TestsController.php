@@ -132,9 +132,10 @@ class TestsController extends Controller
     }
 
     /**
-     * @Rest\Post("/create_folder/{name}/{destination_id}", name="tests_create_folder")
+     * @Rest\Post("/create_folder/{name}/{destination_id}", name="tests_create_folder", requirements={"destination_id"="\d*"})
      * @ParamConverter("destination", class="App:TestFolder", options={"mapping": {"destination_id": "id"}}, isOptional=true)
      * @param TestFolder|null $destination
+     * @return array
      */
     public function createFolder($name, TestFolder $destination = null)
     {
@@ -146,8 +147,8 @@ class TestsController extends Controller
         $em->persist($folder);
         $em->flush();
 
-        return [
+        return $this->json([
             'success' => true
-        ];
+        ]);
     }
 }

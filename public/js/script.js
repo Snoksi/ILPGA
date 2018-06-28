@@ -4,10 +4,23 @@ $(document).ready(function () {
     $(".btnPop").click(function (e) {
         e.preventDefault();
         $(".pop").fadeIn(300);
-        positionPopup();
     });
 
-    $(".pop > span").click(function () {
+    $(".pop .popClose").click(function () {
         $(".pop").fadeOut(300);
+    });
+
+    $("#createFolder").on('submit', function (e) {
+        console.log('lol');
+        e.preventDefault();
+
+        var name = $("#createFolder input[name='name']").val();
+
+        $.ajax({
+            url: "/api/tests/create_folder/"+name+"/",
+            type: "POST"
+        }).done(function() {
+            location.reload();
+        });
     });
 });

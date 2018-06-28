@@ -1204,12 +1204,48 @@ main > svg {
 .pop {
     display: none;
     position:fixed;
-    top:10.3%;
-    left:20.3%;
-    width:80%;
-    height:80%;
+    top: 20%;
+    left: calc(50% - 400px);
+    width:800px;
     background-color: white;
     z-index: 100;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+}
+
+.pop form input{
+    width: 100%;
+}
+
+.popHeader {
+    min-height: 50px;
+    color: #ffffff;
+    background: #619CF3;
+}
+
+.popHeader h2 {
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+.popContent{
+    padding: 20px;
+}
+
+.popClose {
+    position: absolute;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    top: 0;
+    right: 0;
+}
+
+.btnPop {
+    background-color: #619CF3;
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
 }
 
 .visible {
