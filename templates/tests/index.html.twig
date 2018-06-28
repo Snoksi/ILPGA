@@ -2,7 +2,7 @@
 
 {% block title %}Liste des tests{% endblock %}
 
-{% block etat %}class="bodyCo"{% endblock %}
+{% block etat %}class="bodyCo principal"{% endblock %}
 
 {% block body %}
     {#<h1> {{ current_folder.name }}</h1>#}
@@ -19,16 +19,66 @@
         {#{% endfor %}#}
     {#</ul>#}
 
-    {% include '_layouts/sidebar.html.twig' %}
+    {#{% include '_layouts/sidebar.html.twig' %}#}
+    <header class="co">
+        <nav>
+            <div class="hautMenu">
+                <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+                <a href="{{ path("tests_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <a href="{{ path("users_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des utilisateurs</a>
+                {% endif %}
+                <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
+                <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
+            </div>
+            <div class="basMenu">
+                <a href="{{ path('tests_create') }}" class="btnMenu">
+                    <img src={{ asset('img/picto/examBlue.svg') }} alt="exam">
+                    <p>Créer un test</p>
+                </a>
+                <a href="/logout">Déconnexion</a>
+            </div>
+
+        </nav>
+    </header>
+
 
     <main id="listeTests" class="pagesNonForm">
         <div class="conteneur">
+            {#<header>#}
+                {#<h1>Liste des tests</h1>#}
+                {#<form action="{{ path('tests_search') }}" method="GET">#}
+                    {#<input type="text" name="query" placeholder="Rechercher un test, un dossier...">#}
+                {#</form>#}
+            {#</header>#}
+
             <header>
-                <h1>Liste des tests</h1>
+                <div>
+                    <h1>Liste des tests</h1>
+                    <a href="" class="btnBleuP">
+                        <img src="{{ asset('img/picto/folder-symbol.svg') }}" alt="Picto dossier">Créer un dossier
+                    </a>
+                </div>
                 <form action="{{ path('tests_search') }}" method="GET">
                     <input type="text" name="query" placeholder="Rechercher un test, un dossier...">
                 </form>
+
+                <section class="exempleTest">
+                    <article>
+                        <p>Exemple de test - à dupliquer pour partir d’un template de base</p>
+                        <div>
+                            <a href="">
+                                Visualiser le test
+                            </a>
+                            <a href="">
+                                Dupliquer
+                            </a>
+                        </div>
+                    </article>
+                </section>
             </header>
+
+
 
 
             {% for folder in current_folder.children %}
@@ -49,25 +99,25 @@
                                 <article class="ligneTest">
                                     <p>{{ test.name }}</p>
                                     <div>
-                                        <a href="">
+                                        <a href="" data-infobulle="Voir les résultats.">
                                             <img src="{{ asset('img/picto/exam.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Voir le test.">
                                             <img src="{{ asset('img/picto/desktop-monitor.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Obtenir le lien du test">
                                             <img src="{{ asset('img/picto/chain.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Modifier le test">
                                             <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Copier le test">
                                             <img src="{{ asset('img/picto/copy-archive.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Rendre le test privé.">
                                             <img src="{{ asset('img/picto/turn-visibility-off-button.svg') }}" alt="picto">
                                         </a>
-                                        <a href="">
+                                        <a href="" data-infobulle="Supprimer le test">
                                             <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
                                         </a>
                                     </div>
@@ -83,25 +133,25 @@
                     <article class="ligneTest">
                         <p>{{ test.name }}</p>
                         <div>
-                            <a href="">
+                            <a href="" data-infobulle="Voir les résultats.">
                                 <img src="{{ asset('img/picto/exam.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Voir le test.">
                                 <img src="{{ asset('img/picto/desktop-monitor.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Obtenir le lien du test">
                                 <img src="{{ asset('img/picto/chain.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Modifier le test">
                                 <img src="{{ asset('img/picto/pencil.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Copier le test">
                                 <img src="{{ asset('img/picto/copy-archive.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Rendre le test privé.">
                                 <img src="{{ asset('img/picto/turn-visibility-off-button.svg') }}" alt="picto">
                             </a>
-                            <a href="">
+                            <a href="" data-infobulle="Supprimer le test">
                                 <img src="{{ asset('img/picto/waste-bin.svg') }}" alt="picto">
                             </a>
                         </div>
@@ -109,25 +159,29 @@
                 </section>
             {% endfor %}
 
-            <div class="bas">
-                <section class="exempleTest">
-                    <article>
-                        <p>Exemple de test</p>
-                        <div>
-                            <a href="">
-                                Visualiser le test
-                            </a>
-                            <a href="">
-                                Dupliquer
-                            </a>
-                        </div>
-                    </article>
-                </section>
-                <div class="boutonsValidation">
-                    <a href="" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un dossier</a>
-                    <a href="{{ path('tests_create') }}" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un Test</a>
-                </div>
-            </div>
+
+
+
+
+            {#<div class="bas">#}
+                {#<section class="exempleTest">#}
+                    {#<article>#}
+                        {#<p>Exemple de test</p>#}
+                        {#<div>#}
+                            {#<a href="">#}
+                                {#Visualiser le test#}
+                            {#</a>#}
+                            {#<a href="">#}
+                                {#Dupliquer#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</article>#}
+                {#</section>#}
+                {#<div class="boutonsValidation">#}
+                    {#<a href="" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un dossier</a>#}
+                    {#<a href="{{ path('tests_create') }}" class="boutonValidation"><img src="img/picto/exam.svg" alt="">Créer un Test</a>#}
+                {#</div>#}
+            {#</div>#}
         </div>
     </main>
 

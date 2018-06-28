@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Créer un test{% endblock %}
-{% block etat %}class="bodyCo"{% endblock %}
+{% block etat %}class="bodyCo form"{% endblock %}
 {% block body %}
     {#{{ form_start(form) }}#}
     {#{{ form_widget(form) }}#}
@@ -21,7 +21,9 @@
             <div class="definirTitre">
                 <div class="ligneIntitule">
                     <label for="titrePage"><p>Titre de la page</p></label>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                    <a href="" data-infobulle="Donnez un nom à cette page. S'affiche comme titre en haut de la page.">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                    </a>
                 </div>
                 {{ form_widget(form.title) }}
             </div>
@@ -47,26 +49,11 @@
 
                         <p>{{ form_label(form.optional_questions) }}<span> (homme/femme)</span></p>
                     </div>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
+\                    <a href="" data-infobulle="Cochez la case que la question apparaître dans le formulaire pré/post-test.">
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                    </a>
                 </div>
             </div>
-            <!-- OPTIONAL FORM
-            <section class="ajoutQuestion">
-                <h2>Nouvelle question</h2>
-                <label for="">Intitulé de la question</label>
-                <input type="text" name="pre_test_form[questions][0][label]">
-
-                <label for="">Type de question</label>
-                <select name="pre_test_form[questions][0][type]">
-                    <option value="radio">Radio</option>
-                    <option value="checkbox" selected>Checkboxes</option>
-                    <option value="range">Range</option>
-                </select>
-
-                <label for="">Choix n°1</label>
-                <input type="text" name="pre_test_form[questions][0][choices][0]">
-            </section>
-            --->
 
             <div class="bas">
                 <div class="doubleBoutons">

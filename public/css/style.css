@@ -212,7 +212,7 @@ header.nonCo nav > .notConnected a{
 
 /** Menu connecté**/
 
-header.co {
+.form header.co {
     background-color: #619cf3;
     height: 100vh;
     width: 13.5%;
@@ -220,7 +220,7 @@ header.co {
     position: fixed;
 }
 
-header.co nav{
+.form header.co nav{
     width: 65%;
     position: relative;
     height: 95vh;
@@ -228,15 +228,15 @@ header.co nav{
     padding-top: 30px;
 }
 
-header.co nav div {
+.form header.co nav div {
     height: 142px;
 }
 
-header.co nav img {
+.form header.co nav img {
     width: 100%;
 }
 
-header.co nav a{
+.form header.co nav a{
     display: block;
     text-align: left;
     color: white;
@@ -244,19 +244,19 @@ header.co nav a{
     text-decoration: none;
 }
 
-header.co nav a:first-of-type{
+.form header.co nav a:first-of-type{
     margin-top: 15px;
 }
 
-header.co nav a:not(:last-of-type) {
+.form header.co nav a:not(:last-of-type) {
     margin-top: 15px;
 }
 
-header.co nav a:not(:last-of-type):hover {
+.form header.co nav a:not(:last-of-type):hover {
     color: #f5f8fc;
 }
 
-header.co nav a:last-of-type {
+.form header.co nav a:last-of-type {
     bottom: 10px;
     position: absolute;
     text-decoration: underline;
@@ -265,15 +265,15 @@ header.co nav a:last-of-type {
     width: 100%;
 }
 
-header.co nav a:last-of-type:hover {
+.form header.co nav a:last-of-type:hover {
     text-decoration: none;
 }
 
-header.co nav a.active {
+.form header.co nav a.active {
     font-weight: bold;
 }
 
-header.co nav a img {
+.form header.co nav a img {
     width: 30px;
     padding-right: 10px;
     vertical-align: middle;
@@ -295,11 +295,39 @@ header.co nav a img {
 
 /* Header avec recherche */
 
+/* //////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////// */
 .pagesNonForm header {
     width: 100%;
+}
+
+#listeTests header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+}
+#listeTests header form {
+    width: 100%;
+}
+
+#listeTests header::after {
+    content: "";
+    border-bottom: solid 1px black;
+    display: block;
+    /* margin-top: 30px; */
+}
+
+.pagesNonForm header > div {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
 }
+/* //////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////// */
 
 .pagesNonForm header > * {
     display: inline;
@@ -310,7 +338,7 @@ header.co nav a img {
 }
 
 .pagesNonForm header form input {
-    background: url('src/MyBundle/Resources/public/img/search.svg') no-repeat scroll 97% 14px;
+    /*background: url('src/MyBundle/Resources/public/img/search.svg') no-repeat scroll 97% 14px;*/
     background-size: 15px;
     width: 100%;
     color: #BDBDBD;
@@ -319,7 +347,9 @@ header.co nav a img {
     background-color: white;
 }
 
+
 /** Liste des tests **/
+
 
 .contenuListe {
     display: flex;
@@ -329,6 +359,32 @@ header.co nav a img {
 }
 
 
+
+/* /////////////////////////////////////////
+//////////////////////////////////////////////
+///////////////////////////////////////////// */
+.btnBleuP {
+    background-color: #619CF3;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.btnBleuP img {
+    height: 20px;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+/* /////////////////////////////////////////
+//////////////////////////////////////////////
+///////////////////////////////////////////// */
 
 .Dossier {
     height: auto;
@@ -390,7 +446,7 @@ header.co nav a img {
     display: flex;
     justify-content: space-between;
 
-   flex-direction: column;
+    flex-direction: column;
 
 }
 
@@ -711,17 +767,16 @@ label{
 
 
 .pagesForm input[type="text"],
-.pagesForm input[type="file"],
 .pagesForm input[type="email"],
 .pagesForm input[type="number"],
 .pagesForm input[type="password"],
-.pagesForm textarea,
-.pagesForm select{
+.pagesForm select,
+.pagesForm input[type="file"] {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-.pagesForm input[type="file"]{
+.pagesForm input[type="file"] {
     padding: 7px;
 }
 
@@ -734,7 +789,7 @@ label{
 }
 
 .pagesForm form > div:not(.bas) {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 
@@ -849,23 +904,19 @@ label{
 
 
 /*.editeurTxt {*/
-    /*width: 100%;*/
-    /*height: 250px;*/
-    /*background-color: white;*/
-    /*border: 0;*/
-    /*resize: none;*/
-    /*padding: 5px;*/
-    /*font-family: "Open Sans";*/
-    /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);*/
-    /*margin-top: 15px;*/
+/*width: 100%;*/
+/*height: 250px;*/
+/*background-color: white;*/
+/*border: 0;*/
+/*resize: none;*/
+/*padding: 5px;*/
+/*font-family: "Open Sans";*/
+/*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);*/
+/*margin-top: 15px;*/
 /*}*/
 
 
 /* Liste */
-
-.liste {
-
-}
 
 .liste article {
     height: auto;
@@ -973,6 +1024,12 @@ label{
 }
 
 
+/*Cacher le svg*/
+main > svg {
+    display: none;
+}
+
+
 /* ****************pour JS***************** */
 
 .visible {
@@ -985,3 +1042,161 @@ label{
 
 
 
+/*Infobulle*/
+/* Add this attribute to the element that needs a tooltip */
+[data-infobulle] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-infobulle]:before,
+[data-infobulle]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-infobulle]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-infobulle);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-infobulle]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-infobulle]:hover:before,
+[data-infobulle]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.trumbowyg-editor {
+    background-color: white;
+}
+
+
+
+
+
+/** Menu connecté**/
+
+.principal header.co {
+    background-color: #619cf3;
+    height: 100vh;
+    width: 13.5%;
+    text-align: center;
+    position: fixed;
+}
+
+.principal header.co nav{
+    width: 65%;
+    position: relative;
+    height: 95vh;
+    margin: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.principal header.co nav .hautMenu img {
+    width: 100%;
+    align-self: center
+}
+
+.principal header.co nav > div:first-of-type a{
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.principal header.co nav > div:first-of-type a:first-of-type{
+    margin-top: 15px;
+}
+
+.principal header.co nav > div:first-of-type a {
+    margin-top: 15px;
+}
+
+.principal header.co nav > div:first-of-type a:not(:last-of-type):hover {
+    color: #f5f8fc;
+}
+
+.principal header.co nav > .basMenu a:last-of-type {
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.principal header.co nav > .basMenu a:last-of-type:hover {
+    text-decoration: none;
+}
+
+.principal header.co nav > div:first-of-type a.active {
+    font-weight: bold;
+}
+
+.principal header.co nav > div:first-of-type a img {
+    width: 30px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.basMenu .btnMenu {
+    background-color: white;
+    padding: 20px 10px;
+    color: #619CF3;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.basMenu .btnMenu img {
+    height: 30px;
+}
