@@ -55,7 +55,7 @@
             <header>
                 <div>
                     <h1>Liste des tests</h1>
-                    <a href="" class="btnBleuP">
+                    <a href="" class="btnBleuP btnPop">
                         <img src="{{ asset('img/picto/folder-symbol.svg') }}" alt="Picto dossier">Créer un dossier
                     </a>
                 </div>
@@ -184,8 +184,13 @@
             {#</div>#}
         </div>
     </main>
-
+    <div class="pop">
+        <span>✖</span>
+        <h1>jQuery Pop Up</h1>
+        <p>This is a random pop up, hopefully its not annoying.</p>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
     <script>
         // $(".nomDossier").click(function(){
         //     $(".contenuDossier").toggleClass("visible");
