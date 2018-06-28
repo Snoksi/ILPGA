@@ -87,7 +87,7 @@
                         <p><a href="{{ path('tests_index', {'id': folder.id}) }}">{{ folder.name }}</a></p>
                         <img src="{{ asset('img/picto/fleche.svg') }}" alt="pictogramme" class="fleche">
                     </div>
-                    <div class="contenuDossier visible">
+                    <div class="contenuDossier visible" style="display: none;">
 
                         {% for folder in current_folder.children %}
                             {% for folder in folder.children %}
