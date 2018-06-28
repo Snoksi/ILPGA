@@ -8,7 +8,7 @@ use http\Env\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class TestController extends Controller
 {
     /**
      * @Route("/test/{creator}/{name_test}", name="test")
