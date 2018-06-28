@@ -3,11 +3,11 @@
 $(document).ready(function () {
     $(".btnPop").click(function (e) {
         e.preventDefault();
-        $(".pop").fadeIn(300);
+        $(".pop, .pop-background").fadeIn(300);
     });
 
     $(".pop .popClose").click(function () {
-        $(".pop").fadeOut(300);
+        $(".pop, .pop-background").fadeOut(300);
     });
 
     $("#createFolder").on('submit', function (e) {
