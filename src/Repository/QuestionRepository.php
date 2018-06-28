@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -47,4 +48,24 @@ class QuestionRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findQuestions($id)
+    {
+        $q = $this->createQueryBuilder('question_table')
+            ->innerJoin('App:Page', 'page_table', Join::WITH, 'question_table.page = page_table.id')
+            ->andWhere('page_table.test == :id')
+            ->setParameter('id', $id);
+
+        return ($q->getQuery()->getResult());
+    }
+    public function findQuestionsPage($idTest)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.label', 't.type', 't.options')
+            ->where("t.page = :idTest")
+            ->setParameter('idTest', $idTest)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

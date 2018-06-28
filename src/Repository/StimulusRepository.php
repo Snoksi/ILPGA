@@ -47,4 +47,14 @@ class StimulusRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findStimulus($idTest)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.source', 't.name', 't.playCount')
+            ->where("t.page = :idTest")
+            ->setParameter('idTest', $idTest)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

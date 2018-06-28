@@ -45,4 +45,16 @@ class UserRepository extends ServiceEntityRepository
 
         return new Paginator($qb);
     }
+
+
+    public function findIdOnly($id)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.id')
+            ->where("t.username = :username")
+            ->setParameter('username', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

@@ -61,6 +61,11 @@ class Test
      */
     private $pages;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="users")
+     * @ORM\JoinColumn(name="username_id", referencedColumnName="id")
+     */
+    private $username;
 
 
     public function getId()

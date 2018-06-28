@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Response;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -47,4 +48,17 @@ class ResponseRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findResponse($profil)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->select('u.page')
+            ->where('u.profil = :profil')
+            ->setParameter('profil', $profil)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $qb;
+    }
+
 }

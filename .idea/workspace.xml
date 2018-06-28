@@ -7,11 +7,15 @@
     <list default="true" id="012ca2f9-0b7c-4675-b0e1-a559a3afb461" name="Default" comment="">
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/tests/create.html.twig" afterPath="$PROJECT_DIR$/templates/tests/create.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/tests/step_3.html.twig" afterPath="$PROJECT_DIR$/templates/tests/step_3.html.twig" />
+=======
+      <change beforePath="$PROJECT_DIR$/templates/questions/page.html.twig" afterPath="$PROJECT_DIR$/templates/questions/page.html.twig" />
+>>>>>>> test_api
 =======
       <change beforePath="" afterPath="$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php" />
       <change beforePath="" afterPath="$PROJECT_DIR$/src/Service/ExcelStimuliParser/SheetReader.php" />
@@ -22,7 +26,11 @@
       <change beforePath="$PROJECT_DIR$/src/Service/Test/PreTestFormSerializer.php" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Service/Test/QuestionSerializer.php" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Service/TestManager.php" afterPath="$PROJECT_DIR$/src/Service/TestManager.php" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,6 +44,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,6 +52,14 @@
             <state relative-caret-position="2310">
               <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
+=======
+      <file leaf-file-name="page.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/questions/page.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="63">
+              <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+>>>>>>> test_api
 =======
             <state relative-caret-position="324">
               <caret line="158" column="32" lean-forward="false" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
@@ -63,18 +80,32 @@
 =======
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
               <folding />
             </state>
           </provider>
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="create.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tests/create.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
               <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="6" selection-end-line="116" selection-end-column="15" />
+=======
+      <file leaf-file-name="TestController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Api/TestController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+              <folding>
+                <element signature="e#38#85#0#PHP" expanded="true" />
+>>>>>>> test_api
 =======
       <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/services.yaml">
@@ -133,11 +164,19 @@
               <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding>
                 <element signature="e#134#158#0#PHP" expanded="true" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="25" />
+=======
       <file leaf-file-name="RowReader.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/ExcelStimuliParser/RowReader.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -153,7 +192,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2394">
               <caret line="114" column="5" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
               <folding />
             </state>
           </provider>
@@ -167,6 +210,7 @@
       <find>getInt</find>
       <find>input</find>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <find>instruc</find>
       <find>txt</find>
       <find>edi</find>
@@ -176,6 +220,15 @@
 =======
       <find>getRow</find>
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+      <find>request</find>
+      <find>page</find>
+      <find>getpage</find>
+      <find>getid</find>
+=======
+      <find>getRow</find>
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,6 +237,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/Repository/USerRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Response.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TestFolderRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TestRepository.php" />
+        <option value="$PROJECT_DIR$/templates/tests/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/TestFolder.php" />
+        <option value="$PROJECT_DIR$/templates/_layouts/pagination.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Form/UserRoleType.php" />
+        <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
         <option value="$PROJECT_DIR$/config/packages/fos_rest.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/Api/UsersController.php" />
         <option value="$PROJECT_DIR$/templates/users/index.html.twig" />
@@ -203,7 +270,11 @@
         <option value="$PROJECT_DIR$/templates/tests/get_test_link.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+=======
+        <option value="$PROJECT_DIR$/templates/tests/create.html.twig" />
+>>>>>>> test_api
         <option value="$PROJECT_DIR$/src/Form/CreateTestType.php" />
         <option value="$PROJECT_DIR$/src/Service/Uploader/FileUploader.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
@@ -219,6 +290,17 @@
         <option value="$PROJECT_DIR$/src/Form/PreTestFormType.php" />
         <option value="$PROJECT_DIR$/src/Entity/Question.php" />
         <option value="$PROJECT_DIR$/templates/tests/step_2.html.twig" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/Form/PreTestFormType.php" />
+        <option value="$PROJECT_DIR$/src/Form/QuestionType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/TestController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Profil.php" />
+        <option value="$PROJECT_DIR$/src/Controller/TestsController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Api/TestsController.php" />
+        <option value="$PROJECT_DIR$/templates/questions/page.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Api/TestController.php" />
+=======
         <option value="$PROJECT_DIR$/src/Repository/TestFolderRepository.php" />
         <option value="$PROJECT_DIR$/src/Form/DataTransformer/OptionsToArrayTransformer.php" />
         <option value="$PROJECT_DIR$/src/Entity/Page.php" />
@@ -242,7 +324,11 @@
         <option value="$PROJECT_DIR$/templates/tests/create.html.twig" />
 =======
         <option value="$PROJECT_DIR$/src/Service/TestManager.php" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
       </list>
     </option>
   </component>
@@ -254,8 +340,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
+=======
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+>>>>>>> test_api
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
     <include_path>
@@ -387,15 +478,19 @@
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+>>>>>>> test_api
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
               <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -406,26 +501,55 @@
 =======
               <item name="ilpga" type="b2602c69:ProjectViewProjectNode" />
               <item name="ilpga" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> test_api
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
               <item name="EventListener" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
+=======
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Api" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> test_api
             </path>
             <path>
 <<<<<<< HEAD
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> test_api
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="_layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> test_api
             </path>
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
@@ -433,6 +557,7 @@
 =======
               <item name="ilpga" type="b2602c69:ProjectViewProjectNode" />
               <item name="ilpga" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="api" type="2a2b976b:PhpTreeStructureProvider$1" />
@@ -459,8 +584,10 @@
             <path>
               <item name="ILPGA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ILPGA" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -477,7 +604,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+=======
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectRepository.php" />
+>>>>>>> test_api
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -488,6 +619,9 @@
       <recent name="D:\Sites\ilpga\templates\tests" />
       <recent name="D:\Sites\ilpga\templates\users" />
       <recent name="D:\Sites\ilpga\src\Controller\Api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\saidi\Documents\Symfony\ILPGA\src\Controller\Api" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -538,10 +672,16 @@
       <workItem from="1526134301567" duration="66000" />
       <workItem from="1526134471427" duration="9723000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1529311862124" duration="1476000" />
       <workItem from="1529313516968" duration="6003000" />
       <workItem from="1529481758669" duration="9340000" />
       <workItem from="1529588429862" duration="2944000" />
+=======
+      <workItem from="1527006333362" duration="1487000" />
+      <workItem from="1527068814576" duration="3102000" />
+      <workItem from="1527087943466" duration="4715000" />
+>>>>>>> test_api
 =======
       <workItem from="1527003264093" duration="3949000" />
       <workItem from="1527066528920" duration="2737000" />
@@ -554,28 +694,44 @@
       <workItem from="1527949292571" duration="16685000" />
       <workItem from="1528239539868" duration="56000" />
       <workItem from="1529310190088" duration="2859000" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="154280000" />
 =======
     <option name="totallyTimeSpent" value="180549000" />
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+    <option name="totallyTimeSpent" value="143821000" />
+=======
+    <option name="totallyTimeSpent" value="180549000" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25295383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26387316" sideWeight="0.5150376" order="7" side_tool="true" content_ui="tabs" />
 =======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> test_api
+=======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35820895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.52771854" order="7" side_tool="true" content_ui="tabs" />
@@ -586,11 +742,19 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26387316" sideWeight="0.4849624" order="7" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.47228146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3216308" sideWeight="0.48933902" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.47228146" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -644,8 +808,18 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Controller/CreateTestController.php" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/form/Extension/Core/Type/TextType.php" />
+=======
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/form/Extension/Core/Type/TextType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> test_api
     <entry file="file://$PROJECT_DIR$/src/Controller/Api/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="987">
@@ -661,12 +835,19 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/vendor/symfony/options-resolver/OptionsResolver.php" />
     <entry file="file://$PROJECT_DIR$/templates/api/users/index.html.twig" />
     <entry file="file://$PROJECT_DIR$/templates/tests/create.html.twig" />
     <entry file="file://$PROJECT_DIR$/vendor/symfony/form/FormEvent.php" />
     <entry file="file://$PROJECT_DIR$/src/Utils/FormGenerator/PreTestFormGenerator.php" />
     <entry file="file://$PROJECT_DIR$/composer.json">
+=======
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/options-resolver/OptionsResolver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-998">
+          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+>>>>>>> test_api
 =======
     <entry file="file://$PROJECT_DIR$/templates/tests/step_3.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -700,6 +881,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="44" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
         </state>
       </provider>
     </entry>
@@ -733,6 +915,10 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Service/Uploader/StimulusUploader.php" />
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+=======
     <entry file="file://$PROJECT_DIR$/src/Form/CreateTestType.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -745,6 +931,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Api/TestsController.php">
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="74" column="87" lean-forward="false" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="97" />
@@ -844,6 +1031,10 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://D:/Téléchargements/ILPGA-test_create_integration (2)/ILPGA-test_create_integration/config/packages/doctrine.yaml" />
+    <entry file="file://$PROJECT_DIR$/src/Service/Age.php">
+=======
     <entry file="file://$PROJECT_DIR$/src/Repository/TestFolderRepository.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -869,6 +1060,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/TestRepository.php">
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -883,7 +1075,11 @@
 =======
         <state relative-caret-position="450">
           <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -895,7 +1091,11 @@
 =======
         <state relative-caret-position="-703">
           <caret line="52" column="14" lean-forward="false" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -923,7 +1123,11 @@
 =======
         <state relative-caret-position="273">
           <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -937,7 +1141,11 @@
         <state relative-caret-position="2394">
           <caret line="114" column="5" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
           <folding />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -949,7 +1157,11 @@
 =======
         <state relative-caret-position="248">
           <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -961,7 +1173,11 @@
 =======
         <state relative-caret-position="281">
           <caret line="2680" column="61" lean-forward="false" selection-start-line="2680" selection-start-column="55" selection-end-line="2680" selection-end-column="61" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+>>>>>>> test_api
         </state>
       </provider>
     </entry>
@@ -974,18 +1190,83 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Entity/Test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1176">
+=======
+    <entry file="file://$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Stimulus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tests/step_2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="84" column="25" lean-forward="false" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tests/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PreTestFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+>>>>>>> test_api
           <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
 =======
         <state relative-caret-position="-12">
           <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Controller/TestController.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="32" selection-end-column="22" />
           <folding />
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Profil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="21" />
+=======
     <entry file="file://$PROJECT_DIR$/src/Controller/TestsController.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1009,6 +1290,7 @@
 =======
         <state relative-caret-position="-84">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
           <folding />
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
         </state>
@@ -1016,6 +1298,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/StimuliAndQuestionsFormType.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="2478">
           <caret line="138" column="57" lean-forward="false" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
@@ -1034,6 +1317,28 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
+        <state relative-caret-position="349">
+          <caret line="215" column="5" lean-forward="false" selection-start-line="215" selection-start-column="5" selection-end-line="215" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Api/TestsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="e#38#58#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/questions/page.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+>>>>>>> test_api
+=======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -1044,19 +1349,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="85" column="7" lean-forward="true" selection-start-line="85" selection-start-column="7" selection-end-line="85" selection-end-column="7" />
+=======
     <entry file="file://$PROJECT_DIR$/src/EventListener/StimulusTestUploadListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/Repository/TestFolderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="29" />
+>>>>>>> test_api
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="25" />
+          <folding />
+=======
     <entry file="file://$PROJECT_DIR$/src/Service/TestManager.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1151,7 +1506,21 @@
           <folding>
             <element signature="e#134#158#0#PHP" expanded="true" />
           </folding>
+<<<<<<< HEAD
 >>>>>>> ad4b5e3ec9a4a0c9b1808eeeaa150b982f435cb1
+=======
+>>>>>>> 0a4cc874ed65af1c09abc1bf5eb75ad97df982ca
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Api/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+          <folding>
+            <element signature="e#38#85#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> test_api
         </state>
       </provider>
     </entry>

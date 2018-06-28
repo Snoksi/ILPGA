@@ -42,6 +42,19 @@ class TestRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findTest($username, $name)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.id', 't.random')
+            ->where("t.username = :username")
+            ->andWhere("t.name = :name")
+            ->setParameter('username', $username)
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Test
     {

@@ -1,20 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Test{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <form action="#" method="post">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {% for item in page %}
+            <p> {{ item.title }}<br>
+                {{ item.content }}<br>
+                {{ item.type }}</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>src/Controller/DefaultController.php</code></li>
-        <li>Your template at <code>templates/default/index.html.twig</code></li>
-    </ul>
-</div>
+
+            {% for stimulis in stimulus %}
+
+                <audio controls>
+                    <source src="{{ asset(stimulis.source) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                {% for question in questions %}
+                    <p>aazaz</p>
+
+                        <p>blbl</p>
+                        {{ question.label }}
+                        {{ question.options }}
+                {% endfor %}
+            {% endfor %}
+
+        {% endfor %}
+    </form>
 {% endblock %}

@@ -47,4 +47,15 @@ class BlockRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findIdBlock($id_test)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.id')
+            ->where("t.test = :test_id")
+            ->setParameter('test_id', $id_test)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

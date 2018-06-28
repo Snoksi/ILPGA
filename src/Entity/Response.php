@@ -110,5 +110,4 @@ class Response
     {
         $this->page = $page;
     }
-
 }
