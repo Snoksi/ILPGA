@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 
 class CreateTestType extends AbstractType
@@ -18,7 +19,9 @@ class CreateTestType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Nom du test'])
-            ->add('stimulus_test', FileType::class, ['label' => 'Stimulus test'])
+            ->add('stimulus_test', FileType::class, [
+                'label' => 'Stimulus test'
+            ])
             ->add('notified', CheckboxType::class, [
                 'label' => 'Être notifié des réponses',
                 'required' => false

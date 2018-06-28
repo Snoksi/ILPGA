@@ -1,0 +1,10 @@
+{% block checkbox_widget -%} {# INLINE FIXED !!!!!!!!!!!!!!!!!!!! #}
+    {% set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
+    <div class="listeCheckbox">
+        <div class="ligneCheckbox">
+            <div class="bouton">
+                {{- form_widget(form, {"attr": {"type": "checkbox"} }) }}
+            </div>
+        </div>
+    </div>
+{%- endblock checkbox_widget %}
