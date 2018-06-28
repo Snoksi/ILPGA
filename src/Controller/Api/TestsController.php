@@ -130,4 +130,24 @@ class TestsController extends Controller
 
         return $this->redirectToRoute('tests_index');
     }
+
+    /**
+     * @Rest\Post("/create_folder/{name}/{destination_id}", name="tests_create_folder")
+     * @ParamConverter("destination", class="App:TestFolder", options={"mapping": {"destination_id": "id"}}, isOptional=true)
+     * @param TestFolder|null $destination
+     */
+    public function createFolder($name, TestFolder $destination = null)
+    {
+        $folder = new TestFolder();
+        $folder->setName($name);
+        $folder->setParent($destination);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($folder);
+        $em->flush();
+
+        return [
+            'success' => true
+        ];
+    }
 }
