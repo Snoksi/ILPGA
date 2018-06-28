@@ -18,6 +18,7 @@
             </header>
 
             {{ form_start(form) }}
+            {{ form_errors(form) }}
             <div class="definirTitre">
                 <div class="ligneIntitule">
                     <label for="titrePage"><p>Titre de la page</p></label>
@@ -41,18 +42,17 @@
             </div>
 
             <div class="listeCheckbox">
-
-
-                <div class="ligneCheckbox">
-                    <div class="bouton">
-                        {{ form_widget(form.optional_questions) }}
-
-                        <p>{{ form_label(form.optional_questions) }}<span> (homme/femme)</span></p>
+                {% for checkbox in form.optional_questions %}
+                    <div class="ligneCheckbox">
+                        <div class="bouton">
+                            {{ form_widget(checkbox) }}
+                            {{ form_label(checkbox) }}
+                        </div>
+                        <a href="" data-infobulle="Cochez la case que la question apparaître dans le formulaire pré/post-test.">
+                            <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
+                        </a>
                     </div>
-\                    <a href="" data-infobulle="Cochez la case que la question apparaître dans le formulaire pré/post-test.">
-                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto interrogation">
-                    </a>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="bas">
