@@ -55,17 +55,12 @@ class PageRepository extends ServiceEntityRepository
     }
     */
 
-
-
-    public function findPages($idTest, $profil)
+    public function getInfosPage($idTest)
     {
         $qb = $this->createQueryBuilder('page')
-            ->select('page.id', 'page.title')
-            ->leftJoin('App:Response', 'reponse',  'WITH',  'reponse.profil = :profil')
-            ->where('page.test = :id')
-            ->andWhere('page.id = reponse.page')
+            ->select('page.type', 'page.title','page.content')
+            ->where('page.id = :id')
             ->setParameter('id', $idTest)
-            ->setParameter('profil', $profil)
             ->getQuery()
             ->getResult()
         ;

@@ -1,7 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello !{% endblock %}
+{% block title %}Test{% endblock %}
 
 {% block body %}
+    <form action="#" method="post">
 
+        {% for item in page %}
+            <p> {{ item.title }}<br>
+                {{ item.content }}<br>
+                {{ item.type }}</p>
+
+
+            {% for stimulis in stimulus %}
+
+                <audio controls>
+                    <source src="{{ asset(stimulis.source) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                {% for question in questions %}
+                    <p>aazaz</p>
+
+                        <p>blbl</p>
+                        {{ question.label }}
+                        {{ question.options }}
+                {% endfor %}
+            {% endfor %}
+
+        {% endfor %}
+    </form>
 {% endblock %}

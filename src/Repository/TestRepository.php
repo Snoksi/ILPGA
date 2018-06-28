@@ -42,10 +42,10 @@ class TestRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findIdTest($username, $name)
+    public function findTest($username, $name)
     {
         return $this->createQueryBuilder('t')
-            ->select('t.id')
+            ->select('t.id', 't.random')
             ->where("t.username = :username")
             ->andWhere("t.name = :name")
             ->setParameter('username', $username)

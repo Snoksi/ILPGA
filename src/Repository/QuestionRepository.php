@@ -58,5 +58,14 @@ class QuestionRepository extends ServiceEntityRepository
 
         return ($q->getQuery()->getResult());
     }
-
+    public function findQuestionsPage($idTest)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.label', 't.type', 't.options')
+            ->where("t.page = :idTest")
+            ->setParameter('idTest', $idTest)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
