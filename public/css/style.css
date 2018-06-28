@@ -1200,3 +1200,18 @@ main > svg {
 .basMenu .btnMenu img {
     height: 30px;
 }
+
+.pop {
+    display: none;
+    position:fixed;
+    top:10.3%;
+    left:20.3%;
+    width:80%;
+    height:80%;
+    background-color: white;
+    z-index: 100;
+}
+
+.visible {
+    display: block;
+}
