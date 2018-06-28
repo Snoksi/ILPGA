@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class PreTestFormType extends AbstractType
 {
@@ -16,7 +17,11 @@ class PreTestFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
+            ->add('title', TextType::class, [
+                'constraints' => [
+                    new Length(["min" => 5]),
+                ]
+            ])
             ->add('optional_questions', ChoiceType::class, array(
                 'choices' => $this->getOptions(),
                 'required' => false,

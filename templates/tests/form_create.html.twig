@@ -18,6 +18,7 @@
             </header>
 
             {{ form_start(form) }}
+            {{ form_errors(form) }}
             <div class="definirTitre">
                 <div class="ligneIntitule">
                     <label for="titrePage"><p>Titre de la page</p></label>
@@ -39,34 +40,16 @@
             </div>
 
             <div class="listeCheckbox">
-
-
-                <div class="ligneCheckbox">
-                    <div class="bouton">
-                        {{ form_widget(form.optional_questions) }}
-
-                        <p>{{ form_label(form.optional_questions) }}<span> (homme/femme)</span></p>
+                {% for checkbox in form.optional_questions %}
+                    <div class="ligneCheckbox">
+                        <div class="bouton">
+                            {{ form_widget(checkbox) }}
+                            {{ form_label(checkbox) }}
+                        </div>
+                        <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
                     </div>
-                    <img src="{{ asset('img/picto/question-mark-blue.svg') }}" alt="picto question">
-                </div>
+                {% endfor %}
             </div>
-            <!-- OPTIONAL FORM
-            <section class="ajoutQuestion">
-                <h2>Nouvelle question</h2>
-                <label for="">Intitulé de la question</label>
-                <input type="text" name="pre_test_form[questions][0][label]">
-
-                <label for="">Type de question</label>
-                <select name="pre_test_form[questions][0][type]">
-                    <option value="radio">Radio</option>
-                    <option value="checkbox" selected>Checkboxes</option>
-                    <option value="range">Range</option>
-                </select>
-
-                <label for="">Choix n°1</label>
-                <input type="text" name="pre_test_form[questions][0][choices][0]">
-            </section>
-            --->
 
             <div class="bas">
                 <div class="doubleBoutons">

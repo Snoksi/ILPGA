@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TestRepository")
@@ -33,6 +34,11 @@ class Test
     private $notified;
 
     /**
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = {"audio/mpeg", "audio/mp3", "video/mpeg"},
+     *     mimeTypesMessage = "Seuls les fichiers audio et vidéos sont acceptés"
+     * )
      * @ORM\Column(type="string")
      */
     private $stimulusTest;
