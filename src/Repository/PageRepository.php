@@ -1,13 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-namespace App\Repository;
-
-use App\Entity\Page;
-use App\Entity\Test;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
-=======
 /**
  * Created by PhpStorm.
  * User: saidi
@@ -21,7 +12,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use App\Entity\Page;
->>>>>>> test_api
 
 /**
  * @method Page|null find($id, $lockMode = null, $lockVersion = null)
@@ -31,16 +21,13 @@ use App\Entity\Page;
  */
 class PageRepository extends ServiceEntityRepository
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> test_api
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Page::class);
     }
 
-<<<<<<< HEAD
+
     public function getPagesAndBlocks(Test $test)
     {
         $sql = 'SELECT * FROM (
@@ -76,36 +63,6 @@ class PageRepository extends ServiceEntityRepository
                 'test_id' => $test->getId()
             ]);
     }
-}
-=======
-//    /**
-//     * @return Question[] Returns an array of Question objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('q.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Question
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 
     public function getInfosPage($idTest)
     {
@@ -135,4 +92,3 @@ class PageRepository extends ServiceEntityRepository
         return $query->execute();
     }
 }
->>>>>>> test_api
