@@ -37,6 +37,10 @@ body{
     min-height: 100%;
 }
 
+p{
+    font-size: 13px;
+}
+
 .bodyCo{
     display: flex;
     background-color: #f5f8fc;
