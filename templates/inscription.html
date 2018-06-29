@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+        <title>ILGPA</title>
+    </head>
+    <body>
+        <header class="nonCo">
+            <nav>
+                <p>LOGO</p>
+                <div class="notConnected">
+                    <a href="inscription.html">Inscription</a>
+                    <a href="connexion.html">Connexion</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="inscription">
+            <div class="conteneurPasCo">
+                <h1>Inscription</h1>
+                 <form action="">
+                     <div>
+                        <label for="nom">
+                            Nom
+                            <input type="text" name="nom" id="nom">
+                        </label>
+                        <label for="prenom">
+                            Prénom
+                            <input type="text" name="prenom" id="prenom">
+                        </label>
+                     </div>
+                     <div>
+                        <label for="courriel">
+                            E-mail
+                            <input type="email" name="mail" id="mail">
+                        </label>
+                     </div>
+                     
+                    <div>
+                        <label for="mdp">
+                            Mot de passe
+                            <input type="password" name="mdp" id="mdp">
+                        </label>
+                        <label for="vmdp">
+                            Vérification du mot de passe
+                            <input type="password" name="vmdp" id="vmdp">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="statut">
+                            Statut
+                            <select name="statut" id="statut">
+                                <option value="etudiant">Etudiant</option>
+                                <option value="ADEFINIR">AUTRE</option>
+                            </select>
+                        </label>
+                        <label for="code">
+                            Code édutiant
+                            <input type="text" name="code" id="code">
+                        </label>
+                    </div>
+
+                    <a href=""><button class="boutonLarge"> S'INSCRIRE</button></a>
+                 </form>    
+            </div>
+        </main>
+    </body>
+</html> 

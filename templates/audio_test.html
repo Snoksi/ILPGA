@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <title>ILPGA</title>    
+    </head>
+    <body class="partieAuditeur">
+        <header>
+            <nav>
+                <img src="img/LPP_Logo.png" alt="logo">
+            </nav>
+        </header>
+
+        <main class="testAudio">
+            <section class="containerTest">
+                <div>
+                    <h1>Fichier audio de test</h1>
+                </div>
+
+
+                <audio src="L1M1.wav" id="audioPlayer"></audio> 
+                <button class="control" onclick="document.getElementById('audioPlayer').play();"> <img src="img/Group 13.png" alt=""></button>
+                <p>Ecoutez ce fichier audio et ajustez le son pour bien l’entendre.
+                    Priviligiez l’utilisation d'un casque.</p>
+                <div class="btnCentre">
+                    <a href="" class="boutonValidation">
+                        Passer aux instructions
+                    </a>
+                </div>
+                    
+               
+                
+                
+                
+            </section>
+        </main>
+        <script src="js/script.js"></script>  
+    </body>
+</html>

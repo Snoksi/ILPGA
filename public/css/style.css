@@ -175,7 +175,15 @@ h4{
 
 /* Fond menu */
 header.nonCo{
-    background-color: #FAFAFA;
+    background-color: #619cf3;
+}
+
+header.nonCo nav img {
+    height: 100%;
+}
+
+header.nonCo a {
+    color: white;
 }
 
 /* Disposition du contenu */
@@ -1214,4 +1222,167 @@ main > svg {
 
 .visible {
     display: block;
+}
+
+
+/* ************************************* */
+/* partie test*/
+
+.partieAuditeur {
+    background-color: #f5f8fc;
+}
+
+
+
+.partieAuditeur > header {
+    background-color: #619CF3;
+}
+
+.partieAuditeur > header nav {
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partieAuditeur > header nav img {
+    height: 100%;
+}
+
+.partieAuditeur .boutonValidation {
+    text-align: center;
+}
+
+.containerTest {
+    max-width: 1000px;
+    padding: 30px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.080);
+    border-radius: 5px;
+    height: auto;
+}
+
+.partieAuditeur main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+.testAccueil {
+    text-align: center;
+    height: 100%;
+}
+
+.testAccueil h1 {
+    color: black;
+    text-align: center;
+}
+
+.testAccueil p {
+    text-align: left;
+    width: 80%;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 80px;
+    color: black;
+    font-size: 1.3rem;
+}
+
+
+.testAccueil .boutonValidation {
+    margin-top: 40px;
+}
+
+.rangeeQuestion {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.Question {
+    width: 48%;
+
+}
+
+.Question * {
+    display: block;
+}
+
+.Question input, .Question select {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.containerTest form {
+    margin-top: 40px;
+}
+
+.partieAuditeur h1 {
+    color: black;
+}
+
+.btnCentre {
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.testAudio section {
+    text-align: center;
+}
+
+.testAudio h1 {
+    text-align: left;
+}
+
+.testAudio section button {
+    margin-top: 80px;
+}
+
+.testAudio section p {
+    text-align: left;
+    margin: auto;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.testInstructions img {
+    width: 180px;
+    margin: auto;
+
+}
+
+.testInstructions section > p {
+    width: 800px;
+    margin: auto;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+.testCentre {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.testCentre p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.testCentre label {
+    font-weight: 500
+}
+
+.testCentre input:not(:first-of-type) {
+    margin-left: 12px;
+}
+
+.testStimulus > section img {
+    width: 80%;
+    margin: auto;
 }

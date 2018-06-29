@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <title>ILPGA</title>    
+    </head>
+    <body class="partieAuditeur">
+        <header>
+            <nav>
+                <img src="img/LPP_Logo.png" alt="logo">
+            </nav>
+        </header>
+
+        <main class="testStimulus">
+            <section class="containerTest">
+                <div>
+                    <h1>Stimulus n°1</h1>
+                    <p>Ecoutez attentivement ce stimulus puis répondez à la question selon votre première intuition.</p>
+                </div>
+
+                <div class="testCentre">
+                    <audio src="L1M1.wav" id="audioPlayer"></audio> 
+                    <button class="control" onclick="document.getElementById('audioPlayer').play();"> <img src="img/Group 13.png" alt=""></button>
+                </div>
+
+                
+                <div class="questionsStimulus testCentre">
+                    <p>D'après vous, quelle est l'émotion exprimée ?</p>
+                    <input type="radio" name="positionnement" id="radioDebut">
+                        <label for="radioDebut">joie</label>
+                    
+                        <input type="radio" name="positionnement" id="radioFin">
+                        <label for="radioFin">tristesse</label>
+                        
+                        <input type="radio" name="positionnement" id="radioDebut">
+                        <label for="radioDebut">bonheur</label>
+                            
+                        <input type="radio" name="positionnement" id="radioFin">
+                        <label for="radioFin">énervement</label>
+                </div>
+
+            
+                <div class="btnCentre">
+                    <a href="" class="boutonValidation">
+                        Passer à l'écoute du stimulus suivant
+                    </a>
+                </div>   
+                
+                <div class="testCentre">
+                    <img src="img/progression.PNG" alt="">
+                </div>
+                
+                
+                
+                
+            </section>
+        </main>
+        <script src="js/script.js"></script>  
+    </body>
+</html>
