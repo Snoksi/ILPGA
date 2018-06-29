@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Résultats pour {{ query }}{% endblock %}
-{% block etat %}class="bodyCo"{% endblock %}
+{% block etat %}class="bodyCo principal"{% endblock %}
 {% block body %}
 
-    {% include '_layouts/sidebar.html.twig' %}
+<header class="co">
+    <nav>
+        <div class="hautMenu">
+            <img src="{{ asset('img/lpp_logo.png') }}" alt="Logo laboratoire phonétique et phonologie">
+            <a href="{{ path("tests_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des tests</a>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <a href="{{ path("users_index", {"id": null}) }}" class="active"><img src="{{ asset('img/picto/folder.svg') }}" alt="pictogramme dossier">Liste des utilisateurs</a>
+            {% endif %}
+            <a href=""><img src="{{ asset('img/picto/question-mark.svg') }}" alt="pictogramme interrogation">Documentation</a>
+            <a href=""><img src="{{ asset('img/picto/settings-work-tool.svg') }}" alt="pictogramme rouage">Paramètres</a>
+        </div>
+        <div class="basMenu">
+            <a href="{{ path('tests_create') }}" class="btnMenu">
+                <img src={{ asset('img/picto/examBlue.svg') }} alt="exam">
+                <p>Créer un test</p>
+            </a>
+            <a href="/logout">Déconnexion</a>
+        </div>
+
+    </nav>
+</header>
 
 <main id="listeTests" class="pagesNonForm">
     <div class="conteneur">
@@ -52,6 +72,8 @@
                     </a>
                 </div>
             </article>
+        {% else %}
+            <p>Aucun résultat pour le terme de recherche "{{ query }}"</p>
         {% endfor %}
     </section>
 {% endblock %}
